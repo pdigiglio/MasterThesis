@@ -1,0 +1,2 @@
+# Ignore output of 'make dist' in ./thesis
+*.tar.gz

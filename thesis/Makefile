@@ -5,6 +5,19 @@
 .PHONY: clean distclean dist help
 
 LaTeX=latexmk
+# Check if latexmk is installed
+isNotInstalled = $(shell which $(LaTeX) 2> /dev/null; echo $$?)
+ifeq ($(isNotInstalled),1)
+$(info WARNING >> $(LaTeX) is not installed, using latex)
+endif
+
+LaTeX=latex
+# Check if latexmk is installed
+isNotInstalled = $(shell which $(LaTeX) 2> /dev/null; echo $$?)
+ifeq ($(isNotInstalled),1)
+$(error ERROR >> $(LaTeX) is not installed, exiting)
+endif
+
 # default format is -pdf
 ifndef format
 format=pdf
@@ -22,8 +35,7 @@ $(MAIN): %: %.tex
 	@echo "`tput bold`$(LaTeX)`tput sgr0`"\
 		"`tput setaf 1`$(OPTIONS)`tput sgr0`"\
 		"`tput setaf 2`$<`tput sgr0`"
-
-#	@$(LaTeX) $(OPTIONS) $<
+	@$(LaTeX) $(OPTIONS) $<
 
 clean:
 	@echo "`tput bold`rm`tput sgr0`"\
@@ -47,7 +59,7 @@ dist: distclean
 help:
 	@echo -e "`tput setaf 1`>> Options available`tput sgr0`\n"\
 		"`tput bold`make`tput sgr0`           "\
-		"Builds `tput setaf 2`\"$(MAIN).tex\"`tput sgr0` using latexmk\n"\
+		"Builds `tput setaf 2`\"$(MAIN).tex\"`tput sgr0` trying to use latexmk (if it's not installed, uses latex)\n"\
 		"`tput bold`make help`tput sgr0`      "\
 		"Prints this help\n"\
 		"`tput bold`make clean`tput sgr0`     "\

@@ -5,13 +5,25 @@
 ]{scrbook}
 \usepackage[utf8]{inputenc}
 \usepackage[german,italian,english]{babel}
-%\usepackage{pgfplotstable}
+
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.12}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
 
 \usepackage{lipsum}
 \begin{document}
 \lipsum
 
-%\pfgplotstabletypeset{data/dummyTable.tab}
+\pgfplotstabletypeset{data/dummyTableRaw.tab}
+\pgfplotstabletypeset[sci zerofill]{
+a b
+5000 1.234e5
+6000 1.631e5
+7000 2.1013e5
+9000 1000000
+}
 
 \input{data/dummyTable.tab}
 \end{document}

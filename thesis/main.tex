@@ -6,24 +6,30 @@
 \usepackage[utf8]{inputenc}
 \usepackage[german,italian,english]{babel}
 
-\usepackage{pgfplotstable}
-\pgfplotsset{compat=1.12}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{colortbl}
+%\usepackage{pgfplotstable}
+%\pgfplotsset{compat=1.12}
+%\usepackage{booktabs}
+%\usepackage{array}
+%\usepackage{colortbl}
+
+\input{pgfConfig}
+%\input{siunitxConfig}
 
 \usepackage{lipsum}
 \begin{document}
 \lipsum
 
-\pgfplotstabletypeset{data/dummyTableRaw.tab}
-\pgfplotstabletypeset[sci zerofill]{
-a b
-5000 1.234e5
-6000 1.631e5
-7000 2.1013e5
-9000 1000000
-}
+%\pgfplotstabletypeset{data/dummyTableRaw.tab}
+%\pgfplotstabletypeset[sci zerofill]{
+%a b
+%5000 1.234e5
+%6000 1.631e5
+%7000 2.1013e5
+%9000 1000000
+%}
+
+
+%And the ultimate answer is \SI{34.89}{\angstrom}
 
 \input{data/dummyTable.tab}
 \end{document}

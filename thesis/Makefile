@@ -8,15 +8,22 @@ LaTeX=latexmk
 # Check if latexmk is installed
 isNotInstalled = $(shell which $(LaTeX) 2> /dev/null; echo $$?)
 ifeq ($(isNotInstalled),1)
-$(info WARNING >> $(LaTeX) is not installed, using latex)
-endif
 
+# If latexmk is not installed
+# 1. Print a warning
+$(info WARNING >> $(LaTeX) is not installed, using latex)
+
+# 2. Sets compiler to 'latex' and checks if it's installed
 LaTeX=latex
-# Check if latexmk is installed
 isNotInstalled = $(shell which $(LaTeX) 2> /dev/null; echo $$?)
 ifeq ($(isNotInstalled),1)
+
+# If neither latex is installed, prints an error and exits
 $(error ERROR >> $(LaTeX) is not installed, exiting)
+
 endif
+endif
+
 
 # default format is -pdf
 ifndef format
@@ -30,12 +37,16 @@ endif
 
 OPTIONS=-$(format) -shell-escape
 
+# Track data file in data/ folder
+dataFolder = $(wildcard data/*.tab)
+
 MAIN=main
-$(MAIN): %: %.tex
+$(MAIN): %: %.tex $(dataFolder) Makefile
 	@echo "`tput bold`$(LaTeX)`tput sgr0`"\
 		"`tput setaf 1`$(OPTIONS)`tput sgr0`"\
 		"`tput setaf 2`$<`tput sgr0`"
-	@$(LaTeX) $(OPTIONS) $<
+	@echo $(dataFolder)
+	@$(LaTeX) $(OPTIONS) $< -f
 
 clean:
 	@echo "`tput bold`rm`tput sgr0`"\

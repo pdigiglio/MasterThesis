@@ -16,9 +16,34 @@
 %\input{siunitxConfig}
 
 \usepackage{lipsum}
-\begin{document}
-\lipsum
 
+\title{}
+\subtitle{}
+\author{
+  \input{../AUTHORS}
+}
+\date{}
+
+\usepackage[colorlinks]{hyperref}
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% FRONTMATTER
+%
+\frontmatter
+\pdfbookmark[0]{Title}{chap:title}
+	\maketitle
+	\thispagestyle{empty}
+
+	\cleardoublepage
+\pdfbookmark[0]{\contentsname}{chap:contents}
+	\tableofcontents
+
+%----------------------------------------------------------------------------------------
+% MAINMATTER
+%
+\mainmatter
+\lipsum
 %\pgfplotstabletypeset{data/dummyTableRaw.tab}
 %\pgfplotstabletypeset[sci zerofill]{
 %a b
@@ -32,4 +57,10 @@
 %And the ultimate answer is \SI{34.89}{\angstrom}
 
 \input{data/dummyTable.tab}
+
+%----------------------------------------------------------------------------------------
+% BACKMATTER
+%
+\backmatter
+
 \end{document}

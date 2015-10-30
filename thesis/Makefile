@@ -62,15 +62,16 @@ distclean: clean
 
 thisFolder = $(shell basename $$(pwd))
 now        = $(shell date "+%G-%m-%d_at_%H-%M-%S")
-dist: distclean
+dist: $(MAIN) clean
 	@cd ..; tar -cvzf $(thisFolder)_of_$(now).tar.gz --exclude-vcs $(thisFolder)/
 
 #	echo $(thisFolder) at $(now)
 
 help:
-	@echo -e "`tput setaf 1`>> Options available`tput sgr0`\n"\
+	@echo -e \
+		"`tput setaf 1`>> Options available`tput sgr0`\n"\
 		"`tput bold`make`tput sgr0`           "\
-		"Builds `tput setaf 2`\"$(MAIN).tex\"`tput sgr0` trying to use latexmk (if it's not installed, uses latex)\n"\
+		"Builds `tput setaf 2`\"$(MAIN).tex\"`tput sgr0` trying to use latexmk (if it's not installed, uses latex). Calls the default `tput bold`$(MAIN)`tput sgr0` rule\n"\
 		"`tput bold`make help`tput sgr0`      "\
 		"Prints this help\n"\
 		"`tput bold`make clean`tput sgr0`     "\
@@ -78,4 +79,4 @@ help:
 		"`tput bold`make distclean`tput sgr0` "\
 		"Calls `tput bold`clean`tput sgr0` and removes `tput setaf 2`*.pdf *.dvi`tput sgr0` files\n" \
 		"`tput bold`make dist`tput sgr0`      "\
-		"Calls `tput bold`distclean`tput sgr0` and creates a `tput setaf 2`.tar.gz`tput sgr0` archive of source files in ../\n" \
+		"Calls `tput bold`$(MAIN)`tput sgr0` and `tput bold`clean`tput sgr0` and creates a `tput setaf 2`.tar.gz`tput sgr0` archive of source files in ../\n" \

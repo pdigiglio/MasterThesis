@@ -50,7 +50,7 @@ mainFolder = $(wildcard mainmatter/*.tex)
 configFolder = $(wildcard config/*.tex)
 
 MAIN=main
-$(MAIN).$(format): $(MAIN).tex $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) Makefile
+$(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) Makefile
 	@echo "`tput bold`$(LaTeX)`tput sgr0`"\
 		"`tput setaf 1`$(OPTIONS)`tput sgr0`"\
 		"`tput setaf 2`$<`tput sgr0`"

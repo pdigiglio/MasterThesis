@@ -4,6 +4,7 @@
 *.aux
 *.fls
 *.ind
+*.idx
 *.ilg
 *.fdb_latexmk
 *.pdf

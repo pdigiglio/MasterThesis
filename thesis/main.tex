@@ -12,11 +12,10 @@
 %\usepackage{array}
 %\usepackage{colortbl}
 
-\input{pgfConfig}
-%\input{siunitxConfig}
-
+\input{config/pgfConfig}
+\input{config/siunitxConfig}
 % Setup index
-\input{indexConfig}
+\input{config/indexConfig}
 
 \usepackage{lipsum}
 
@@ -42,7 +41,7 @@
 \pdfbookmark[0]{\contentsname}{chap:contents}
 	\tableofcontents
 
-	\input{aknowledgements}
+	\input{frontmatter/aknowledgements}
 
 %----------------------------------------------------------------------------------------
 % MAINMATTER

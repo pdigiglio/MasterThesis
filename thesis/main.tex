@@ -15,6 +15,9 @@
 \input{pgfConfig}
 %\input{siunitxConfig}
 
+% Setup index
+\input{indexConfig}
+
 \usepackage{lipsum}
 
 \title{}
@@ -54,6 +57,9 @@
 %}
 
 
+Let's put some index\index{index}
+ANd now something which is related to the index\index{index!related}
+
 %And the ultimate answer is \SI{34.89}{\angstrom}
 
 \input{data/dummyTable.tab}
@@ -62,5 +68,9 @@
 % BACKMATTER
 %
 \backmatter
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\indexname}
+	\printindex
 
 \end{document}

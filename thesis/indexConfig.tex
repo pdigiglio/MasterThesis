@@ -1,0 +1,22 @@
+% COnfiguration file for the index
+
+\usepackage{makeidx}
+\usepackage{multicol}
+
+% enable generation of index via '\printindex' command in the document environment
+\makeindex
+
+%%
+\let\orgtheindex\theindex
+\let\orgendtheindex\endtheindex
+\def\theindex{%
+	\def\twocolumn{\begin{multicols}{2}}%
+	\def\onecolumn{}%
+	\clearpage
+	\orgtheindex
+}
+\def\endtheindex{%
+	\end{multicols}%
+	\orgendtheindex
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%

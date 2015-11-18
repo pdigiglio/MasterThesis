@@ -6,16 +6,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage[german,italian,english]{babel}
 
-%\usepackage{pgfplotstable}
-%\pgfplotsset{compat=1.12}
-%\usepackage{booktabs}
-%\usepackage{array}
-%\usepackage{colortbl}
-
 \input{config/pgfConfig}
 \input{config/siunitxConfig}
 % Setup index
 \input{config/indexConfig}
+
+\usepackage[
+	backend=biber,
+]{biblatex}
+\addbibresource{backmatter/bibliography.bib}
 
 \usepackage{lipsum}
 
@@ -47,6 +46,7 @@
 % MAINMATTER
 %
 \mainmatter
+\chapter{chap first}
 \lipsum
 %\pgfplotstabletypeset{data/dummyTableRaw.tab}
 %\pgfplotstabletypeset[sci zerofill]{
@@ -73,5 +73,11 @@ ANd now something which is related to the index\index{index!related}
 	\phantomsection
 	\addcontentsline{toc}{chapter}{\indexname}
 	\printindex
+
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\bibname}
+	\nocite{*}
+	\printbibliography
 
 \end{document}

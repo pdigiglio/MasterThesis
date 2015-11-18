@@ -10,3 +10,7 @@
 *.pdf
 *.dvi
 *.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml

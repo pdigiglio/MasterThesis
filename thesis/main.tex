@@ -1,7 +1,7 @@
 \documentclass[
 	10pt,
 	twoside,
-	opebright,
+	openright,
 %	final
 ]{scrbook}
 \usepackage[utf8]{inputenc}
@@ -30,20 +30,8 @@
 
 % Setup hyperref
 \input{config/hyperrefConfig}
-% For acronyms and glossaries
-\usepackage[
-	makeindex,% use this to make gloxary
-	acronym,%
-	nomain,% suppress the main (default) glossary
-	hyperfirst=false, % no hyperlink at first use of acronym
-	toc,% add voice in toc
-]{glossaries} % XXX Load it _after_ hyperref, babel, polyglossia, inputenc and fontenc
-
-\usepackage{relsize} % defines \textsmaller{} used by the following style
-\setacronymstyle{long-sm-short}
-
-\makenoidxglossaries
-\newacronym{cuda}{CUDA}{Compute Unified Device Architecture}
+% Setup acronyms
+\input{config/acronymConfig} % XXX Load it _after_ hyperref, babel, polyglossia, inputenc and fontenc
 
 % Add this package to draw molecules (needed for the caffeine!)
 \usepackage{chemfig}

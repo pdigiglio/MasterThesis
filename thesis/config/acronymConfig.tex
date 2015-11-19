@@ -1,0 +1,17 @@
+% For acronyms (and glossaries)
+\usepackage[
+	makeindex,% use this to make gloxary
+	acronym,%
+	nomain,% suppress the main (default) glossary
+	hyperfirst=false, % no hyperlink at first use of acronym
+	toc,% add voice in toc
+]{glossaries} % XXX Load it _after_ hyperref, babel, polyglossia, inputenc and fontenc
+
+\usepackage{relsize} % defines \textsmaller{} used by the following style
+\setacronymstyle{long-sm-short}
+
+\makenoidxglossaries
+
+
+% Define acronyms
+\newacronym{cuda}{CUDA}{Compute Unified Device Architecture}

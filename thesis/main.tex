@@ -15,6 +15,21 @@
 	backend=biber,
 ]{biblatex}
 \addbibresource{backmatter/bibliography.bib}
+% For acronyms and glossaries
+\usepackage[colorlinks]{hyperref}
+\usepackage[
+	makeindex,% use this to make gloxary
+	acronym,%
+	nomain,% suppress the main (default) glossary
+	hyperfirst=false, % no hyperlink at first use of acronym
+	toc,% add voice in toc
+]{glossaries} % XXX Load it _after_ hyperref, babel, polyglossia, inputenc and fontenc
+
+\usepackage{relsize} % defines \textsmaller{} used by the following style
+\setacronymstyle{long-sm-short}
+
+\makenoidxglossaries
+\newacronym{cuda}{CUDA}{Compute Unified Device Architecture}
 
 \usepackage{lipsum}
 
@@ -25,7 +40,6 @@
 }
 \date{}
 
-\usepackage[colorlinks]{hyperref}
 \begin{document}
 
 %----------------------------------------------------------------------------------------
@@ -65,15 +79,22 @@ ANd now something which is related to the index\index{index!related}
 
 \input{data/dummyTable.tab}
 
+In my work I'll use \gls{cuda}
+
 %----------------------------------------------------------------------------------------
 % BACKMATTER
 %
 \backmatter
+	% Acronyms
+	\printnoidxglossaries
+
+	% Index
 	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{chapter}{\indexname}
 	\printindex
 
+	% Bibliography
 	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{chapter}{\bibname}

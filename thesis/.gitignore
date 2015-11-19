@@ -13,4 +13,6 @@
 *.bbl
 *.blg
 *.bcf
+*.acn
+*.ist
 *.run.xml

@@ -48,9 +48,11 @@ frontFolder = $(wildcard frontmatter/*.tex)
 mainFolder = $(wildcard mainmatter/*.tex)
 # Track data file in config/ folder
 configFolder = $(wildcard config/*.tex)
+# Track data file in fig/ folder
+figFolder = $(wildcard fig/*.tex)
 
 MAIN=main
-$(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) Makefile
+$(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) $(figFolder) Makefile
 	@echo "`tput bold`$(LaTeX)`tput sgr0`"\
 		"`tput setaf 1`$(OPTIONS)`tput sgr0`"\
 		"`tput setaf 2`$<`tput sgr0`"

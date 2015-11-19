@@ -1,30 +1,36 @@
 \documentclass[
 	10pt,
 	twoside,
+	opebright,
 %	final
 ]{scrbook}
 \usepackage[utf8]{inputenc}
 \usepackage[german,italian,english]{babel}
 
-% Setup plots
-\input{config/pgfConfig}
-% Setup units
-\input{config/siunitxConfig}
-% Setup index
-\input{config/indexConfig}
 % TODO Setup typography (fonts, mparhack, microtype...)
 %\input{config/typographyConfig}
+
+% Define some useful colors
+\input{config/colorConfig}
+% Setup plots
+\input{config/pgfConfig}
+
+% Setup units
+\input{config/siunitxConfig}
+
+% Setup index
+\input{config/indexConfig}
+% Setup bibliography
+\input{config/bibliographyConfig}
+
 % Define abstract environment for *book class
 \input{config/abstractConfig}
 % Define acknowledgements environment
 \input{config/acknowledgementsConfig} % XXX Load _after_ abstractConfig.tex!!
 
-\usepackage[
-	backend=biber,
-]{biblatex}
-\addbibresource{backmatter/bibliography.bib}
+% Setup hyperref
+\input{config/hyperrefConfig}
 % For acronyms and glossaries
-\usepackage[colorlinks]{hyperref}
 \usepackage[
 	makeindex,% use this to make gloxary
 	acronym,%

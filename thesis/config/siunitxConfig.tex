@@ -1,4 +1,5 @@
 \usepackage{siunitx}
+
 \sisetup{
 %	range-phrase=$-$,
 	separate-uncertainty,
@@ -6,3 +7,8 @@
 	output-decimal-marker={.},
 	exponent-product = \cdot,
 }
+
+% Additional units
+
+\usepackage{eurosym}
+\DeclareSIUnit{\EUR}{\text{\euro{}}}

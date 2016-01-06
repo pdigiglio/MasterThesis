@@ -1,5 +1,5 @@
 #
-# Easy Makefile to compile notes.tex
+# Easy Makefile to compile main.tex
 #
 
 .PHONY: clean distclean dist help
@@ -48,10 +48,11 @@ frontFolder  = $(wildcard frontmatter/*.tex)
 mainFolder   = $(wildcard mainmatter/*.tex)
 # Track data file in config/ folder
 configFolder = $(wildcard config/*.tex)
+configFolder+= $(wildcard config/*.sty)
 # Track data file in fig/ folder
 figFolder    = $(wildcard fig/*.tex)
 
-MAIN=notes
+MAIN=main
 $(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) $(figFolder) Makefile
 	@echo "`tput bold`$(LaTeX)`tput sgr0`"\
 		"`tput setaf 1`$(OPTIONS)`tput sgr0`"\
@@ -62,7 +63,7 @@ clean:
 	@echo "`tput bold`rm`tput sgr0`"\
 		"`tput setaf 1`--recursive --force --verbose`tput sgr0`"\
 		"`tput setaf 2`*.toc *.log *.out *.aux *.fls *.i{nd,dx,lg} *.b{bl,cf,lg} *.ist *.a{cn,cr,lg} *.g{lg,lo,ls} *.run.xml *.fdb_latexmk`tput sgr0`"
-	@rm --recursive --force --verbose *.toc *.log *.out *.aux *.fls *.i{nd,dx,lg} *.b{bl,cf,lg} *.ist *.a{cn,cr,lg} *.g{lg,lo,ls} *.run.xml *.fdb_latexmk
+	@rm --recursive --force --verbose *.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk
 
 distclean: clean
 	@echo "`tput bold`rm`tput sgr0`"\

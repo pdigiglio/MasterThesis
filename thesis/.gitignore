@@ -16,3 +16,5 @@
 *.acn
 *.ist
 *.run.xml
+*.nav
+*.snm

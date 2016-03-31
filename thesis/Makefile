@@ -51,6 +51,7 @@ configFolder = $(wildcard config/*.tex)
 configFolder+= $(wildcard config/*.sty)
 # Track data file in fig/ folder
 figFolder    = $(wildcard fig/*.tex)
+figFolder    = $(wildcard fig/*.png)
 
 MAIN=main
 $(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) $(figFolder) Makefile

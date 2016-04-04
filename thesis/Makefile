@@ -52,9 +52,11 @@ configFolder+= $(wildcard config/*.sty)
 # Track data file in fig/ folder
 figFolder    = $(wildcard fig/*.tex)
 figFolder    = $(wildcard fig/*.png)
+# Track data file in slides/ folder
+slidesFolder    = $(wildcard slides/*.tex)
 
 MAIN=main
-$(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) $(figFolder) Makefile
+$(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) $(figFolder) $(slidesFolder) Makefile
 	@echo "`tput bold`$(LaTeX)`tput sgr0`"\
 		"`tput setaf 1`$(OPTIONS)`tput sgr0`"\
 		"`tput setaf 2`$<`tput sgr0`"
@@ -63,8 +65,8 @@ $(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder
 clean:
 	@echo "`tput bold`rm`tput sgr0`"\
 		"`tput setaf 1`--recursive --force --verbose`tput sgr0`"\
-		"`tput setaf 2`*.toc *.log *.out *.aux *.fls *.i{nd,dx,lg} *.b{bl,cf,lg} *.ist *.a{cn,cr,lg} *.g{lg,lo,ls} *.run.xml *.fdb_latexmk *.nav *.snm`tput sgr0`"
-	@rm --recursive --force --verbose *.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm
+		"`tput setaf 2`*.toc *.log *.out *.aux *.fls *.i{nd,dx,lg} *.b{bl,cf,lg} *.ist *.a{cn,cr,lg} *.g{lg,lo,ls} *.run.xml *.fdb_latexmk *.nav *.snm *.vrb`tput sgr0`"
+	@rm --recursive --force --verbose *.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm *.vrb
 
 distclean: clean
 	@echo "`tput bold`rm`tput sgr0`"\

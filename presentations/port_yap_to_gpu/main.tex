@@ -1,9 +1,110 @@
-\documentclass[]{beamer}
+\documentclass[
+%	draft
+	final
+]{beamer}
+\usepackage{tikz}
+\usepackage{subfig}
+\usepackage{xspace}
+\usepackage{listings}
+\lstset{
+	language={[11]C++},%
+	basicstyle=\ttfamily\small,%
+	tabsize=2,%
+	keywordstyle=\color{blue!50!black}\fontseries{b}\selectfont,%
+	morekeywords={Model,%
+		ParticleFactory,%
+		HelicityFormalism,%
+		BreitWigner,%
+		CachedValues,%
+		CachedDataValues,%
+		DataPoint,%
+		DataPartition,%
+		Particle,%
+		DecayChannel,%
+		ParticleFactory,%
+		EvtGen,%
+		ZemachFormalism,%
+		Flatte,%
+		Parameter,
+		CachedValue,
+		CachedDataValue,
+	},
+%	morekeywords={
+%		string,%
+%	},% std:: functions
+	keywords=[2]{__global__},% CUDA keywords
+	keywordstyle=[3]{\color{green!60!blue}\fontseries{b}\selectfont},%
+	keywords=[3]{threadIdx},% cuda built-in variables
+	keywordstyle=[2]{\color{green!60!red}\fontseries{b}\selectfont},%
+%	keywords=[4]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0},%
+%    keywordstyle=[4]{\color{green!60!red}\fontseries{b}\selectfont},%
+	commentstyle=\color{darkgray!80},%
+    stringstyle=\color{orange!50!black},%
+	backgroundcolor=\color{cyan!10},%
+}
+\renewcommand{\sfdefault}{iwona}
+\newcommand{\acronym}[1]{{\sc #1}}
+\newcommand{\sm}{\acronym{sm}}
+\newcommand{\stl}{\acronym{stl}}
+\newcommand{\gpu}{\acronym{gpu}}
+\newcommand{\cpu}{\acronym{cpu}}
+\newcommand{\yap}{\acronym{yap}}
+\newcommand{\cuda}{\acronym{cuda}}
+
+\input{config/bibliographyConfig.tex}
+
+\title{A lightweight introduction to \cuda}
+\author{
+	\input{./AUTHORS}
+}
 
 \begin{document}
 
+{
+	\usebackgroundtemplate{%
+		\tikz\node[
+			opacity=0.5,
+			inner sep=0pt,
+		]
+		{
+			\includegraphics[
+				height=\paperheight,
+		width=\paperwidth,%
+		%opacity=.2%
+		]{fig/logo4.jpg}%
+		};
+	}
+
 \begin{frame}
-	ciao
+
+	\maketitle
 \end{frame}
+}
+
+%	\input{slides/strategy}
+
+\section{Application scaling}
+	\input{slides/strong_and_weak_scaling}
+
+\section{What is CUDA}
+	\input{slides/the_cuda_paradigm}
+
+\section{GPU hardware}
+	\input{slides/architecture}
+	\input{slides/hardware_implementation}
+%	\input{slides/when_you_actyally_imptove_performances}
+
+\section{Kernels}
+	\input{slides/the_kernel_of_cuda}
+	\subsection{Threads, blocks \& grids}
+	\input{slides/thread_hierarchy}
+
+\section{Cuda-based libraries}
+	\input{slides/cuda_out_of_the_box}
+
+\section{References}
+	\input{slides/references}
+
+
 
 \end{document}

@@ -1,0 +1,14 @@
+
+	\begin{frame}%[fragile]
+		\frametitle{\cuda{} out of the box}
+			\framesubtitle{\cuda{}-based libraries}
+		Some library exist, which are already implemented in \cuda{} and \gpu-optimized such as \lstinline!cuBLAS! (Basic Linear Algebra Subprograms), \lstinline!cuFFT! (Fast Fourier Transform), \lstinline!Thrust!.
+
+		\begin{block}{Thrust}
+			\begin{itemize}
+				\item C++ template library for \cuda{} based on the \stl{};%~\cite[p.~1]{cuda:thrust};
+				\item Manages low level operation such as memory allocation on \gpu{} and copying data between Host and Device;
+				\item Provides a large number of common parallel algorithm e.g.~ sortings, transformations reductions.%\lstinline!thrust::sort!, \lstinline!thrust::reduce!
+			\end{itemize}
+		\end{block}
+	\end{frame}

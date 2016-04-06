@@ -1,0 +1,21 @@
+\begin{frame}[fragile]
+	\frametitle{When You Actually Improve Performances}
+	\begin{columns}
+		\begin{column}{.55\columnwidth}
+			\begin{itemize}
+				\item Computation which can be run on numerous data simultaneously;
+				\item Coherence in memory access by adjacent threads;
+				\item Data transfer between Host and Device is minimum;
+				\item Data is kept on the Device as long as possible.
+			\end{itemize}
+		\end{column}%{.7\columnwidth}
+
+		\begin{column}{.45\columnwidth}
+			\includegraphics[
+				%height=\textheight
+				width=\columnwidth
+				]{fig/heterogeneous-programming.png}
+		\end{column}%{.3\columnwidth}
+	\end{columns}
+	Some existing \gpu-optimized library are \verb!cuBLAS!, \verb!cuFFT!, \verb!Thrust!.
+\end{frame}

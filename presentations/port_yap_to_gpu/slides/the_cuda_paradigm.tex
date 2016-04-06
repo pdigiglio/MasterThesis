@@ -1,0 +1,17 @@
+\begin{frame}
+	\frametitle{The \cuda{} paradigm}
+	\cuda{} programming assumes code runs on \emph{two} different platforms, with \emph{two} different memory spaces.
+	\begin{block}{Host (\cpu)}
+		\begin{itemize}
+			\item Pipelines support a limited number of concurrent threads (e.g.~48 on four hex-core processors with Hyper-Threading);
+			\item Threads are heavyweight: context switches are expensive.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Device (\gpu, seen as a \emph{coprocessor})}
+		\begin{itemize}
+			\item Smallest parallel unit (\emph{warp}) comprises 32 threads;
+			\item No context switch: separate registers allocated to all active threads.
+		\end{itemize}
+	\end{block}
+\end{frame}

@@ -1,0 +1,20 @@
+
+\begin{frame}
+	\frametitle{Strong \& Weak Scaling}
+
+	Assume with a fraction $p$ of its code parallelized running on $N$ processors.
+	\begin{block}{Strong Scaling}
+		Measure of how, for a fixed overall problem size, the time to solution decreases
+		\begin{equation}\tag{Amdahl's Law}
+			S = \frac{1}{(1-p) + p/N} \le \frac{1}{1-p}.
+		\end{equation}
+		Increasing $p$ may be more useful than buying new fancy hadrware.
+	\end{block}
+
+	\begin{block}{Weak Scaling}
+		Measure of how, for a fixed problem size \emph{per processor}, the time to solution changes
+		\begin{equation}\tag{Gustafson's Law}
+			S = N + (1-p)(1-N) \ge 1.
+		\end{equation}
+	\end{block}
+\end{frame}

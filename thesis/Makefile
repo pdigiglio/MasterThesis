@@ -55,7 +55,10 @@ figFolder    = $(wildcard fig/*.png)
 # Track data file in slides/ folder
 slidesFolder    = $(wildcard slides/*.tex)
 
+# Set default main file if it's not specified on the cmd line
+ifndef MAIN
 MAIN=main
+endif
 $(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder) $(mainFolder) $(configFolder) $(figFolder) $(slidesFolder) Makefile
 	@echo "`tput bold`$(LaTeX)`tput sgr0`"\
 		"`tput setaf 1`$(OPTIONS)`tput sgr0`"\

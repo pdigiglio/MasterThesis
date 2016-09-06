@@ -5,7 +5,7 @@
 %	final
 ]{scrbook}
 \usepackage[utf8]{inputenc}
-\usepackage[german,italian,english]{babel}
+\usepackage[italian,english]{babel}
 
 % TODO Setup typography (fonts, mparhack, microtype...)
 %\input{config/typographyConfig}
@@ -26,15 +26,23 @@
 % Define abstract environment for *book class
 \input{config/abstractConfig}
 % Define acknowledgements environment
-\input{config/acknowledgementsConfig} % XXX Load _after_ abstractConfig.tex!!
+% XXX Load _after_ abstractConfig.tex!!
+\input{config/acknowledgementsConfig}
 
 % Setup hyperref
 \input{config/hyperrefConfig}
 % Setup acronyms
-\input{config/acronymConfig} % XXX Load it _after_ hyperref, babel, polyglossia, inputenc and fontenc
+% XXX Load it _after_ hyperref, babel, polyglossia, inputenc and fontenc
+\input{config/acronymConfig}
 
 % Add this package to draw molecules (needed for the caffeine!)
 \usepackage{chemfig}
+\usepackage{mhchem}
+\mhchemoptions{
+    version=4,
+    layout=stacked,   % stack superscript and subscript
+    arrows=pgf-filled % set arrow (other options 'font', 'pgf')
+}
 
 \usepackage{lipsum}
 \usepackage{qrcode}
@@ -87,6 +95,9 @@
 %9000 1000000
 %}
 
+\section{Test for a decay with \texttt{mchem}}
+
+\ce{D^0_{s} -> \pi^0\pi^0}
 
 \begin{figure}
 	\centering
@@ -107,7 +118,7 @@ In my work\index{work} I'll use \gls{cuda}
 \glspl{gpgpu} are very useful!
 
 I wanna thanks the coffeine
-\input{fig/caffeine}
+%\input{fig/caffeine}
 
 %----------------------------------------------------------------------------------------
 % BACKMATTER

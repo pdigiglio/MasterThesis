@@ -63,7 +63,7 @@ $(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder
 	@echo "`tput bold`$(LaTeX)`tput sgr0`"\
 		"`tput setaf 1`$(OPTIONS)`tput sgr0`"\
 		"`tput setaf 2`$<`tput sgr0`"
-	@$(LaTeX) $(OPTIONS) $< -f
+	@$(LaTeX) $(OPTIONS) $<
 
 clean:
 	@echo "`tput bold`rm`tput sgr0`"\

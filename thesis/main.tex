@@ -17,6 +17,8 @@
 
 % Setup units
 \input{config/siunitxConfig}
+% Setup math
+\input{config/mathConfig}
 
 % Setup index
 \input{config/indexConfig}
@@ -97,7 +99,26 @@
 
 \section{Test for a decay with \texttt{mchem}}
 
-\ce{D^0_{s} -> \pi^0\pi^0}
+Now we prove that $\forall z \in \C$
+\begin{equation*}
+    \abs{z} = \sqrt{z_1^2 + z_2^2}
+    \quad
+    \norm{z} = \abs{z_1} + \abs{z_2}
+\end{equation*}
+
+\ce{D^0_{s} -> \pi^0$\cramped{\pi^0}$}
+
+This is a mathrm delta: $\mathrm{\delta}$ and $\delta$ or $\mathrm{\Delta}$ and $\Delta$.
+
+\begin{equation}
+    \int_{\Omega} f(x)\ud x\ \mathrm{d}x
+\end{equation}
+
+{\sffamily this is some math $\ud x$.}
+
+\begin{equation}
+    \eu^{\iu\pi} + 1 = 0
+\end{equation}
 
 \begin{figure}
 	\centering

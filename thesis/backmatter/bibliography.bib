@@ -1,62 +1,60 @@
-@online{cuda:programming, 
-     title        = {\gls*{cuda} C Programming Guide}, 
-     year         = {2015},
-	 month        = {9},
-     url          = {https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf}, 
-}  
+%@online{cuda:programming, 
+%     title        = {\gls*{cuda} C Programming Guide}, 
+%     year         = {2015},
+%	 month        = {9},
+%     url          = {https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf}, 
+%}  
 
-@online{cuda:practides,
-	title = {\gls*{cuda} C Best Practice Guide},
-	year  = {2015},
-	month = {9},
-	url   = {http://docs.nvidia.com/cuda/pdf/CUDA_C_Best_Practices_Guide.pdf}
-}
+%@online{cuda:practides,
+%	title = {\gls*{cuda} C Best Practice Guide},
+%	year  = {2015},
+%	month = {9},
+%	url   = {http://docs.nvidia.com/cuda/pdf/CUDA_C_Best_Practices_Guide.pdf}
+%}
 %     sortkey      = {wiki},
 %     label        = {wiki},
 
-@article{1742-6596-513-5-052010,
-  author={Funke, D. and Hauth, T. and Innocente, V. and Quast, G. and Sanders, P. and Schieferdecker, D.},
-  title={Parallel track reconstruction in {\small CMS} using the cellular automaton approach},
-  journal={Journal of Physics: Conference Series},
-  volume={513},
-  number={5},
-  pages={052010},
-  url={http://stacks.iop.org/1742-6596/513/i=5/a=052010},
-  year={2014},
-  doi={10.1088/1742-6596/513/5/052010},
-  abstract={The Compact Muon Solenoid (CMS) experiment at the Large Hadron Collider (LHC) is a general-purpose particle detector and comprises the largest silicon-based tracking system built to date with 75 million individual readout channels. The precise reconstruction of particle tracks from this tremendous amount of input channels is a compute-intensive task. The foreseen LHC beam parameters for the next data taking period, starting in 2015, will result in an increase in the number of simultaneous proton-proton interactions and hence the number of particle tracks per event. Due to the stagnating clock frequencies of individual CPU cores, new approaches to particle track reconstruction need to be evaluated in order to cope with this computational challenge. Track finding methods that are based on cellular automata (CA) offer a fast and parallelizable alternative to the well-established Kalman filter-based algorithms. We present a new cellular automaton based track reconstruction, which copes with the complex detector geometry of CMS. We detail the specific design choices made to allow for a high-performance computation on GPU and CPU devices using the OpenCL framework. We conclude by evaluating the physics performance, as well as the computational properties of our implementation on various hardware platforms and show that a significant speedup can be attained by using GPU architectures while achieving a reasonable physics performance at the same time.}
-}
+%@article{1742-6596-513-5-052010,
+%  author={Funke, D. and Hauth, T. and Innocente, V. and Quast, G. and Sanders, P. and Schieferdecker, D.},
+%  title={Parallel track reconstruction in {\small CMS} using the cellular automaton approach},
+%  journal={Journal of Physics: Conference Series},
+%  volume={513},
+%  number={5},
+%  pages={052010},
+%  url={http://stacks.iop.org/1742-6596/513/i=5/a=052010},
+%  year={2014},
+%  doi={10.1088/1742-6596/513/5/052010},
+%}
 
-@online{google:styleGuide,
-	title = {Google C++ Style Guide},
-	url   = {https://google.github.io/styleguide/cppguide.html}
-}
+%@online{google:styleGuide,
+%	title = {Google C++ Style Guide},
+%	url   = {https://google.github.io/styleguide/cppguide.html}
+%}
 
-@article{Kisel200685,
-	title   = {Event reconstruction in the {\small CBM} experiment},
-	journal = {Nuclear Instruments and Methods in Physics Research Section A},
-	volume  = {566},
-	number  = {1},
-	pages   = {85-88},
-	year    = {2006},
-	issn    = {0168-9002},
-	doi     = {10.1016/j.nima.2006.05.040},
-	url     = {http://www.sciencedirect.com/science/article/pii/S0168900206008151},
-	author  = {Kisel,I.~},
-	keywords = "Event reconstruction",
-	keywords = "Track finding",
-	keywords = "Track fitting",
-	keywords = "Cellular automaton",
-	keywords = "Kalman filter",
-	keywords = "Elastic net",
-	keywords = "CBM ",
-	abstract = "A typical central Au+Au collision in the \{CBM\} experiment (GSI, Germany) will produce up to 700 tracks in the inner tracker. The large track density together with the presence of a non-homogeneous magnetic field make reconstruction of events complicated. A cellular automaton method is used to reconstruct tracks in the inner tracker. Track and vertex fitting is done using the Kalman filter technique. A special analytic formula has been derived for fast track extrapolation in a non-homogeneous magnetic field. A standalone ring finding in the \{RICH\} detector is based on the elastic net method. Results of tests of the reconstruction procedure are presented. "
-}
+%@article{Kisel200685,
+%	title   = {Event reconstruction in the {\small CBM} experiment},
+%	journal = {Nuclear Instruments and Methods in Physics Research Section A},
+%	volume  = {566},
+%	number  = {1},
+%	pages   = {85-88},
+%	year    = {2006},
+%	issn    = {0168-9002},
+%	doi     = {10.1016/j.nima.2006.05.040},
+%	url     = {http://www.sciencedirect.com/science/article/pii/S0168900206008151},
+%	author  = {Kisel,I.~},
+%	keywords = "Event reconstruction",
+%	keywords = "Track finding",
+%	keywords = "Track fitting",
+%	keywords = "Cellular automaton",
+%	keywords = "Kalman filter",
+%	keywords = "Elastic net",
+%	keywords = "CBM ",
+%}
 %	journal = {Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment},
 %	note = {\{TIME\} 2005Proceedings of the 1st Workshop on Tracking in High Multiplicity Environments1st Workshop on Tracking in High Multiplicity Environments},
 
 @article{plotExpDataPgfplots,
-	title = {Plotting experimental data using pgfplots},
+	title = {Plotting experimental data using \package{pgfplots}},
 	journal = {TUGboat},
 	volume = {31},
 	number = {1},
@@ -64,4 +62,90 @@
 	pages = {50-58},
 	author = {Wright,J.~},
 	url = {https://www.tug.org/TUGboat/tb31-1/tb97wright-pgfplots.pdf}
+}
+
+@article{PhysRevD.73.032004,
+    title = {Model-independent measurement of S-wave $\PKminus\Ppiplus$ systems using $\PDplus\to\PKminus\Ppiplus\Ppiplus$ decays from Fermilab E791},
+    author = {Aitala, E. M. and Amato, S. and Anjos, J. C. and Appel, J. A. and Ashery, D. and Banerjee, S. and Bediaga, I. and Blaylock, G. and Bracker, S. B. and Burchat, P. R. and Burnstein, R. A. and Carter, T. and Carvalho, H. S. and Copty, N. K. and Cremaldi, L. M. and Darling, C. and Denisenko, K. and Devmal, S. and Fernandez, A. and Fox, G. F. and Gagnon, P. and Gobel, C. and Gounder, K. and Halling, A. M. and Herrera, G. and Hurvits, G. and James, C. and Kasper, P. A. and Kwan, S. and Langs, D. C. and Leslie, J. and Lundberg, B. and Magnin, J. and Massafferri, A. and MayTal-Beck, S. and Meadows, B. and Neto, J. R. T. de Mello and Mihalcea, D. and Milburn, R. H. and de Miranda, J. M. and Napier, A. and Nguyen, A. and d'Oliveira, A. B. and O'Shaughnessy, K. and Peng, K. C. and Perera, L. P. and Purohit, M. V. and Quinn, B. and Radeztsky, S. and Rafatian, A. and Reay, N. W. and Reidy, J. J. and dos Reis, A. C. and Rubin, H. A. and Sanders, D. A. and Santha, A. K. S. and Santoro, A. F. S. and Schwartz, A. J. and Sheaff, M. and Sidwell, R. A. and Slaughter, A. J. and Sokoloff, M. D. and Solano, J. and Stanton, N. R. and Stefanski, R. J. and Stenson, K. and Summers, D. J. and Takach, S. and Thorne, K. and Tripathi, A. K. and Watanabe, S. and Weiss-Babai, R. and Wiener, J. and Witchey, N. and Wolin, E. and Yang, S. M. and Yi, D. and Yoshida, S. and Zaliznyak, R. and Zhang, C. and Dunwoodie, W. M.},
+    collaboration = {Fermilab E791 Collaboration},
+    journal = {Phys.~Rev.~D},
+    volume = {73},
+    issue = {3},
+    pages = {032004},
+    numpages = {16},
+    year = {2006},
+    month = {2},
+    publisher = {American Physical Society},
+    doi = {10.1103/PhysRevD.73.032004},
+    url = {http://link.aps.org/doi/10.1103/PhysRevD.73.032004}
+}
+
+@article{Link200914,
+    title   = "The $\PKminus\Ppiplus$ S-wave from the decay $\PDplus \to \PKminus\Ppiplus\Ppiplus$",
+    journal = "Physics Letters B",
+    volume  = "681",
+    number  = "1",
+    pages   = "14 - 21",
+    year    = "2009",
+    note    = "",
+    issn    = "0370-2693",
+    doi     = "10.1016/j.physletb.2009.09.057",
+    url     = "http://www.sciencedirect.com/science/article/pii/S0370269309011496",
+    author  = "J.M. Link and P.M. Yager and J.C. Anjos and I. Bediaga and C. Castromonte and A.A. Machado and J. Magnin and A. Massafferri and J.M. de Miranda and I.M. Pepe and E. Polycarpo and A.C. dos Reis and S. Carrillo and E. Cuautle and A. Sánchez-Hernández and C. Uribe and F. Vázquez and L. Agostino and L. Cinquini and J.P. Cumalat and V. Frisullo and B. O'Reilly and I. Segoni and K. Stenson and J.N. Butler and H.W.K. Cheung and G. Chiodini and I. Gaines and P.H. Garbincius and L.A. Garren and E. Gottschalk and P.H. Kasper and A.E. Kreymer and R. Kutschke and M. Wang and L. Benussi and S. Bianco and F.L. Fabbri and A. Zallo and E. Casimiro and M. Reyes and C. Cawlfield and D.Y. Kim and A. Rahimi and J. Wiss and R. Gardner and A. Kryemadhi and Y.S. Chung and J.S. Kang and B.R. Ko and J.W. Kwak and K.B. Lee and K. Cho and H. Park and G. Alimonti and S. Barberis and M. Boschini and A. Cerutti and P. D'Angelo and M. DiCorato and P. Dini and L. Edera and S. Erba and P. Inzani and F. Leveraro and S. Malvezzi and D. Menasce and M. Mezzadri and L. Moroni and D. Pedrini and C. Pontoglio and F. Prelz and M. Rovere and S. Sala and T.F. Davenport III and V. Arena and G. Boca and G. Bonomi and G. Gianini and G. Liguori and D. Lopes Pegna and M.M. Merlo and D. Pantea and S.P. Ratti and C. Riccardi and P. Vitulo and C. Göbel and J. Otalora and H. Hernandez and A.M. Lopez and H. Mendez and A. Paris and J. Quinones and J.E. Ramirez and Y. Zhang and J.R. Wilson and T. Handler and R. Mitchell and D. Engh and M. Hosack and W.E. Johns and E. Luiggi and J.E. Moore and M. Nehring and P.D. Sheldon and E.W. Vaandering and M. Webster and M. Sheaff",
+}
+
+@book{stl_meyers,
+    title     = {Effective \acs{stl}: 50 specific ways to improve your use of the \acl{stl}},
+    author    = {Meyers, S.},
+    year      = {2001},
+    month     = {7},
+    publisher = {Addison-Wesley},
+    series    = {Addison-Wesley Professional Computing Series},
+    isbn      = {978-0-201-74962-5}
+}
+
+@book{effective_cpp_meyers,
+    title     = {Effective C++: 55 specific ways to improve your programs and designs},
+    author    = {Meyers, S.},
+    year      = {2005},
+    month     = {6},
+    publisher = {Addison-Wesley},
+    series    = {Addison-Wesley Professional Computing Series},
+    isbn      = {978-0-321-33487-9}
+}
+
+@book{effective_modern_cpp_meyers,
+    title     = {Effective modern C++: 42 specific ways to improve your use of C++11 and C++14},
+    author    = {Meyers, S.},
+    year      = {2014},
+    month     = {11},
+    publisher = {O'Reilly Media},
+    isbn      = {978-1-409-90399-5}
+}
+  	
+@article{chinese_phisics,
+    author        = {Olive, K.A. and others},
+    title         = {Review of particle physics},
+    collaboration = {Particle Data Group},
+    journal       = {Chin.~Phys.~C},
+    volume        = {38},
+    number        = {9},
+    pages         = {090001},
+    url           = {http://iopscience.iop.org/article/10.1088/1674-1137/38/9/090001},
+    doi           = {10.1088/1674-1137/38/9/090001},
+    year          = {2014},
+}
+
+@article{Bevan:2014iga,
+    author        = "Bevan, A.J. and others",
+    title         = "{The physics of the B factories}",
+    collaboration = "Belle, BaBar",
+    journal       = "Eur.~Phys.~J.",
+    volume        = "C74",
+    year          = "2014",
+    pages         = "3026",
+    doi           = "10.1140/epjc/s10052-014-3026-9",
+    eprint        = "1406.6311",
+    archivePrefix = "arXiv",
+    primaryClass  = "hep-ex",
 }

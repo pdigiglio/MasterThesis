@@ -1,0 +1,21 @@
+\begin{tikzpicture}[
+        particle/.style = {circle},
+        M/.style        = {particle, ball color=black!20},
+        a/.style        = {particle, ball color=blue!20},
+        b/.style        = {particle, ball color=green!20},
+        c/.style        = {particle, ball color=red!20},
+    ]
+
+    \node[M] (M) at (0,0) {$M$};
+
+    % Draw the particles in the rest frame
+    \node[a] (a) at ($(M) + (1,1.5)$) {$a$};
+    \node[b] (b) at ($(M) + (2.5,-.9)$) {$b$};
+    \node[c] (c) at ($3*(M) - (a) - (b)$) {$c$};
+
+    % Connect the particles
+    \draw[->] (M) -- node[midway,above,sloped] {$p_a$} (a);
+    \draw[->] (M) -- node[midway,above,sloped] {$p_b$} (b);
+    \draw[->] (M) -- node[midway,above,sloped] {$p_c$} (c);
+
+\end{tikzpicture}

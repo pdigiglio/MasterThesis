@@ -1,0 +1,41 @@
+\begin{tikzpicture}
+    \pgfmathsetmacro{\mTwoA}{(1.)^2}
+    \pgfmathsetmacro{\mTwoB}{(1.)^2}
+    \pgfmathsetmacro{\mTwoC}{(1.)^2}
+    \pgfmathsetmacro{\mTwo}{(6.)^2}
+
+    \pgfmathsetmacro{\lBound}{(sqrt(\mTwoA) + sqrt(\mTwoB))^2}
+    \pgfmathsetmacro{\uBound}{(sqrt(\mTwo)  - sqrt(\mTwoC))^2}
+    \pgfmathsetmacro{\lyBound}{(sqrt(\mTwoC) + sqrt(\mTwoB))^2}
+    \pgfmathsetmacro{\uyBound}{(sqrt(\mTwo)  - sqrt(\mTwoA))^2}
+
+    \begin{axis}[
+        xlabel={$m_{ab}^2$},
+        ylabel={$m_{bc}^2$},
+        xtick={\lBound,\uBound},
+        xticklabels={$(m_a + m_b)^2$, $(M-m_c)^2$},
+        ytick={\lyBound,\uyBound},
+        yticklabels={$(m_b + m_c)^2$, $(M-m_a)^2$},
+        grid = major,
+        declare function = { E_b(\t) = ((\t -\mTwoB + \mTwoA)/(2*sqrt(\t))); },
+        declare function = { P_b(\t) = sqrt(E_b(\t)^2 -\mTwoB); },
+        declare function = { E_c(\t) = ((\mTwo -\t -\mTwoC)/(2*sqrt(\t))); },
+        declare function = { P_c(\t) = sqrt(E_c(\t)^2 -\mTwoC); }
+    ]
+
+        \addplot[
+            name path = A,
+            black,
+            domain = {\lBound:\uBound}
+        ] {(E_b(x) + E_c(x))^2 - (P_b(x) - P_c(x))^2};
+
+        \addplot[
+            name path = B,
+            black,
+            domain = {\lBound:\uBound}
+        ] {(E_b(x) + E_c(x))^2 - (P_b(x) + P_c(x))^2};
+
+        \addplot[blue!50, opacity=.3] fill between[of=A and B];
+
+    \end{axis}
+\end{tikzpicture}

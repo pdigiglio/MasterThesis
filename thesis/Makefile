@@ -52,6 +52,7 @@ configFolder+= $(wildcard config/*.sty)
 # Track data file in fig/ folder
 figFolder    = $(wildcard fig/*.tex)
 figFolder    = $(wildcard fig/*.png)
+figFolder    = $(wildcard fig/*.pgf)
 # Track data file in slides/ folder
 slidesFolder    = $(wildcard slides/*.tex)
 

@@ -1,10 +1,12 @@
 % For acronyms (and glossaries)
 \usepackage[
 	makeindex,% use this to make gloxary
+    nonumberlist,% no backreference to pages where acronyms were used
 	acronym,%
 	nomain,% suppress the main (default) glossary
-	hyperfirst=false, % no hyperlink at first use of acronym
+	hyperfirst=false,% no hyperlink at first use of acronym
 	toc,% add voice in toc
+    shortcuts,% define acronym shourtcuts (\ac, \Ac, ...)
 ]{glossaries} % XXX Load it _after_ hyperref, babel, polyglossia, inputenc and fontenc
 
 \usepackage{relsize} % defines \textsmaller{} used by the following style

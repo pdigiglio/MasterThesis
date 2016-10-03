@@ -1,11 +1,13 @@
 \documentclass[
-	10pt,
+	fontsize=10pt,
+	open=right,
 	twoside,
-	openright,
+    english,
+    draft,
 %	final
 ]{scrbook}
 \usepackage[utf8]{inputenc}
-\usepackage[italian,english]{babel}
+\usepackage[italian,main=english]{babel}
 
 % TODO Setup typography (fonts, mparhack, microtype...)
 %\input{config/typographyConfig}
@@ -42,9 +44,8 @@
 
 % Add this package to draw molecules (needed for the caffeine!)
 \usepackage{chemfig}
-\usepackage{mhchem}
+\usepackage[version=4]{mhchem}
 \mhchemoptions{
-    version=4,
     layout=stacked,   % stack superscript and subscript
     arrows=pgf-filled % set arrow (other options 'font', 'pgf')
 }
@@ -52,7 +53,10 @@
 %    notitalic, % particle names are upright
 %    maybess,  % allow sans serif if surrounding is sans serif
 ]{hepnames}
-\usepackage{pgfplots}
+\usepackage[
+%    compat=1.14
+]{pgfplots}
+\pgfplotsset{compat=1.14}
 \usepgfplotslibrary{fillbetween}
 \usetikzlibrary{calc}
 \tikzset{>=stealth,}
@@ -275,7 +279,11 @@ We used~\cite{stl_meyers,effective_cpp_meyers},
 
     \subsection{Isobar model}
     In the isobar model only two-body decays are allowed.
-    This means that the parent particle produces the bachelor particle $c$ and a resonance $r$.
+    \begin{figure}
+        \centering
+        \input{fig/isobar_decay.pgf}
+        \caption{Decay $P\to abc$ through a resonance $r$.}
+    \end{figure}
     The resonance, in turn, will decay into the particles $a$ and $b$.
 
 

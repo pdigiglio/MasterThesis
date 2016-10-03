@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+        particle/.style = {circle},
+        P/.style        = {particle, ball color=black!20},
+        a/.style        = {particle, ball color=blue!20},
+        b/.style        = {particle, ball color=green!20},
+        c/.style        = {particle, ball color=red!20},
+    ]
+
+    % Parent particle
+    \node[P] (P) at (0,0) {$P$};
+
+    \pgfmathsetmacro{\xDist}{6}
+    \pgfmathsetmacro{\yDist}{3}
+
+    \node[a] (a) at ($(P) + (\xDist, \yDist)$) {$a$};
+    \node[b] (b) at ($(P) + (\xDist, 0)$)      {$b$};
+    \node[c] (c) at ($(P) + (\xDist,-\yDist)$) {$c$};
+    % Resonance
+    \node[ ] (r) at ($(P) + (.5*\xDist, .5*\yDist)$) {$r$};
+
+    % Segments
+    \draw[->] (P) -- (r);
+    \draw[->] (r) -- (a);
+    \draw[->] (r) -- (b);
+    \draw[->] (P) -- (c);
+\end{tikzpicture}

@@ -67,14 +67,17 @@ $(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder
 	@$(LaTeX) $(OPTIONS) $<
 
 clean:
-	rm --recursive --force --verbose *.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm *.vrb *.pgf-plot.gnuplot *.pgf-plot.table *-figure*.{dpth,dep,md5} *.auxlock
+	@echo "`tput bold`rm`tput sgr0`"\
+		"`tput setaf 1`--recursive --force --verbose`tput sgr0`"\
+		"`tput setaf 2`*.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm *.vrb *.pgf-plot.gnuplot *.pgf-plot.table *-figure*.{dpth,dep,md5} *.auxlock *.lof`tput sgr0`"
+	@rm --recursive --force --verbose *.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm *.vrb *.pgf-plot.gnuplot *.pgf-plot.table *-figure*.{dpth,dep,md5} *.auxlock *.lof
 
 
 distclean: clean
 	@echo "`tput bold`rm`tput sgr0`"\
 		"`tput setaf 1`--recursive --force --verbose`tput sgr0`"\
-		"`tput setaf 2`*.pdf *.dvi`tput sgr0`"
-	@rm --recursive --force --verbose *.pdf *.dvi
+		"`tput setaf 2`$(MAIN)*.pdf $(MAIN)*.dvi`tput sgr0`"
+	@rm --recursive --force --verbose $(MAIN)*.pdf $(MAIN)*.dvi
 
 thisFolder = $(shell basename $$(pwd))
 now        = $(shell date "+%G-%m-%d_at_%H-%M-%S")

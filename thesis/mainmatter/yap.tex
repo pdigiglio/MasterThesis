@@ -1,0 +1,153 @@
+\chapter{YAP}
+
+    \pac{yap} is a free (licensed under the \acs{gpl3}) and open-source \cpp[11] software for calculating partial-wave amplitudes for $n$-body particle decays.
+    The source code is designed to be human-readable and to reflect the mathematical formalism describing the particle decays.
+    All the physics used is cited and documented in the code with the \package{doxygen} package, and verified through an extensive suite of tests.\footnote{As of writing, the tests cover \SI{90}{\percent} of the code.}
+
+    One of the main goals of \pac{yap} is modularity.
+    In fact, it is distributed in the form of a shared library to be linked against the user's application.
+    Moreover, \pac{yap} does not depend on any library beyond the \cpp{} \ac{stl}, which makes it easily compilable on most operating systems and portable on many architectures.
+    It is worth stressing that  \pac{yap} is an amplitude calculator only and it does not come with any \ac{mc} sampler or \acs{gui}.
+    Thus it has to be coupled with third-party software that provides such functionalities---if needed.
+
+
+    \pac{yap} is currently maintained by Dr.~Daniel Greenwald and Johannes Rauch at the \textsl{Techniche Universit\"at M\"unchen}.
+    The project is hosted on \textsf{GitHub} at \url{https://github.com/yap/YAP}.\marginpar{\centering\qrcode[height=2cm]{https://github.com/yap/YAP}\captionof*{figure}{\pac{yap}'s {\footnotesize URL}.}}
+ 
+
+%    \pac{yap} is designed to handle particle decays into final states with three or more particles through an intuitive \ac{api}.
+%    Also, the library is designed to handle the parallelization of the amplitude calculation through its own threading system.
+%    In the future, parts of the calculations may be offloaded to \acsp{gpu} using \package{OpenCL} or Nvidia's \pacs{cuda}.
+%
+%
+%    We wrote code that is compliant to the last supported \cpp{} standards (currently, \cpp[14]) and is inspired to the \ac{stl}.
+%    For instance, we provide iterators, inserters and algorithms.
+%    For the development of \pac{yap} we used~\cite{stl_meyers,effective_cpp_meyers,effective_modern_cpp_meyers}.
+
+    \section{Structure}
+
+    As stated earlier, \pac{yap}'s code aims to mimic the mathematical description of particle decays.
+    Its design parallels the recursive formula that gives a particle-decay probability amplitude.
+    Given a decaying particle $X$, its decay probability amplitude is the sum over the decay amplitudes of all the channels $X\to D$, being $D\coloneqq \Set{d_1, d_2,\dots,d_n}$ a possible decay product:
+    \begin{equation}\label{eq:yap_decay_amplitude}
+        \A_X = \sum_{X\to D} a_{X\to D}\cdot F_{X\to D}\cdot \Omega_{X\to D}\cdot T(m_X)\prod_{d\in D} \A_d.
+    \end{equation}
+    The terms in which the amplitude~\eqref{eq:yap_decay_amplitude} is factorized are to be interpreted as follows:
+    \begin{description}
+        \item[$a_{X\to D}$] is the free amplitude\index{free amplitude};
+        \item[$F_{X\to D}$] is the Blatt-Wei\ss{}kopf angular-momentum penetration factor\index{form factor}\index{Blatt-Wei\ss{}kopf form factor};
+        \item[$\Omega_{X\to D}$] is the spin amplitude\index{spin amplitude};
+        \item[$T(m_X)$] is the dynamic shape\index{dynamic shape} of the particle $X$;
+        \item[$\A_d$] is the amplitude of the daughter $d$ and, again, has the same form of the equation~\eqref{eq:yap_decay_amplitude}.
+            If $d$ is a final-state particle, $\A_d = 1$. 
+    \end{description}
+
+    \pac{yap} provides (among the others) the following classes.
+    \paragraph{\lstinline!Model!} provides the spin formalism, manages all the decay channels and the data points.
+    \paragraph{\lstinline!Particle!} is the base class for the final-state particles, decaying particles and resonances.
+    \paragraph{\lstinline!DecayChannel!} holds daughters and spin amplitudes.
+    \paragraph{\lstinline!ParticleFactory!} is a helper class to create the particles.
+        It provides an intuitive back-end to the \package{EvtGen} particle information contained in the \texttt{evt.pdl} table described in~\cite[p.~13]{evtgen_manual}.
+
+%    Moreover, the library code is strucitured to mimic the mathematics of \ac{pwa}.
+%    {\color{red}{what's the meaning of that?}}
+%
+%    \pac{yap} is targeted to physicists.
+%    Its code is human readable and is written to mimic the matematical structure of \ac{pwa}.
+%    \pac{yap}'s \ac{api} allows the users to focus on the physics only.
+%
+%    Moreover, \pac{yap} can be coupled to external tools such as \pac{bat} for event generation and fitting, and \MINUIT{} for fitting.
+%
+%    The structure of \pac{yap} reflects the mathematical construction of a \ac{pwa}.
+%    The amplitude of an $n$-body decay $X\to D$, being $D = \Set{d_1, d_2,\dots,d_n}$ a possible decay product, is given by the recursive formula
+%    \begin{equation}
+%        \A = \sum_{\text{decays}} \prod_{d \in D} \A_d
+%    \end{equation}
+
+    \section{Challenges}
+
+        The \ac{pwa} poses several challenges that \pac{yap} aims to project has to face both from the computational and programming point of views.
+        The large data and wave sets make the analyses computationally expensive.
+        Moreover, the large number of free parameters during the fit increases the chances for local maxima of the likelihood function.
+
+
+        \pac{yap} features a smart-caching\index{smart caching} feature for fast amplitude calculation.
+        The wave amplitudes know when their parameters have changed and are not recalculated untill then.
+        As an example, the \lstinline!BreitWigner! dynamic shape internally stores the mass and width of the resonance they it is modeling as smart parameters.
+        Thus they will be evaluated again on all the \lstinline!DataPoint!'s only if any of the parameters changes.
+
+
+
+
+        \pac{yap} supports the parallelization of the calculations on the \acs{cpu} through the thread-support library introduced with the \cpp{11} standard.\footnote{For more information on this library, please refer to~\cite[chap.~?]{effective_modern_cpp_meyers}.}
+        The \lstinline!DataPartition! class is a partitioning of the data set and allows for thread-safe parallel calculations.
+        We also investigated whether it was possible to offload part of the calculation to \acsp{gpu} using \package{OpenCL} or Nvidia's \pacs{cuda}.
+        However, the state of the code did not allow to easily implement it.
+        At the current state this could be easier as the data is already structured in a thread-frendly way.
+
+
+        Incomplete decay modeling can result in fit failure.
+        To prevent this, I implemented a \pac{yap}-based utility for \ac{mipwa}. Please refer to chapter~\ref{chap:model_independent_pwa} for more information.
+
+        \section{Example}
+            \subsection{Generate a \ac{mc} data set}
+
+            \pac{yap} is an amplitude calculator only, not a sampler.
+            However, examples on how to interface it with \pac{bat}---which implements a \ac{mcmc} method---are provided.
+                \begin{figure}
+                    \centering
+                    \begin{tikzpicture}
+                        \begin{axis} [dalitz_plot]
+                            \addplot3 [dalitz]
+                              gnuplot [raw gnuplot] { splot "data/cleo/rho0_f0_f0_1500_f0_500_mcmc.txt" using 1:2:3 };
+                        \end{axis}
+                    \end{tikzpicture}
+
+                    \caption{\ac{mc}-generated Dalitz plot of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay with the following resonances:
+                             \Prhozero{} with a relativistic Breit-Wigner dynamic shape,
+                             \Pfnez{} with a Flatté dynamic shape,
+                             \Pfofzz{} with a relativistic Breit-Wigner dynamic shape, and \Psigma{} with a pole-mass dynamic shape.
+                             The resonance dynamic shapes, parameters, and free amplitudes are those the \cleo~collaboration reported in~\cite{PhysRevD.76.012001}.}
+                    \label{fig:partial_cleo_decay}
+                \end{figure}
+            % -- Model-creation example ---------------------
+            \clearpage
+            \lstinputlisting[caption={Excerpt of the function used to create the Dalitz plot~\ref{fig:partial_cleo_decay}.\label{lst:partial_cleo_decay}}]{source/d3pi.cxx}
+            % -----------------------------------------------
+            The listing~\ref{lst:partial_cleo_decay} shows an excerpt of the model used to generate the Dalitz plot shown in figure~\ref{fig:partial_cleo_decay}.
+            {\color{red} Why am I trying to emulate \cleo{} studies?}
+
+        \subsection{Add a new dynamic shape}
+
+            To perform the \ac{mipwa} fit I had to extend \pac{yap}'s functionalities by implementing a mass-bin dynamic shape.
+            In \pac{yap} any new dynamic shape should inherit from the pure-virtual \lstinline!MassShape! class.
+            \lstinputlisting[caption={Creation of a new dynamic shape.{\color{red} TODO add the correct source}}]{source/d3pi.cxx}
+        
+
+
+%        \subsection{Performance}
+%
+%        \pac{yap} is still under developement so its \ac{api} may change.
+%        Nevertheless, the following structure should remain valid in the future.
+%
+%        Parameters in \pac{yap} are shared among calculating objects which then know if a parameter has changed and if new calculations need to be done.
+%        {\color{red} examples}
+%
+%        Data is cached in data points, \lstinline!DataPoint! classes, and organized in sets, which are then partitioned for parallel calculations.
+
+
+    \section{Future enhancements}
+    Our library is usable but still under heavy developement and far from complete.
+    Some feature to be implemented are:
+    \begin{itemize}
+        \item Add the $K$-matrix formalism;
+        \item bla bla bla
+    \end{itemize}
+
+    
+    
+    I took over the task of implementing a model-independent approach to \ac{pwa} through picewise mass shapes.
+
+
+
+

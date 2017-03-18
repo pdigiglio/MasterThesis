@@ -1,1 +1,87 @@
-% That's a comment
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{
+    grid = major,
+    major grid style={densely dotted},
+    enlargelimits=.05,
+    width = .75\textwidth
+}
+\usepgfplotslibrary{
+    fillbetween,
+    colormaps,
+    units
+}
+
+\usepgfplotslibrary{external}
+\tikzexternalize%[prefix=TikZ_pictures/]
+
+\usepackage{tikz}
+\usetikzlibrary{
+    calc,
+    shapes
+}
+\tikzset{>=stealth,}
+\pgfplotsset{
+    phase_plot/.style={%
+        yticklabel style={sloped like y axis},%
+        xlabel = {Mass of the final-state $\Ppiplus\Ppiminus$ system $[\si{\giga\electronvolt/\square\c}]$},
+        %x unit = {\si{\giga\electronvolt/\square\c}},
+        ylabel = {Dynamic-shape phase $[\si{deg}]$},
+        %y unit = {\si{deg}}
+    },
+    amplitude_plot/.style={%
+        yticklabel style={sloped like y axis},%
+        xlabel = {Mass of the final-state $\Ppiplus\Ppiminus$ system $[\si{\giga\electronvolt/\square\c}]$},
+        %x unit = {\si{\giga\electronvolt/\square\c}},
+        ylabel = {Dynamic-shape magnitude $[\si{1\per(\giga\electronvolt/\square\c)^2}]$},
+        %y unit = {\si{1\per(\giga\electronvolt/\square\c)^{-2}}}, % misaligns the plots
+    },
+    fit/.style={%
+        mark options={%
+            mark size=.75,%
+            color=Maroon,%
+            mark=*%
+        },%
+        ybar interval,%
+        color=ForestGreen,%
+        fill=LimeGreen,%
+        fill opacity=.3,%
+        % -- error bars --------
+        error bars/y dir=both,%
+        error bars/y explicit,%
+        error bars/error bar style={color=Maroon},%
+    },%
+    guess/.style={%
+        line width=.6,
+        color=blue,
+        mark=none,
+        %mark options={%
+        %    mark size=.75,
+        %    mark=square*%
+        %},%
+    },%
+    dalitz_plot/.style={%
+        yticklabel pos=right,
+        view={0}{90},%
+        xlabel = {$m_{\Ppiplus\Ppiminus}^2$ $[\si{\giga\electronvolt^2\!/\c^4}]$},%
+        ylabel = {$m_{\Ppiplus\Ppiminus}^2$ $[\si{\giga\electronvolt^2\!/\c^4}]$},%
+        %x unit = {\si{\giga\electronvolt^2\!/\c^4}},%
+        %y unit = {\si{\giga\electronvolt^2\!/\c^4}},%
+        %colormap/viridis high res,%
+        %colormap/winter,%
+        colorbar left=true,%
+        colorbar left/.append style={%
+            yticklabel style={sloped like x axis},%
+        },%
+        %axis equal,%
+    },%
+    dalitz/.style={%
+        scatter,%
+        scatter src=z,%
+        only marks,%
+        mark options={%
+            mark=square*,%
+            mark size=1.1,%
+        }%
+    }%
+}

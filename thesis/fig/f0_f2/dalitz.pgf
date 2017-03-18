@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+    \begin{axis} [dalitz_plot]
+
+        \addplot3 [dalitz]
+          gnuplot [raw gnuplot] { splot "data/f0_f2/f0_f2_mcmc.txt" using 1:2:3 };
+    \end{axis}
+\end{tikzpicture}

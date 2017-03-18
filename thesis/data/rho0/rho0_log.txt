@@ -1,0 +1,247 @@
+ +------------------------------------------------------+
+ |                                                      |
+ | BAT version 1.1.0-DEV                                  |
+ | Copyright (C) 2007-2015, the BAT core developer team |
+ | All rights reserved.                                 |
+ |                                                      |
+ | For the licensing terms see doc/COPYING              |
+ | For documentation see http://mpp.mpg.de/bat          |
+ | Please cite: DOI 10.1016/j.cpc.2009.06.026           |
+ |              http://arxiv.org/abs/0808.2552          |
+ |                                                      |
+ +------------------------------------------------------+
+Summary : Opening logfile output/rho0_log.txt
+Summary : Test model created
+Summary : 
+Summary :  -----------------------------------------------------
+Summary :  Summary
+Summary :  -----------------------------------------------------
+Summary : 
+Summary :  Model summary
+Summary :  =============
+Summary :  Model: model
+Summary :  Number of parameters: 52
+Summary : 
+Summary :  List of parameters and ranges:
+Summary :   0) amp(D+ --> Bin(0), pi+ L = 1 S = 1)    : [0, 37.3]
+Summary :   1) d_phi(D+ --> Bin(0), pi+ L = 1 S = 1)  : [0, 180] (fixed at 0.0000)
+Summary :   2) amp(D+ --> Bin(1), pi+ L = 1 S = 1)    : [0, 41.13]
+Summary :   3) d_phi(D+ --> Bin(1), pi+ L = 1 S = 1)  : [0, 180]
+Summary :   4) amp(D+ --> Bin(2), pi+ L = 1 S = 1)    : [0, 47.14]
+Summary :   5) d_phi(D+ --> Bin(2), pi+ L = 1 S = 1)  : [0, 180]
+Summary :   6) amp(D+ --> Bin(3), pi+ L = 1 S = 1)    : [0, 57]
+Summary :   7) d_phi(D+ --> Bin(3), pi+ L = 1 S = 1)  : [0, 180]
+Summary :   8) amp(D+ --> Bin(4), pi+ L = 1 S = 1)    : [0, 74.7]
+Summary :   9) d_phi(D+ --> Bin(4), pi+ L = 1 S = 1)  : [0, 180]
+Summary :  10) amp(D+ --> Bin(5), pi+ L = 1 S = 1)    : [0, 84.77]
+Summary :  11) d_phi(D+ --> Bin(5), pi+ L = 1 S = 1)  : [0, 180]
+Summary :  12) amp(D+ --> Bin(6), pi+ L = 1 S = 1)    : [0, 98.01]
+Summary :  13) d_phi(D+ --> Bin(6), pi+ L = 1 S = 1)  : [0, 180]
+Summary :  14) amp(D+ --> Bin(7), pi+ L = 1 S = 1)    : [0, 115.5]
+Summary :  15) d_phi(D+ --> Bin(7), pi+ L = 1 S = 1)  : [0, 180]
+Summary :  16) amp(D+ --> Bin(8), pi+ L = 1 S = 1)    : [0, 137.6]
+Summary :  17) d_phi(D+ --> Bin(8), pi+ L = 1 S = 1)  : [0, 180]
+Summary :  18) amp(D+ --> Bin(9), pi+ L = 1 S = 1)    : [0, 160.9]
+Summary :  19) d_phi(D+ --> Bin(9), pi+ L = 1 S = 1)  : [0, 180]
+Summary :  20) amp(D+ --> Bin(10), pi+ L = 1 S = 1)   : [0, 172.6]
+Summary :  21) d_phi(D+ --> Bin(10), pi+ L = 1 S = 1) : [0, 180]
+Summary :  22) amp(D+ --> Bin(11), pi+ L = 1 S = 1)   : [0, 160.8]
+Summary :  23) d_phi(D+ --> Bin(11), pi+ L = 1 S = 1) : [0, 180]
+Summary :  24) amp(D+ --> Bin(12), pi+ L = 1 S = 1)   : [0, 134.6]
+Summary :  25) d_phi(D+ --> Bin(12), pi+ L = 1 S = 1) : [0, 180]
+Summary :  26) amp(D+ --> Bin(13), pi+ L = 1 S = 1)   : [0, 108.9]
+Summary :  27) d_phi(D+ --> Bin(13), pi+ L = 1 S = 1) : [0, 180]
+Summary :  28) amp(D+ --> Bin(14), pi+ L = 1 S = 1)   : [0, 88.62]
+Summary :  29) d_phi(D+ --> Bin(14), pi+ L = 1 S = 1) : [0, 180]
+Summary :  30) amp(D+ --> Bin(15), pi+ L = 1 S = 1)   : [0, 73.42]
+Summary :  31) d_phi(D+ --> Bin(15), pi+ L = 1 S = 1) : [0, 180]
+Summary :  32) amp(D+ --> Bin(16), pi+ L = 1 S = 1)   : [0, 61.99]
+Summary :  33) d_phi(D+ --> Bin(16), pi+ L = 1 S = 1) : [0, 180]
+Summary :  34) amp(D+ --> Bin(17), pi+ L = 1 S = 1)   : [0, 42.56]
+Summary :  35) d_phi(D+ --> Bin(17), pi+ L = 1 S = 1) : [0, 180]
+Summary :  36) amp(D+ --> Bin(18), pi+ L = 1 S = 1)   : [0, 31.62]
+Summary :  37) d_phi(D+ --> Bin(18), pi+ L = 1 S = 1) : [0, 180]
+Summary :  38) amp(D+ --> Bin(19), pi+ L = 1 S = 1)   : [0, 24.73]
+Summary :  39) d_phi(D+ --> Bin(19), pi+ L = 1 S = 1) : [0, 180]
+Summary :  40) amp(D+ --> Bin(20), pi+ L = 1 S = 1)   : [0, 20.04]
+Summary :  41) d_phi(D+ --> Bin(20), pi+ L = 1 S = 1) : [0, 180]
+Summary :  42) amp(D+ --> Bin(21), pi+ L = 1 S = 1)   : [0, 16.67]
+Summary :  43) d_phi(D+ --> Bin(21), pi+ L = 1 S = 1) : [0, 180]
+Summary :  44) amp(D+ --> Bin(22), pi+ L = 1 S = 1)   : [0, 14.14]
+Summary :  45) d_phi(D+ --> Bin(22), pi+ L = 1 S = 1) : [0, 180]
+Summary :  46) amp(D+ --> Bin(23), pi+ L = 1 S = 1)   : [0, 12.19]
+Summary :  47) d_phi(D+ --> Bin(23), pi+ L = 1 S = 1) : [0, 180]
+Summary :  48) amp(D+ --> Bin(24), pi+ L = 1 S = 1)   : [0, 10.64]
+Summary :  49) d_phi(D+ --> Bin(24), pi+ L = 1 S = 1) : [0, 180]
+Summary :  50) amp(D+ --> Bin(25), pi+ L = 1 S = 1)   : [0, 9.385]
+Summary :  51) d_phi(D+ --> Bin(25), pi+ L = 1 S = 1) : [0, 180]
+Summary : 
+Summary :  List of observables and ranges:
+Summary :   0) Re(D+ --> Bin(0), pi+ L = 1 S = 1)  : [-37.3, 37.3]
+Summary :   1) Im(D+ --> Bin(0), pi+ L = 1 S = 1)  : [-37.3, 37.3]
+Summary :   2) Re(D+ --> Bin(1), pi+ L = 1 S = 1)  : [-41.13, 41.13]
+Summary :   3) Im(D+ --> Bin(1), pi+ L = 1 S = 1)  : [-41.13, 41.13]
+Summary :   4) Re(D+ --> Bin(2), pi+ L = 1 S = 1)  : [-47.14, 47.14]
+Summary :   5) Im(D+ --> Bin(2), pi+ L = 1 S = 1)  : [-47.14, 47.14]
+Summary :   6) Re(D+ --> Bin(3), pi+ L = 1 S = 1)  : [-57, 57]
+Summary :   7) Im(D+ --> Bin(3), pi+ L = 1 S = 1)  : [-57, 57]
+Summary :   8) Re(D+ --> Bin(4), pi+ L = 1 S = 1)  : [-74.7, 74.7]
+Summary :   9) Im(D+ --> Bin(4), pi+ L = 1 S = 1)  : [-74.7, 74.7]
+Summary :  10) Re(D+ --> Bin(5), pi+ L = 1 S = 1)  : [-84.77, 84.77]
+Summary :  11) Im(D+ --> Bin(5), pi+ L = 1 S = 1)  : [-84.77, 84.77]
+Summary :  12) Re(D+ --> Bin(6), pi+ L = 1 S = 1)  : [-98.01, 98.01]
+Summary :  13) Im(D+ --> Bin(6), pi+ L = 1 S = 1)  : [-98.01, 98.01]
+Summary :  14) Re(D+ --> Bin(7), pi+ L = 1 S = 1)  : [-115.5, 115.5]
+Summary :  15) Im(D+ --> Bin(7), pi+ L = 1 S = 1)  : [-115.5, 115.5]
+Summary :  16) Re(D+ --> Bin(8), pi+ L = 1 S = 1)  : [-137.6, 137.6]
+Summary :  17) Im(D+ --> Bin(8), pi+ L = 1 S = 1)  : [-137.6, 137.6]
+Summary :  18) Re(D+ --> Bin(9), pi+ L = 1 S = 1)  : [-160.9, 160.9]
+Summary :  19) Im(D+ --> Bin(9), pi+ L = 1 S = 1)  : [-160.9, 160.9]
+Summary :  20) Re(D+ --> Bin(10), pi+ L = 1 S = 1) : [-172.6, 172.6]
+Summary :  21) Im(D+ --> Bin(10), pi+ L = 1 S = 1) : [-172.6, 172.6]
+Summary :  22) Re(D+ --> Bin(11), pi+ L = 1 S = 1) : [-160.8, 160.8]
+Summary :  23) Im(D+ --> Bin(11), pi+ L = 1 S = 1) : [-160.8, 160.8]
+Summary :  24) Re(D+ --> Bin(12), pi+ L = 1 S = 1) : [-134.6, 134.6]
+Summary :  25) Im(D+ --> Bin(12), pi+ L = 1 S = 1) : [-134.6, 134.6]
+Summary :  26) Re(D+ --> Bin(13), pi+ L = 1 S = 1) : [-108.9, 108.9]
+Summary :  27) Im(D+ --> Bin(13), pi+ L = 1 S = 1) : [-108.9, 108.9]
+Summary :  28) Re(D+ --> Bin(14), pi+ L = 1 S = 1) : [-88.62, 88.62]
+Summary :  29) Im(D+ --> Bin(14), pi+ L = 1 S = 1) : [-88.62, 88.62]
+Summary :  30) Re(D+ --> Bin(15), pi+ L = 1 S = 1) : [-73.42, 73.42]
+Summary :  31) Im(D+ --> Bin(15), pi+ L = 1 S = 1) : [-73.42, 73.42]
+Summary :  32) Re(D+ --> Bin(16), pi+ L = 1 S = 1) : [-61.99, 61.99]
+Summary :  33) Im(D+ --> Bin(16), pi+ L = 1 S = 1) : [-61.99, 61.99]
+Summary :  34) Re(D+ --> Bin(17), pi+ L = 1 S = 1) : [-42.56, 42.56]
+Summary :  35) Im(D+ --> Bin(17), pi+ L = 1 S = 1) : [-42.56, 42.56]
+Summary :  36) Re(D+ --> Bin(18), pi+ L = 1 S = 1) : [-31.62, 31.62]
+Summary :  37) Im(D+ --> Bin(18), pi+ L = 1 S = 1) : [-31.62, 31.62]
+Summary :  38) Re(D+ --> Bin(19), pi+ L = 1 S = 1) : [-24.73, 24.73]
+Summary :  39) Im(D+ --> Bin(19), pi+ L = 1 S = 1) : [-24.73, 24.73]
+Summary :  40) Re(D+ --> Bin(20), pi+ L = 1 S = 1) : [-20.04, 20.04]
+Summary :  41) Im(D+ --> Bin(20), pi+ L = 1 S = 1) : [-20.04, 20.04]
+Summary :  42) Re(D+ --> Bin(21), pi+ L = 1 S = 1) : [-16.67, 16.67]
+Summary :  43) Im(D+ --> Bin(21), pi+ L = 1 S = 1) : [-16.67, 16.67]
+Summary :  44) Re(D+ --> Bin(22), pi+ L = 1 S = 1) : [-14.14, 14.14]
+Summary :  45) Im(D+ --> Bin(22), pi+ L = 1 S = 1) : [-14.14, 14.14]
+Summary :  46) Re(D+ --> Bin(23), pi+ L = 1 S = 1) : [-12.19, 12.19]
+Summary :  47) Im(D+ --> Bin(23), pi+ L = 1 S = 1) : [-12.19, 12.19]
+Summary :  48) Re(D+ --> Bin(24), pi+ L = 1 S = 1) : [-10.64, 10.64]
+Summary :  49) Im(D+ --> Bin(24), pi+ L = 1 S = 1) : [-10.64, 10.64]
+Summary :  50) Re(D+ --> Bin(25), pi+ L = 1 S = 1) : [-9.385, 9.385]
+Summary :  51) Im(D+ --> Bin(25), pi+ L = 1 S = 1) : [-9.385, 9.385]
+Summary : 
+Summary : 
+Summary :  Results of the optimization
+Summary :  ===========================
+Summary :  Optimization algorithm used: Default
+Summary :  Best Fit Results
+Summary :  ===========================
+Summary :  Log of the maximum posterior: 108757.516458
+Summary : 
+Summary :  Global mode:
+Summary :    0)  Parameter "amp(D+ --> Bin(0), pi+ L = 1 S = 1)"    : 2.016 +- 0.2492
+Summary :    1)  Parameter "d_phi(D+ --> Bin(0), pi+ L = 1 S = 1)"  : 0 (fixed) +- 0
+Summary :    2)  Parameter "amp(D+ --> Bin(1), pi+ L = 1 S = 1)"    : 2.631 +- 0.09903
+Summary :    3)  Parameter "d_phi(D+ --> Bin(1), pi+ L = 1 S = 1)"  : 0.001257 +- 0.695
+Summary :    4)  Parameter "amp(D+ --> Bin(2), pi+ L = 1 S = 1)"    : 2.684 +- 0.05358
+Summary :    5)  Parameter "d_phi(D+ --> Bin(2), pi+ L = 1 S = 1)"  : 0.001572 +- 1.479
+Summary :    6)  Parameter "amp(D+ --> Bin(3), pi+ L = 1 S = 1)"    : 3.257 +- 0.03542
+Summary :    7)  Parameter "d_phi(D+ --> Bin(3), pi+ L = 1 S = 1)"  : 4.982 +- 1.807
+Summary :    8)  Parameter "amp(D+ --> Bin(4), pi+ L = 1 S = 1)"    : 3.922 +- 0.05108
+Summary :    9)  Parameter "d_phi(D+ --> Bin(4), pi+ L = 1 S = 1)"  : 9.311 +- 1.5
+Summary :   10)  Parameter "amp(D+ --> Bin(5), pi+ L = 1 S = 1)"    : 4.792 +- 0.05033
+Summary :   11)  Parameter "d_phi(D+ --> Bin(5), pi+ L = 1 S = 1)"  : 0.004118 +- 0.301
+Summary :   12)  Parameter "amp(D+ --> Bin(6), pi+ L = 1 S = 1)"    : 5.372 +- 0.04748
+Summary :   13)  Parameter "d_phi(D+ --> Bin(6), pi+ L = 1 S = 1)"  : 3.57 +- 1.508
+Summary :   14)  Parameter "amp(D+ --> Bin(7), pi+ L = 1 S = 1)"    : 6.581 +- 0.04746
+Summary :   15)  Parameter "d_phi(D+ --> Bin(7), pi+ L = 1 S = 1)"  : 5.186 +- 1.47
+Summary :   16)  Parameter "amp(D+ --> Bin(8), pi+ L = 1 S = 1)"    : 7.812 +- 0.04401
+Summary :   17)  Parameter "d_phi(D+ --> Bin(8), pi+ L = 1 S = 1)"  : 22.56 +- 1.545
+Summary :   18)  Parameter "amp(D+ --> Bin(9), pi+ L = 1 S = 1)"    : 8.694 +- 0.04338
+Summary :   19)  Parameter "d_phi(D+ --> Bin(9), pi+ L = 1 S = 1)"  : 35.78 +- 1.444
+Summary :   20)  Parameter "amp(D+ --> Bin(10), pi+ L = 1 S = 1)"   : 8.494 +- 0.04133
+Summary :   21)  Parameter "d_phi(D+ --> Bin(10), pi+ L = 1 S = 1)" : 0.01272 +- 0.2695
+Summary :   22)  Parameter "amp(D+ --> Bin(11), pi+ L = 1 S = 1)"   : 7.548 +- 0.04078
+Summary :   23)  Parameter "d_phi(D+ --> Bin(11), pi+ L = 1 S = 1)" : 19.06 +- 1.202
+Summary :   24)  Parameter "amp(D+ --> Bin(12), pi+ L = 1 S = 1)"   : 6.328 +- 0.041
+Summary :   25)  Parameter "d_phi(D+ --> Bin(12), pi+ L = 1 S = 1)" : 13.57 +- 1.151
+Summary :   26)  Parameter "amp(D+ --> Bin(13), pi+ L = 1 S = 1)"   : 5.043 +- 0.03945
+Summary :   27)  Parameter "d_phi(D+ --> Bin(13), pi+ L = 1 S = 1)" : 4.997 +- 1.186
+Summary :   28)  Parameter "amp(D+ --> Bin(14), pi+ L = 1 S = 1)"   : 4.122 +- 0.0407
+Summary :   29)  Parameter "d_phi(D+ --> Bin(14), pi+ L = 1 S = 1)" : 14.42 +- 1.937
+Summary :   30)  Parameter "amp(D+ --> Bin(15), pi+ L = 1 S = 1)"   : 3.541 +- 0.03954
+Summary :   31)  Parameter "d_phi(D+ --> Bin(15), pi+ L = 1 S = 1)" : 10.94 +- 1.769
+Summary :   32)  Parameter "amp(D+ --> Bin(16), pi+ L = 1 S = 1)"   : 2.781 +- 0.02574
+Summary :   33)  Parameter "d_phi(D+ --> Bin(16), pi+ L = 1 S = 1)" : 9.017e-06 +- 0.3435
+Summary :   34)  Parameter "amp(D+ --> Bin(17), pi+ L = 1 S = 1)"   : 1.98 +- 0.02777
+Summary :   35)  Parameter "d_phi(D+ --> Bin(17), pi+ L = 1 S = 1)" : 11.31 +- 1.613
+Summary :   36)  Parameter "amp(D+ --> Bin(18), pi+ L = 1 S = 1)"   : 1.481 +- 0.02911
+Summary :   37)  Parameter "d_phi(D+ --> Bin(18), pi+ L = 1 S = 1)" : 0.3052 +- 0.7765
+Summary :   38)  Parameter "amp(D+ --> Bin(19), pi+ L = 1 S = 1)"   : 1.162 +- 0.02827
+Summary :   39)  Parameter "d_phi(D+ --> Bin(19), pi+ L = 1 S = 1)" : 6.839e-06 +- 0.6371
+Summary :   40)  Parameter "amp(D+ --> Bin(20), pi+ L = 1 S = 1)"   : 0.9242 +- 0.02955
+Summary :   41)  Parameter "d_phi(D+ --> Bin(20), pi+ L = 1 S = 1)" : 20.08 +- 5.313
+Summary :   42)  Parameter "amp(D+ --> Bin(21), pi+ L = 1 S = 1)"   : 0.8205 +- 0.04488
+Summary :   43)  Parameter "d_phi(D+ --> Bin(21), pi+ L = 1 S = 1)" : 17.07 +- 6.623
+Summary :   44)  Parameter "amp(D+ --> Bin(22), pi+ L = 1 S = 1)"   : 0.6961 +- 0.06846
+Summary :   45)  Parameter "d_phi(D+ --> Bin(22), pi+ L = 1 S = 1)" : 0.06164 +- 7.046
+Summary :   46)  Parameter "amp(D+ --> Bin(23), pi+ L = 1 S = 1)"   : 0.3255 +- 0.1237
+Summary :   47)  Parameter "d_phi(D+ --> Bin(23), pi+ L = 1 S = 1)" : 7.735 +- 8.723
+Summary :   48)  Parameter "amp(D+ --> Bin(24), pi+ L = 1 S = 1)"   : 1.202 +- 0.2858
+Summary :   49)  Parameter "d_phi(D+ --> Bin(24), pi+ L = 1 S = 1)" : 44.51 +- 12.19
+Summary :   50)  Parameter "amp(D+ --> Bin(25), pi+ L = 1 S = 1)"   : 8.052 +- 0.8658
+Summary :   51)  Parameter "d_phi(D+ --> Bin(25), pi+ L = 1 S = 1)" : 180 +- 1.316
+Summary :   52) Observable "Re(D+ --> Bin(0), pi+ L = 1 S = 1)"     : 2.016 (no error estimate available)
+Summary :   53) Observable "Im(D+ --> Bin(0), pi+ L = 1 S = 1)"     : 0 (no error estimate available)
+Summary :   54) Observable "Re(D+ --> Bin(1), pi+ L = 1 S = 1)"     : 2.631 (no error estimate available)
+Summary :   55) Observable "Im(D+ --> Bin(1), pi+ L = 1 S = 1)"     : 5.771e-05 (no error estimate available)
+Summary :   56) Observable "Re(D+ --> Bin(2), pi+ L = 1 S = 1)"     : 2.684 (no error estimate available)
+Summary :   57) Observable "Im(D+ --> Bin(2), pi+ L = 1 S = 1)"     : 0.0001325 (no error estimate available)
+Summary :   58) Observable "Re(D+ --> Bin(3), pi+ L = 1 S = 1)"     : 3.245 (no error estimate available)
+Summary :   59) Observable "Im(D+ --> Bin(3), pi+ L = 1 S = 1)"     : 0.283 (no error estimate available)
+Summary :   60) Observable "Re(D+ --> Bin(4), pi+ L = 1 S = 1)"     : 3.801 (no error estimate available)
+Summary :   61) Observable "Im(D+ --> Bin(4), pi+ L = 1 S = 1)"     : 0.9684 (no error estimate available)
+Summary :   62) Observable "Re(D+ --> Bin(5), pi+ L = 1 S = 1)"     : 4.644 (no error estimate available)
+Summary :   63) Observable "Im(D+ --> Bin(5), pi+ L = 1 S = 1)"     : 1.184 (no error estimate available)
+Summary :   64) Observable "Re(D+ --> Bin(6), pi+ L = 1 S = 1)"     : 5.113 (no error estimate available)
+Summary :   65) Observable "Im(D+ --> Bin(6), pi+ L = 1 S = 1)"     : 1.649 (no error estimate available)
+Summary :   66) Observable "Re(D+ --> Bin(7), pi+ L = 1 S = 1)"     : 6.055 (no error estimate available)
+Summary :   67) Observable "Im(D+ --> Bin(7), pi+ L = 1 S = 1)"     : 2.577 (no error estimate available)
+Summary :   68) Observable "Re(D+ --> Bin(8), pi+ L = 1 S = 1)"     : 5.464 (no error estimate available)
+Summary :   69) Observable "Im(D+ --> Bin(8), pi+ L = 1 S = 1)"     : 5.584 (no error estimate available)
+Summary :   70) Observable "Re(D+ --> Bin(9), pi+ L = 1 S = 1)"     : 1.3 (no error estimate available)
+Summary :   71) Observable "Im(D+ --> Bin(9), pi+ L = 1 S = 1)"     : 8.596 (no error estimate available)
+Summary :   72) Observable "Re(D+ --> Bin(10), pi+ L = 1 S = 1)"    : 1.268 (no error estimate available)
+Summary :   73) Observable "Im(D+ --> Bin(10), pi+ L = 1 S = 1)"    : 8.399 (no error estimate available)
+Summary :   74) Observable "Re(D+ --> Bin(11), pi+ L = 1 S = 1)"    : -1.372 (no error estimate available)
+Summary :   75) Observable "Im(D+ --> Bin(11), pi+ L = 1 S = 1)"    : 7.422 (no error estimate available)
+Summary :   76) Observable "Re(D+ --> Bin(12), pi+ L = 1 S = 1)"    : -2.579 (no error estimate available)
+Summary :   77) Observable "Im(D+ --> Bin(12), pi+ L = 1 S = 1)"    : 5.779 (no error estimate available)
+Summary :   78) Observable "Re(D+ --> Bin(13), pi+ L = 1 S = 1)"    : -2.449 (no error estimate available)
+Summary :   79) Observable "Im(D+ --> Bin(13), pi+ L = 1 S = 1)"    : 4.409 (no error estimate available)
+Summary :   80) Observable "Re(D+ --> Bin(14), pi+ L = 1 S = 1)"    : -2.835 (no error estimate available)
+Summary :   81) Observable "Im(D+ --> Bin(14), pi+ L = 1 S = 1)"    : 2.992 (no error estimate available)
+Summary :   82) Observable "Re(D+ --> Bin(15), pi+ L = 1 S = 1)"    : -2.879 (no error estimate available)
+Summary :   83) Observable "Im(D+ --> Bin(15), pi+ L = 1 S = 1)"    : 2.061 (no error estimate available)
+Summary :   84) Observable "Re(D+ --> Bin(16), pi+ L = 1 S = 1)"    : -2.261 (no error estimate available)
+Summary :   85) Observable "Im(D+ --> Bin(16), pi+ L = 1 S = 1)"    : 1.618 (no error estimate available)
+Summary :   86) Observable "Re(D+ --> Bin(17), pi+ L = 1 S = 1)"    : -1.805 (no error estimate available)
+Summary :   87) Observable "Im(D+ --> Bin(17), pi+ L = 1 S = 1)"    : 0.8145 (no error estimate available)
+Summary :   88) Observable "Re(D+ --> Bin(18), pi+ L = 1 S = 1)"    : -1.353 (no error estimate available)
+Summary :   89) Observable "Im(D+ --> Bin(18), pi+ L = 1 S = 1)"    : 0.6019 (no error estimate available)
+Summary :   90) Observable "Re(D+ --> Bin(19), pi+ L = 1 S = 1)"    : -1.062 (no error estimate available)
+Summary :   91) Observable "Im(D+ --> Bin(19), pi+ L = 1 S = 1)"    : 0.4724 (no error estimate available)
+Summary :   92) Observable "Re(D+ --> Bin(20), pi+ L = 1 S = 1)"    : -0.922 (no error estimate available)
+Summary :   93) Observable "Im(D+ --> Bin(20), pi+ L = 1 S = 1)"    : 0.0628 (no error estimate available)
+Summary :   94) Observable "Re(D+ --> Bin(21), pi+ L = 1 S = 1)"    : -0.7989 (no error estimate available)
+Summary :   95) Observable "Im(D+ --> Bin(21), pi+ L = 1 S = 1)"    : -0.1871 (no error estimate available)
+Summary :   96) Observable "Re(D+ --> Bin(22), pi+ L = 1 S = 1)"    : -0.6776 (no error estimate available)
+Summary :   97) Observable "Im(D+ --> Bin(22), pi+ L = 1 S = 1)"    : -0.1594 (no error estimate available)
+Summary :   98) Observable "Re(D+ --> Bin(23), pi+ L = 1 S = 1)"    : -0.304 (no error estimate available)
+Summary :   99) Observable "Im(D+ --> Bin(23), pi+ L = 1 S = 1)"    : -0.1165 (no error estimate available)
+Summary :  100) Observable "Re(D+ --> Bin(24), pi+ L = 1 S = 1)"    : -0.4988 (no error estimate available)
+Summary :  101) Observable "Im(D+ --> Bin(24), pi+ L = 1 S = 1)"    : -1.094 (no error estimate available)
+Summary :  102) Observable "Re(D+ --> Bin(25), pi+ L = 1 S = 1)"    : 3.341 (no error estimate available)
+Summary :  103) Observable "Im(D+ --> Bin(25), pi+ L = 1 S = 1)"    : 7.326 (no error estimate available)
+Summary : 
+Summary : Exiting

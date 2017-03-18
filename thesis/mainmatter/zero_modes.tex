@@ -1,0 +1,11 @@
+Introduction of the isobar-freed fit leads to linear dipendencies among the waves in the fit model.
+This can be seen by means of the integral matrix (now $w$ and $v$ are wave indices)
+\begin{equation}
+    I_{wv} \coloneqq \int_\Omega \psi_w^*(\tau)\,\psi_v(\tau)\ud\tau
+\end{equation}
+which represents the integrated overlap of the waves $w$ and $v$ over the phase space.
+Since $I$ is hermitian, its eigenvalues are real.
+So
+\begin{equation}
+    I^{\text{Tot}} \coloneqq \int_\Omega \abs{\A(\tau)}^2\!\ud \tau = \sum_{v,w \in \Set{\text{waves}}} T_w^* I_{wv} T_v.
+\end{equation}

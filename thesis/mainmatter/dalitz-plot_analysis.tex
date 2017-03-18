@@ -1,0 +1,39 @@
+In a two-body decay, the energy-momentum conservation fully determines the energy of the final-state particles in the center-of-mass frame.
+In a three-body decay, after requiring energy and momentum conservation, there are still five remaining \acp{dof} in the frame of the final state (i.e.~the rest frame of the parent particle).
+If the initial and final state particles have spin zero, up to an arbitrary rotation, two \acp{dof} remain.
+
+
+The amplitude of the three-body decay can be expressed with respect to several parameter pairs.
+It is thus convenient to choose a couple of parameters such that the phase-space term is constant within the kinematically-allowed region they span.
+Two such variables are the square invariant masses of the two pairs of final-state particles, i.e.~$m_{ab}^2 = p_{ab}^2$ and $m_{bc}^2 = p_{bc}^2$, being $a$, $b$, and $c$ the labels for the final-state particles.
+The differential decay probability for a parent particle with mass $M$ into three final-state particles is
+\begin{equation}
+    \ud\Gamma = \frac{1}{(2\pi)^3}\frac{1}{32M^3}\abs{\A(m_{ab}^2, m_{bc}^2)}^2
+    \ud m_{ab}^2 \!\ud m_{bc}^2.
+\end{equation}
+As the phase-space measure is a constant function, any non-uniformity in the distribution of $m_{ab}^2$ and $m_{bc}^2$ is due to the decay amplitude $\A$.
+
+\begin{figure}
+    \centering
+    \input{fig/dalitz_plot.pgf}
+    \caption{Kinematically-allowed region in the phase space of a three-body decay. Resoances will appear as bands within the allowed region.}
+    \label{fig:dalitz_kinematically_allowed}
+\end{figure}
+The kinematically-allowed phase-space region, shown in figure~\ref{fig:dalitz_kinematically_allowed}, can be expressed in terms of a constrain on $m_{bc}^2$ as follows:
+\begin{equation}
+\begin{aligned}
+    (m_{bc}^2)_{\text{max}} &= (E_b^* + E_c^*)^2 - (p_b^* - p_c^*)^2,\\
+    (m_{bc}^2)_{\text{min}} &= (E_b^* + E_c^*)^2 - (p_b^* + p_c^*)^2,
+\end{aligned}
+\end{equation}
+where
+\begin{equation}
+    E_b^* = \frac{m_{ab}^2 - m_a^2 + m_b^2}{2m_{ab}},\quad% \text{ and }
+    E_c^* = \frac{M^2 - m_{ab}^2 - m_c^2}{2 m_{ab}}
+\end{equation}
+are the energies of the final-state particles $b$ and $c$ in the rest frame of the system $ab$ and
+\begin{equation}
+    p_b^* = \sqrt{{E_b^*}^2 - m_b^2},\quad% \text{ and }
+    p_c^* = \sqrt{{E_c^*}^2 - m_c^2}
+\end{equation}
+the corresponding 3-momenta magnitudes.

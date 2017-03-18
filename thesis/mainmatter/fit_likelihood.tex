@@ -1,0 +1,68 @@
+\section{Fit likelihood}
+
+    The model-independent fit to the \ac{mc}-generated data set, $D = \Set{d_1, d_2,\dots, d_m}$, is performed through the maximum-likelihood method.
+    In this section I am going to justify the expression of the log-likelihood used in the fittin routine.
+
+    If $p \coloneqq (p_1, p_2,\dots, p_n)$ is the fit-parameter vector, the Bayes' theorem reads
+    \begin{equation}
+        P(p\given D) = \frac{P(D\given p)\, P(p)}{P(D)}.
+    \end{equation}
+    First, let's note that the parameters are assumed to be independent among each other, so that
+    \begin{equation}
+        P(p) = \prod_{i = 1}^n P_i(p_i),
+    \end{equation}
+    being $P_i$ the probability density function of the $i$-th parameter.
+    As there is no information about the fit parameters, I choose the following flat distributions for the priors:
+    \begin{equation}\label{eq:flat_priors}
+        P_i(p_i) =
+        \begin{cases}
+            1/(b_i - a_i) & \text{if } a_i \le p_i \le b_i, \\
+            0             & \text{otherwise},
+        \end{cases}
+    \end{equation}
+    where $[a_i, b_i]$ is the domain of the $i$-th parameter.
+    This choice implies that the prior $P(p)$ is a constant function in the hypercube where all its arguments are defined.
+
+    The likelihood function is defined as the conditional probability of observing the data set $D$ given $p$, that is
+    \begin{equation}
+        L(p) \coloneqq P(D\given p).
+    \end{equation}
+    Since the priors and $P(D)$ are constant functions, the likelihood is directly proportional to the posterior probability:
+    \begin{equation}
+        P(p\given D) = \alpha L(p),\quad \text{where } \alpha \coloneqq \frac{P(p)}{P(D)}.
+    \end{equation}
+    The logarithm of the likelihood reads
+    \begin{equation}
+        \log L(p) = \log P(p\given D) - \log \alpha.
+    \end{equation}
+
+
+    The posterior probability is proportional to the square magnitude of the decay amplitude, which is the model \emph{intensity}\index{intensity}.
+    This is a function of the decay phase-space point $\mu$ defined as follows:
+    \begin{equation}
+        I_p(\mu) \coloneqq \abs{\A_p(\mu)}^2.
+    \end{equation}
+    With this definition, the posterior probability of the fit parameters given an observed point in the phase space, $d$, is
+    \begin{equation}
+        P(p\given d) = \frac{I_p(d)}{\displaystyle\int I_p(\mu)\ud\mu},
+    \end{equation}
+    where the normalizing integral is over the whole decay phase-space.
+    Assuming the point in the observed data set have no correlation, the posterior for the fit parameters given the whole set $D$ is
+    \begin{equation}
+        P(p\given D) = \prod_{d\in D} P(p\given d) = \frac{\displaystyle\prod_{d\in D}I_p(d)}{\displaystyle\left(\int I_p(\mu)\ud\mu\right)^m}.
+    \end{equation}
+    The log-likelihood then reads
+    \begin{equation}
+        \log L(p) = \sum_{d\in D}\log I_p(d) - m\log\int I_p(\mu) \ud \mu - \log \alpha.
+    \end{equation}
+    Retaining only the $p$-dependent terms in the equation above, the expression of the log-likelihood that needs to be maximized is
+    \begin{equation}\label{eq:log_lik_unstable}
+        \log \tilde L(p) = \sum_{d\in D}\log I_p(d) - m\log \int I_p(\mu)\ud\mu.
+    \end{equation}
+
+
+    It is worth pointing out that, in the fit routine, the expression used for the log-likelihood is the following:
+    \begin{equation}\label{eq:log_lik_stable}
+        \log \tilde L(p) = \sum_{d\in D}\left(\log I_p(d) - \log \int I_p(\mu)\ud\mu\right)\!.
+    \end{equation}
+    In fact, while being mathematically equivalent, the~\eqref{eq:log_lik_stable} is numerically more stable than the~\eqref{eq:log_lik_unstable}.

@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+    \begin{axis}[phase_plot]
+        \addplot+ [guess] table [x index={0}, y index={5}] {data/f2/par_guess.txt};
+        \addplot+ [fit] table [x index={0}, y index={5}, y error index={6}]
+                  {data/f2/par_fit.txt};
+
+    \end{axis}
+\end{tikzpicture}

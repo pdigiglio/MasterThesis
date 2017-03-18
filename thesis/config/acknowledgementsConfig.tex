@@ -1,10 +1,6 @@
 % Define the acknowledgements environment in a book (or scrbook) documentclass
 
-% These are already loaded/defined in abstractConfig.tex
-%\usepackage{fancyhdr}
-%\newcommand{\fncyblank}{\fancyhf{}}
-
 \newenvironment{acknowledgements}%
-{\cleardoublepage\fncyblank\null\vfill\begin{center}%
+{\cleardoublepage\thispagestyle{empty}\null\vfill\begin{center}%
 \bfseries{Acknowledgements}\end{center}}%
 {\vfill\null}

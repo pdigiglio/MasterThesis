@@ -1,8 +1,11 @@
 \begin{tikzpicture}
     \begin{axis}[
             error bars/y dir=both,
-            error bars/y explicit
+            error bars/y explicit,
+            xlabel = {Bin index},
+            ylabel = {Amplitude}
         ]
-        \addplot+ table [x index=0, y index=1, y error index=2] {data/output8bins/parameters.dat};
+        \addplot+[ybar stacked] table [x index=0, y index=1, y error index=2] {data/output8bins/parameters.dat};
+        %\addplot+[ybar stacked] table [x index=0, y index=1, y error index=2] {data/output8bins/parameters.dat};
     \end{axis}
 \end{tikzpicture}

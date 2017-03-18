@@ -1,0 +1,34 @@
+Experiments have shown that nonleptonic three-body decays proceed through intermediate two-body resonant decays.
+Thus, the amplitude is modeled as a coherent sum of two-body decays plus a non-resonant contribution:
+\begin{equation}\label{eq:general_decay_amplitude}
+    \A(m_{ab}^2, m_{bc}^2) = \sum_r a_r \eu^{\iu\phi_r}\A_r(m_{ab}^2,m_{bc}^2)
+    + a_{\textup{NR}} \eu^{\iu \phi_{\textup{NR}}} \A_{\textup{NR}}(m_{ab}^2,m_{bc}^2).
+\end{equation}
+The parameters $a_r$ and $\phi_r$ are the magnitude and phase of the amplitude for the resonance component $r$.
+The same interpretation holds for $a_\text{NR}$ and $\phi_\text{NR}$.
+These parameters are modeled by the \lstinline!FreeAmplitude! class in \pac{yap}.
+
+
+One way to parametrize the resonant components of the decay amplitude~\eqref{eq:general_decay_amplitude} is through the isobar model (or isobar formalism).
+In this form, the function $\A_r$ is decomposed in the following product:
+\begin{equation}
+    \A_r = F_P\,F_r\, T_r\, W_r.
+\end{equation}
+Here, the product of the dynamical function, $T_r$, and the angular distribution, $W_r$, is the propagator of the resonance $r$.
+The functions $F_P$ and $F_r$ are the transition form factors of the parent particle and the resonance.
+
+The dynamical function is usually described by a relativistic Breit-Wigner with a mass-dependent width:
+\begin{equation}
+    T_r = \frac{1}{m_r^2 - m_{ab}^2 - \iu m_r \Gamma_{ab}}
+\end{equation}
+
+The angular distribution is described either by using Zemach tensors of by using the helicity formalism.
+
+
+The form factors $F_P$ and $F_r$ usually use the Blatt-Weisskopf parametrization for the decay vertex.
+
+
+The $K$-matrix is an alternative approach to the isobar formalism for the amplitude calculation.
+
+
+Model independent \gls{pwa} and binned analysis are examples of model independent Dalitz-plot analysis.

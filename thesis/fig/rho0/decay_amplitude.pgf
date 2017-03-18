@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+    \begin{axis}[amplitude_plot]
+
+        \addplot+ [guess] table [x index={0}, y index={1}] {data/rho0/par_guess.txt};
+        \addplot+ [fit, error bars/.cd, y dir=both, y explicit]
+            table [x index={0}, y index={1}, y error index={2}]
+                  {data/rho0/par_fit.txt};
+    \end{axis}
+\end{tikzpicture}

@@ -1,15 +1,29 @@
 \documentclass[
-	fontsize=10pt,
-	open=right,
-	twoside,
+    a4paper,
+    titlepage,
+    %headinclude,
+    %footinclude,
+    BCOR5mm,
+    numbers=noenddot,
+    cleardoublepage=empty,
+    tablecaptionabove
+    fontsize=10pt,
+    open=right,
+    twoside,
     english,
-    draft,
-	%final
+    %draft,
+	final
 ]{scrbook}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian,main=english]{babel}
 
+%\usepackage[eulerchapternumbers,subfig,beramono,eulermath,pdfspacing]{classicthesis}
+%\usepackage[eulerchapternumbers,subfig,eulermath,pdfspacing]{classicthesis}
+%\usepackage{arsclassica}
+
 \usepackage{showkeys}
+\usepackage{subfig}
 
 % TODO Setup typography (fonts, mparhack, microtype...)
 %\input{config/typographyConfig}
@@ -19,16 +33,30 @@
 \input{config/colorConfig}
 % Setup plots
 \input{config/pgfConfig}
+% For the background coffee stain in the acknowledgements page.
+\usepackage{eso-pic}
 
 % Setup units
 \input{config/siunitxConfig}
 % Setup math
 \input{config/mathConfig}
 \newcommand{\A}{\ensuremath{\mathcal{A}}}
+\newcommand{\Intensity}{\ensuremath{\mathcal{I}}}
 \newcommand{\package}[1]{\textsf{#1}}
-\newcommand{\ROOT}{{\footnotesize{ROOT}}}
-\newcommand{\MINUIT}{{\footnotesize{MINUIT}}}
+\newcommand{\ROOT}{{\footnotesize{\package{ROOT}}}}
+\newcommand{\MINUIT}{{\footnotesize{\package{MINUIT}}}}
 \newcommand{\cpp}[1][]{{\footnotesize{C++\ifthenelse{\equal{#1}{}}{}{#1}}}}
+\newcommand{\eg}{e.g.}
+\newcommand{\ie}{i.e.}
+
+\newcommand{\collaboration}[1]{\textsc{#1}}
+\newcommand{\cleo}{\collaboration{cleo}}
+
+% Wrappers for the acronyms
+% No plurals should be needed for packages
+\newcommand{\pac}[1]{\package{\ac{#1}}}
+\newcommand{\pacl}[1]{\package{\acl{#1}}}
+\newcommand{\pacs}[1]{\package{\acs{#1}}}
 
 % Setup listings
 \input{config/listingsConfig}
@@ -50,6 +78,8 @@
 % XXX Load it _after_ hyperref, babel, polyglossia, inputenc and fontenc
 \input{config/acronymConfig}
 
+\usepackage{caption}
+
 % Add this package to draw molecules (needed for the caffeine!)
 \usepackage{chemfig}
 % Change atom font in molecule figures
@@ -57,19 +87,13 @@
 
 \usepackage[
 %    notitalic, % particle names are upright
-%    maybess,  % allow sans serif if surrounding is sans serif
 ]{hepnames}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.14}
-\usepgfplotslibrary{fillbetween}
-\usepgfplotslibrary{external}
-%\tikzexternalize
-\usetikzlibrary{calc}
-\tikzset{>=stealth,}
-\usepackage{lipsum}
+\newcommand{\Pfnez}{\HepParticleResonanceFull{f}{0}{}{980}{}{}{}}
+\newcommand{\Pfofzz}{\HepParticleResonanceFull{f}{0}{}{1500}{}{}{}}
+\newcommand{\Psigma}{\HepParticleResonanceFull{f}{0}{}{500}{}{}{}}
 \usepackage{qrcode}
 
-\title{}
+\title{Development of software for model-independent analysis of multi-body hadronic decays}
 \subtitle{}
 \author{
   \input{AUTHORS}
@@ -82,295 +106,68 @@
 % FRONTMATTER
 %
 \frontmatter
+\phantomsection
 \pdfbookmark[0]{Title}{chap:title}
 	\maketitle
 	\thispagestyle{empty}
 
 	\cleardoublepage
+\phantomsection
 \pdfbookmark[0]{Dedication}{chap:dedication}
 	\input{frontmatter/dedication}
 
 	\cleardoublepage
+\phantomsection
 \pdfbookmark[0]{\abstractname}{chap:abstract}
 	\input{frontmatter/abstract}
 
 	\cleardoublepage
+\phantomsection
 \pdfbookmark[0]{Acknowledgements}{chap:acknowledgements}
 	\input{frontmatter/acknowledgements}
 
 	\cleardoublepage
+\phantomsection
 \pdfbookmark[0]{\contentsname}{chap:contents}
 	\tableofcontents
+
+    \cleardoublepage
+\phantomsection
+\pdfbookmark[0]{\listfigurename}{chap:lof}
+	\listoffigures
+
 
 %----------------------------------------------------------------------------------------
 % MAINMATTER
 %
 \mainmatter
 
-\chapter{Introduction}
-
-(Write last)
-    \section{Physical motivation}
-
-\chapter{Theory introduction}
-
-    \section{\acs{pwa} for heavy-meson decays}
-
-    The amplitude is decomposed in partial waves, that usually correspond to eigenvectors of an observable.
-    In a three-body decay, for instance, one can write
-    \begin{equation}\label{eq:pwa_ang_mom}
-        \A = \sum_{L=0}^\infty a_L \A_L,
-    \end{equation}
-    where $L$ is an index for the angular momentum between the $ab$ system and the bachelor particle $c$.
-
-        \subsection{Isobar model}
-        In the isobar model only two-body decays are allowed.
-        \begin{figure}
-            \centering
-            \input{fig/isobar_decay.pgf}
-            \caption{Decay $P\to abc$ through a resonance $r$.}
-        \end{figure}
-        The resonance, in turn, will decay into the particles $a$ and $b$.
-
-
-        This way, the~\eqref{eq:pwa_ang_mom} will be further decomposed into a coherent sum of the amplitudes that populate each wave:
-        \begin{equation}
-            \A_L = \sum_r a_L^r \A_L^r,
-        \end{equation}
-        being $r$ and index for the alloewd resonances.
-        Resonances have to fulfill conservation laws at each decay vertex, just like particles.
-        Resonances are intermediary states that cannot, by their nature, be observed.
-
-
-
-        It's difficult to find a heuristic model for the S wave, since it is the most populated.
-        For this, we implement a model-independent description in \ac{yap}.
-
-            \subsubsection{How to model the amplitude of a resonance}
-            Motivate the decomposition in $F_P F_r T_r W_r$.
-
-    \section{Dalitz-plot analysis}
-
-    \begin{equation}
-        \ud\Gamma = \frac{1}{(2\pi)^3}\frac{1}{32M^3}\abs{\A}\ud m_{ab}^2 \!\ud m_{bc}^2
-    \end{equation}
-    So any deviation from the uniform distribution of the decay count plot against these two masses comes from the dynamical amplitude \A{}.
+    \input{mainmatter/introduction}
+    \input{mainmatter/theory}
+    \input{mainmatter/yap}
+    \input{mainmatter/mipwa}
 
     \begin{figure}
         \centering
-        %\input{fig/dalitz_plot.pgf}
-        \caption{Kinematically allowed region in the phase space of a three-body decay.}
+        \includegraphics[width=.9\textwidth]{fig/f2_real_time_fit.png}
+
+        \caption{Screenshot of the real-time plot of the decay-amplitude magnitude while fitting a \Pfii{} resonance.
+                 In blue, with black points, the initial guess for the fit parameters; in red, the fit parameters.
+                 In this case, the initial guess for the fit parameters is the value of the \Pfii{} dynamic shape on the low edges of the bins that partition the mass range.}
+        \label{fig:rt_par_fit}
     \end{figure}
 
 
-    Now the problem is how to model the amplitude.
-    Past experiments have shown that nonleptonic three-body decays proceed through intermediate two-body resonant decays.
-    Thus, the amplitude is modeled as a coherent sum of two-body decays plus a non-resonant constribution:
-    \begin{equation}
-        \A(m_{ab}^2, m_{bc}^2) = \sum_r a_r \eu^{\iu\phi_r}\A_r(m_{ab}^2,m_{bc}^2)
-        + a_{\textup{NR}} \eu^{\iu \phi_{\textup{NR}}} \A_{\textup{NR}}(m_{ab}^2,m_{bc}^2)
-    \end{equation}
+    Due to the long fit times, I decided to implement a real-time visualization tool for the fit.
+    For each \lstinline!FreedWave!, the \lstinline!RTPlotMIFitModel! class will create a pair of plots for the decay-amplitude magnitude and phase.
+    Each plot contains two \ROOT{} graphs: the initial guess for the fit parameters, and the values of the fit parameters updated in real time in every fit iteration.
+    The figure~\ref{fig:rt_par_fit} shows a screenshot of the magnitude of the \Pfii{} decaying amplitude.
+    By means of these plots, the user does not have to wait until the end of the fit just to find out there was some mistake in the model.
+    Moreover, I have experienced that this is also a great debugging utility, \eg{}~for spotting mistakes in the utility routines that convert fit parameters into \pac{yap} free amplitudes. 
 
-    \section{Isobar formalism}
-
-    In the isobar formalism the ampliture that describes the decay through a resonance $r$ is modeled as
-    \begin{equation}
-        \A_r = F_P\,F_r\, T_r\, W_r.
-    \end{equation}
-
-    The dynamical function is usually described by a relativistic Breit-Wigner with a mass-dependent width:
-    \begin{equation}
-        T_r = \frac{1}{m_r^2 - m_{ab}^2 - \iu m_r \Gamma_{ab}}
-    \end{equation}
-
-    The angular distribution is described either by using Zemach tensors of by using the helicity formalism.
-
-
-    The form factors $F_P$ and $F_r$ usually use the Blatt-Weisskopf parametrization for the decay vertex.
-
-
-    The $K$-matrix is an alternative approach to the isobar formalism for the amplitude calculation.
-
-
-    Model independent \gls{pwa} and binned analysis are examples of model independent Dalitz-plot analysis.
-
-
-    \section{Resonances}
-
-    The $S$-matrix is the unitary operator that connects asymptotic incoming and outgoing states.
-
-
-    \section{Isobar-freed \gls{pwa}}
-
-
-    (Quote Fabian's work as unpublished?)
-
-
-    The invariant-mass range is divided in a set of bin with an index $i \in \Set{ \text{bins} }$ and the binned functions are given by
-    \begin{equation}
-        \Delta_i(m_X; m_a, m_b) = ( m_X \in \text{bin}_i) : 1\  ?\  0.
-    \end{equation}
-    So that the shape function of the isobar reads
-    \begin{equation}
-        \Delta(m_X; m_a, m_b) = \sum_{i\in \Set{\text{bins}}} A_i \Delta_i(m_X;m_a, m_b).
-    \end{equation}
-
-        \subsection{Zero modes}
-
-    Introduction of the isobar-freed fit leads to linear dipendencies among the waves in the fit model.
-    This can be seen by means of the integral matrix (now $w$ and $v$ are wave indices)
-    \begin{equation}
-        I_{wv} \coloneqq \int_\Omega \psi_w^*(\tau)\,\psi_v(\tau)\ud\tau
-    \end{equation}
-    which represents the integrated overlap of the waves $w$ and $v$ over the phase space.
-    Since $I$ is hermitian, its eigenvalues are real.
-    So
-    \begin{equation}
-        I^{\text{Tot}} \coloneqq \int_\Omega \abs{\A(\tau)}^2\!\ud \tau = \sum_{v,w \in \Set{\text{waves}}} T_w^* I_{wv} T_v.
-    \end{equation}
-
-    \section{Model-independent descriptions}
-
-    \subsection{Motivation}
-
-    \paragraph{Why should I want to use one?}
-
-    I'm not required to guess what's in the resonance thus introducing biases by an incorrect or incomplete model.
-    The drawback is that the fit parameters increase a lot but this is not an issue due to the magnitude of the current data samples.
-
-
-    \paragraph{Who guarantees me that you're telling the truth and the description works?}
-
-    The fit result obtained via a model-independent description have been compared to the isobar ones.
-    And they're compatible, you skeptical moron.
-
-
-    Let's quote some previous collaborations tha already used a model-independent description to analyze their decays, such as~\cite{PhysRevD.73.032004,Link200914}.
-
-
-    The approach is flexible because it allows a mixed formalism.
-    The FOCUS collaboration, for instance, used it to describe the S-wave component of a $\PKminus\Ppiplus$ system from a $\PDplus \to \PKminus\Ppiplus\Ppiplus$ decay while still using a model dependent description for P and D waves~\cite{Link200914}.
-
-
-\chapter{\acs{yap}}
-
-    \paragraph{v.~1}
-    \ac{yap} is an open-source \cpp[14] library to calculate partial-wave amplitudes of $n$-body decays developed at the Techniche Universit\"at M\"unchen by D.~Greenwald and J.~Rauch. 
-
-    What’s already available and why we needed to make this library.
-    \begin{figure}
-        \centering
-        \qrcode[]{https://github.com/yap/YAP}
-        \caption{The link to \ac{yap}'s on GitHub: \url{https://github.com/yap/YAP}.}
-    \end{figure}
-
-    \paragraph{v.~2 (the best thing since sliced bread)}
-    \ac{yap} is an open-source \cpp{}  C++ library to calculate partial-wave ampliturdes for $n$-body decays. \marginpar{\qrcode[]{https://github.com/yap/YAP}}
-    It is designed to provide an intuitive and user-friendly \ac{api} that allows the user to focus on the physics only.
-    Moreover, the library code is strucitured to mimic the mathematics of \ac{pwa}.
-    We provide an extensive documentation at \url{https://yap.github.io/YAP}.
-    
-    It can be used for analysis, event generation and fitting (e.g., through \MINUIT).
-    It should be noted that \ac{yap} itself is not an event generator and to generate events it must be coupled to external tools like \ac{bat}.\footnote{The \ac{bat} homepage is \url{http://mppmu.mpg.de/bat}.}
-    
-    
-    Our team put a great effort into the software design of \ac{yap}.
-    We wrote code that is compliant to the last supported \cpp{} standards (currently, \cpp[14]) and is inspired to the \ac{stl}.
-    For instance, we provide iterators, inserters and algorithms.
-    For the development of \ac{yap} we used~\cite{stl_meyers,effective_cpp_meyers,effective_modern_cpp_meyers}.
-    \Ac{yap} is {\footnotesize{C++}} software distributed as a shared library that provides an intuitive \ac{api} for amplitude calculations.
-    
-    
-    \Ac{yap} is a self-contained library: it has no external dependencies besides the \ac{stl}.
-    However \ROOT{} and \ac{bat} are needed in order to compile the examples shipped with it.
-    
-    Our library is usable but still under heavy developement and far from complete.
-    Some feature to be implemented are:
-    \begin{itemize}
-        \item Add the $K$-matrix formalism;
-        \item bla bla bla
-    \end{itemize}
-    I took over the task of implementing a model-independent approach to \ac{pwa} through picewise mass shapes.
-
-
-
-    \ac{yap} is targeted to physicists.
-    Its code is human readable and is written to mimic the matematical structure of \ac{pwa}.
-    \ac{yap}'s \ac{api} allows the users to focus on the physics only.
-    All the physics has been documented, cited (in the code) and verified (through unit tests).
-
-    Moreover, \ac{yap} can be coupled to external tools such as \ac{bat} for event generation and fitting, and \MINUIT{} for fitting.
-
-    \section{Goals of the project}
-
-    \section{Structure of the code}
-    The structure of \ac{yap} reflects the mathematical construction of a \ac{pwa}.
-    The amplitude of an $n$-body decay $X\to D$, being $D = \Set{d_1, d_2,\dots,d_n}$ a possible decay product, is given by the recursive formula
-    \begin{equation}
-        \A = \sum_{\text{decays}} \prod_{d \in D} \A_d
-    \end{equation}
-
-
-\chapter{My contributions on the code}
-    \section{What I have developed}
-
-    \section{Tests of \acs{mipwa}}
-    \ac{mipwa} allows for a description of waves whose resonance content is not yet well known or whose resonance shapes are not yet precisely understood.
-    As an example, \citeauthor{PhysRevD.73.032004}~\cite{PhysRevD.73.032004} already employed \ac{mipwa} in the measurement of S-wave amplitudes for $\PDplus\to\PKminus\Ppiplus\Ppiplus$ decays at Fermilab.
-    \citeauthor{Link200914}~\cite{Link200914} for the FOCUS collaboration also conducted a similar study on the same hadronic decay.
-
-
-    As of writing, \ac{yap} does yet not allow for a proper handling of \ac{mipwa} fits.
-    I implemented a \ac{mipwa} by adding a new \lstinline!MassShape! that is indeed a characterisic function on a right-open range mass $M = [m_\textup{min}, m_\textup{max})$, which means:
-    \begin{equation}
-        B_M(m) = 
-        \begin{cases}
-            1 &\text{if }m\in M, \\
-            0 &\text{otherwise}.
-        \end{cases}
-    \end{equation}
-    The mass range of the Dalitz plot is then partitioned in $N_\text{bins}$ number of bins and $N_\text{bins}$ characteristic functions are added to the \lstinline!DecayChannel!, each carrying a complex free amplitude.
-    In total, $N_\text{bins}$ free real-amplitude pairs $(\rho_i,\phi_i)$ need to be fitted.
-
-
-    To test this approach I have fitted (what?) to a data set generated by a \ac{bat}'s \ac{mc} engine.
-    In the figure~\ref{fig:mi_test_data} I simulated a $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay with only one resonance, namely $\Pfz\to\Ppiplus\Ppiminus$.
-    The specific resonance I have chosen is not important here, I only chose it because it's spinless.
-    In the plot, I have set its width to \SI{280}{\mega\electronvolt}, which is four times the particle's width value, to have enough events in all the bins and agevolate the fit.
-
-
-    In the figure~\ref{fig:mi_test_fit_amp_8bins} I performed a fit by partitioning the mass range in eight equally-wide bins.
-    The Breit-Wigner structure is reproduced.
-
-    \begin{figure}
-        \centering
-        \begin{tikzpicture}
-            \begin{semilogyaxis} [
-                    xlabel = {Number of bins},
-                    ylabel = {Runtime [\si{\hour}]}
-                ]
-                \addplot+ table {data/time_scale.dat};
-            \end{semilogyaxis}
-        \end{tikzpicture}
-        \caption{Runtime for the fits.}
-    \end{figure}
-
-
-\begin{figure}
-    \centering
-    %\includegraphics[width=.9\textwidth]{fig/toy_example.pdf}
-    \caption{\ac{mc}-generated data set for testing the \ac{mipwa} approach in \ac{yap}.}
-    \label{fig:mi_test_data}
-\end{figure}
-
-
-
-\begin{figure}
-    \centering
-    \input{fig/output8bins/parameters.pgf}
-    \caption{Breit-Wigner fitted with eight equally-spaced bins using \ac{bat}.}
-    \label{fig:mi_test_fit_amp_8bins}
-\end{figure}
+    \section{TODO in my utlity}
+        
+        Adaptive binning?
 
 %----------------------------------------------------------------------------------------
 % BACKMATTER

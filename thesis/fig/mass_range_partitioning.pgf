@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+    \pgfmathtruncatemacro{\a}{3}
+    \pgfmathtruncatemacro{\b}{1}
+    \pgfmathtruncatemacro{\c}{2}
+
+    \begin{scope}[color=black!50]
+        \coordinate (o) at (-1, 0);
+        \draw (o) -- +(\a + 2, 0) coordinate (a);
+        \draw [densely dashed] (a) -- +(\b, 0) coordinate (b);
+        \draw [->] (b) -- +(\c, 0) coordinate (c);
+    \end{scope}
+
+    \begin{scope}
+        % vertical label shift
+        \pgfmathsetmacro{\s}{-.5}
+
+        \foreach \x in {0,1,...,\a} {
+            \node [draw, inner sep=1pt, circle, fill=black] (x\x) at (\x, 0) {};
+            \node (sx\x) at ($(x\x) + (0, \s)$)  {$m_\x$};
+        }
+
+        \node [draw, inner sep=1pt, circle, fill=black] (last) at (\a + \b + 2, 0) {};
+        \node (slast) at ($(last) + (0, \s)$) {$m_{N_\text{bins}}$};
+
+    \end{scope}
+
+    \node () at (x0) [label={above:$m_a + m_b$}] {};
+    \node () at (last) [label={above:$m_X - m_c$}] {};
+
+
+\end{tikzpicture}

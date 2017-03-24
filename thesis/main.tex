@@ -11,8 +11,8 @@
     open=right,
     twoside,
     english,
-    %draft,
-	final
+    draft
+	%final
 ]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -24,6 +24,7 @@
 
 \usepackage{showkeys}
 \usepackage{subfig}
+\usepackage{booktabs}
 
 % TODO Setup typography (fonts, mparhack, microtype...)
 %\input{config/typographyConfig}
@@ -165,10 +166,8 @@
     By means of these plots, the user does not have to wait until the end of the fit just to find out there was some mistake in the model.
     Moreover, I have experienced that this is also a great debugging utility, \eg{}~for spotting mistakes in the utility routines that convert fit parameters into \pac{yap} free amplitudes. 
 
-    \section{TODO in my utlity}
-        
-        Adaptive binning?
 
+    \input{mainmatter/conclusions.tex}
 %----------------------------------------------------------------------------------------
 % BACKMATTER
 %

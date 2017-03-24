@@ -7,7 +7,9 @@
     ]
 
     % Parent particle
-    \node[P] (P) at (0,0) {$P$};
+    \node[P] (P) at (0,0) {$X$};
+    \draw [<->, color=black!50] ($(P) + (-25:1.5)$) arc (-25:25:1.5) node [midway, label={right:$L$}] {};
+    %\draw (330:1) arc (30:1);
 
     \pgfmathsetmacro{\xDist}{6}
     \pgfmathsetmacro{\yDist}{3}
@@ -17,6 +19,7 @@
     \node[c] (c) at ($(P) + (\xDist,-\yDist)$) {$c$};
     % Resonance
     \node[ ] (r) at ($(P) + (.5*\xDist, .5*\yDist)$) {$\xi$};
+    \draw [<->, color=black!50] ($(r) + (-25:1.5)$) arc (-25:25:1.5) node [midway, label={right:$J_{\xi}$}] {};
 
     % Segments
     \draw[->] (P) -- (r);

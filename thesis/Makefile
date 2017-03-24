@@ -37,6 +37,9 @@ endif
 
 OPTIONS=-$(format) -shell-escape
 
+# Recursive wildcard function
+rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
+
 # Track data file in data/ folder
 dataFolder   = $(wildcard data/*.tab)
 # Track data file in backmatter/ folder
@@ -45,7 +48,8 @@ backFolder  += $(wildcard backmatter/*.bib)
 # Track data file in frontmatter/ folder
 frontFolder  = $(wildcard frontmatter/*.tex)
 # Track data file in mainmatter/ folder
-mainFolder   = $(wildcard mainmatter/*.tex)
+#mainFolder   = $(wildcard mainmatter/*.tex)
+mainFolder   = $(shell find mainmatter/ -type f -name '*.tex')
 # Track data file in config/ folder
 configFolder = $(wildcard config/*.tex)
 configFolder+= $(wildcard config/*.sty)
@@ -69,9 +73,8 @@ $(MAIN).$(format): $(MAIN).tex AUTHORS $(dataFolder) $(backFolder) $(frontFolder
 clean:
 	@echo "`tput bold`rm`tput sgr0`"\
 		"`tput setaf 1`--recursive --force --verbose`tput sgr0`"\
-		"`tput setaf 2`*.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm *.vrb *.pgf-plot.gnuplot *.pgf-plot.table *-figure*.{dpth,dep,md5} *.auxlock *.lof`tput sgr0`"
-	@rm --recursive --force --verbose *.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm *.vrb *.pgf-plot.gnuplot *.pgf-plot.table *-figure*.{dpth,dep,md5} *.auxlock *.lof
-
+		"`tput setaf 2`*.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm *.vrb *.pgf-plot.gnuplot *.pgf-plot.table *-figure*.{dpth,dep,md5} *.auxlock *.lof main_contourtmp*.*`tput sgr0`"
+	@rm --recursive --force --verbose *.toc *.log *.out *.aux *.fls *.ind *.idx *.ilg *.bbl *.bcf *.blg *.ist *.acn *.acr *.alg *.glg *.glo *.gls *.run.xml *.fdb_latexmk *.nav *.snm *.vrb *.pgf-plot.gnuplot *.pgf-plot.table *-figure*.{dpth,dep,md5} *.auxlock *.lof main_contourtmp*.*
 
 distclean: clean
 	@echo "`tput bold`rm`tput sgr0`"\

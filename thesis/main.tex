@@ -11,8 +11,8 @@
     open=right,
     twoside,
     english,
-    draft
-	%final
+    %draft
+	final
 ]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -52,6 +52,7 @@
 
 \newcommand{\collaboration}[1]{\textsc{#1}}
 \newcommand{\cleo}{\collaboration{cleo}}
+\newcommand{\focus}{\collaboration{focus}}
 
 % Wrappers for the acronyms
 % No plurals should be needed for packages
@@ -143,10 +144,10 @@
 %
 \mainmatter
 
-    \input{mainmatter/introduction}
-    \input{mainmatter/theory}
-    \input{mainmatter/yap}
-    \input{mainmatter/mipwa}
+    \input{mainmatter/introduction.tex}
+    \input{mainmatter/theory.tex}
+    \input{mainmatter/yap.tex}
+    \input{mainmatter/mipwa.tex}
 
     \begin{figure}
         \centering

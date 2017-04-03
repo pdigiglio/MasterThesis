@@ -5,26 +5,26 @@
     The shapes of the resonances are directly extracted from the available experimental events, provided the data set is large enough.
     
 
-    A characteristic function\index{characteristic function} on an real interval $R \coloneqq [a,b)$ is defined as
+    A characteristic function\index{characteristic function} on an real interval $A \coloneqq [a,b)$ is defined as
     \begin{equation}
-        \Characteristic_R(m) \coloneqq 
+        \Characteristic_A(m) \coloneqq 
         \begin{cases}
-            1 &\text{if }m \in R, \\
+            1 &\text{if }m \in A, \\
             0 &\text{otherwise}.
         \end{cases}
     \end{equation}
-    Let $\mathcal{P}(R) \coloneqq \set{m_0, m_1,\dots, m_{N_\text{bins}}}$ be a partition of $R$, \ie~a set of points such that $m_{i} < m_{i+1}$; and whose extremes coincide with those of $R$, namely $(m_0, m_{N_\text{bins}}) = (a, b)$.
+    Let $\mathcal{P}(A) \coloneqq \set{m_0, m_1,\dots, m_{N_\text{bins}}}$ be a partition of $A$, \ie~a set of points such that $m_{i} < m_{i+1}$; and whose extremes coincide with those of $A$, namely $(m_0, m_{N_\text{bins}}) = (a, b)$.
     \begin{figure}
         \centering
         \input{fig/mass_range_partitioning.pgf}
-        \caption{Partition of the invariant-mass range, $R \coloneqq [m_a+m_b,m_X - m_c)$, into $N_\text{bins}$ right-open bins, $R_i = [m_i, m_{i+1})$.}
+        \caption{Partition of the invariant-mass range, $A \coloneqq [m_a+m_b,m_X - m_c)$, into $N_\text{bins}$ right-open bins, $A_i = [m_i, m_{i+1})$.}
         \label{fig:invariant-mass-partition}
     \end{figure}
     The figure~\ref{fig:invariant-mass-partition} shows the partitioning of the interval $[m_a+m_b,m_X-m_c)$, the allowed invariant-mass range for the final state decay of the $ab$ system.\footnote{The $ab$ allowed mass range also includes the value $m_X - m_c$; I will anyway ignore this value as it is a null-measure interval, so leaving it out will not affect the results.}
-    The partitioning $\mathcal{P}(R)$ defines $N_\text{bins}$ bins on $R$, $\set{B_i}$, where $B_i$ is the right-open interval $[m_{i-1},m_i)$ for $i\in\set{1,\dots, N_\text{bins}}$.
-    A step function\index{step function} on the interval $R$, given the partition $\mathcal{P}(R)$ is a linear combination of characteristic functions on the bins:
+    The partitioning $\mathcal{P}(A)$ defines $N_\text{bins}$ bins on $A$, $\set{B_i}$, where $B_i$ is the right-open interval $[m_{i-1},m_i)$ for $i\in\set{1,\dots, N_\text{bins}}$.
+    A step function\index{step function} on the interval $A$, given the partition $\mathcal{P}(A)$ is a finite linear combination of characteristic functions on the bins:
     \begin{equation}\label{eq:step_dynamic_shape}
-        \Delta_{\mathcal{P}(R)}^{\text{SF}}(m) \coloneqq \sum_{i = 1}^{N_\text{bins}} \alpha_i\, \Characteristic_{B_i}\!(m),
+        \Delta_{\mathcal{P}(A)}^{\text{SF}}(m) \coloneqq \sum_{i = 1}^{N_\text{bins}} \alpha_i\, \Characteristic_{B_i}\!(m),
     \end{equation}
     being $a_i$'s complex parameters.
 
@@ -33,17 +33,7 @@
     The parameters are to be determined from an analysis of the observed events.
     \begin{figure}
         \centering
-            \begin{tikzpicture}
-                \begin{axis}[
-                    amplitude_plot,
-                    xlabel={$s$ $[\si{\giga\electronvolt^2\per\c^4}]$},
-                ]
-                    \pgfmathsetmacro{\m}{.98}
-                    \pgfmathsetmacro{\T}{.07}
-                    \addplot+ [guess, domain={.279:1.73}, samples=100, smooth] gnuplot {1./sqrt((\m * \m - x * x)**2 + (\m * \T)**2)};
-                    \addplot+ [fit, mark=none] table {data/binned_breit-wigner.txt};
-                \end{axis}
-            \end{tikzpicture}
+        \input{fig/nrbw_binning.pgf}
         \caption{Step-function approximation of the magnitude of the non-relativistic Breit-Wigner dynamic shape~\eqref{eq:bw}.}
         \label{fig:step_function_approximation}
     \end{figure}
@@ -76,46 +66,6 @@
             The partition bins do not have to be uniform. By means of a non-uniform mass-range partition, making narrower bins in the mass interval where a resonance is expected, the number of necessary fit parameters can be optimized.
     \end{itemize}
 
-    {\color{red}
-    (Quote Fabian's work as unpublished?)
-    }
-
-    {\color{red}
-    I will construct a step function\index{step function} on the kinematically-allowed phase-space mass range for the final state $ab$ by a linear combination of characteristic functions.
-    The final-state particles $a$ and $b$ can decay in states whose mass, $m_{ab}$, lies in the interval $[m_a + m_b, m_X - m_c]$.
-    Let $\set{B_i}$ be a set of $N_\text{bins}$ disjoint intervals of the final-particle mass range, such that their union covers it:
-    \begin{equation}
-        \set{m_0,m_1,\dots,m_N},\ 
-        m_i < m_{i+1}
-    \end{equation}
-
-    Referring to the labeling scheme showed in the figure~\ref{fig:invariant-mass-partition}, let $B_i \coloneqq [m_{i-1}, m_i)$ be the $i$-th right-open mass range, where $i$ ranges from $1$ to $N_\text{bins}$.
-
-    A finite linear combination of characteristic functions will result in a step function\index{step function}:
-    \begin{equation}
-        \Delta
-    \end{equation}
-
-    The unknown dynamic shape of the isobar can be modele
-
-    In the freed-isobar \ac{pwa}, a set of binned function is used to describe the unknown shape of an isobar amplitude.
-    This way, there is no need to use any knowledge on the isobar from past experiment.
-    The bin functions are defined as follows:
-    \begin{equation}
-        \Delta_i(m_X; m_a, m_b) =
-        \begin{cases}
-            1 &\text{if}\ m_X \in B_i, \\
-            0 &\text{otherwise}.
-        \end{cases}
-    \end{equation}
-    The dynamical function of the isobar can now be constructed as a linear combination of the bin functions:
-    \begin{equation}
-        \Delta(m_X; m_a, m_b) = \sum_{i=1}^{N_\text{bins}} a_i \Delta_i(m_X;m_a, m_b),
-    \end{equation}
-    which is a step function depending on the complex parameters $\Set{a_1, \dots, a_{N_\text{bins}}}$.
-    The unknown parameters $\Set{ a_i }$ will be determined from a fit of the decay model to the experimental data.
-    }
-
 
     At this point it is worth noting that this step-like description of the dynamic function of an isobar introduces $N_\text{bins}$ fit parameters, which drastically increases the complexity of fitting the model to the data.
     This problem can be partially solved considering that:
@@ -130,3 +80,6 @@
     (Quote Fabian's work as unpublished?)
     }
 
+
+    The approach is flexible because it allows a mixed formalism.
+    The \focus{} collaboration, for instance, used it to describe the S-wave component of a $\PKminus\Ppiplus$ system from a $\PDplus \to \PKminus\Ppiplus\Ppiplus$ decay while still using a model dependent description for P and D waves~\cite{Link200914}.

@@ -9,7 +9,7 @@
 
 
     In the isobar formalism, a resonance\index{resonance} is a bound state of particles with well-defined quantum numbers.\footnote{Please note that a bound state of resonances is a resonance too.}
-    Particles can associate in resonances in more than one way, \ie~the decay can proceed through different topologies\index{decay topology}.
+    Decaying particles can associate in resonances in more than one way, \ie~the decay can proceed through different topologies\index{decay topology}.
     The quantum numbers that characterize a resonance are its isospin, its spin, $J$, its parity, $P$, and its charge-conjugation parity, $C$.
     The notation usually adopted to indicate the resonance quantum numbers is $J^{PC}$.
 
@@ -18,9 +18,9 @@
     Consequently, the decomposition of a decay amplitude in terms of isobars is called \emph{isobar model}\index{isobar!model} or formalism.
     In this formalism, the decay amplitude of an initial-state particle, $X$, into a set of final state particles---whose coordinate in the phase space is $\tau$---can be written as the following coherent sum of all the contributions from the isobars that are allowed by the conservation laws:
     \begin{equation}\label{eq:isobar_decomposition}
-        \A_X(m_X,\tau) = \sum_{I\in\set{(J, P, C)}} c_I \A_I(m_X, \tau),
+        \A_X(m_X,\tau) = \sum_{I\in\set{(J, P, C)}} c_I \Psi_I(m_X, \tau),
     \end{equation}
-    being $c_I$ a complex parameter quantifying the relative weight of the isobar amplitude labeled by $I$.
+    being $c_I$ a complex parameter quantifying the relative weight of the $I$-th isobar amplitude, $\Psi_I$.
     I'd like to stress that in the equation~\eqref{eq:isobar_decomposition} I omitted the sum over the decay topologies, as I will do in the following discussion.
     Please also note that, in the context of the isobar decomposition, the partial waves correspond to the isobars.
 
@@ -79,21 +79,43 @@
     Finally, the charge-conjugation parity is undefined for charged particles, so the $\xi\Ppiplus$ state will have the same value of $C$ as the resonance's. 
 
 
-    {\color{red}
-    All contributions from the possible associations of the final-state particles---\ie~which particles form the resonance and which is the \emph{spectator}, or \emph{bachelor}.
-    In what follows, when not explicitly written, I will imply the sum over the Bose-Einstein symmetrizations of the indistinguishable \Ppiplus{} particles.
-    Each isobar amplitude $\Psi_J(\tau)$ can be factorized into a spin-dependent and a dynamic part.
-    }
+%    {\color{red}
+%    All contributions from the possible associations of the final-state particles---\ie~which particles form the resonance and which is the \emph{spectator}, or \emph{bachelor}.
+%    Each isobar amplitude $\Psi_J(\tau)$ can be factorized into a spin-dependent and a dynamic part.
+%    }
 
     Having set the context of the isobar formalism, I will now discuss how to write down the explicit form of the contributions to the decay amplitude~\eqref{eq:isobar_decomposition}.
+    Each isobar amplitude can be be decomposed as follows:\marginpar{\color{red}arguments!}
+    \begin{equation}\label{eq:isobar_amplitude}
+        \Psi_I(\tau) = \psi_J(\tau)\,\mathcal{F\!}_{J}(\tau)\,\Delta_I(s)\,\A_{d_1}\!(m_d; \tau)\,\A_{d_2}\!(m_d; \tau).
+    \end{equation}
+    Here $\psi_J$ is the spin-dependent part of the decay amplitude;
+    $\mathcal{F\!}_J$ is the Blatt-Wei\ss{}kopf penetration factor;
+    $\Delta_I$ is the dynamic shape of the isobar;
+    and $\A_{d_1}$ and $\A_{d_2}$ are the amplitudes of the decays of $d_1$ and $d_2$, the daughter particles (or resonances) of the sub-decay.
+    These amplitudes are to be evaluated recursively as in the equation~\eqref{eq:isobar_decomposition}, which is the constant function $\A_d = 1$ when $d$ is a final-state particle.
+    Please note again that I am only allowing the decay to proceed via two-body sub-decays.
 
+
+    In what follows, when not explicitly written, I will imply the sum over the Bose-Einstein symmetrizations of the indistinguishable particles, \ie~the \Ppiplus{} in the \PDplus{} decay under consideration.
+
+    {\color{red}
     \begin{itemize}
-        \item Each isobar amplitude can be written as a product;
-            \begin{equation}
-                \Psi_I(\tau) = \psi_J(\tau)\,\Delta_I(s)\prod_{daughters} \A_d(m_d; \tau).
-            \end{equation}
         \item Each sub-decay amplitude can be decomposed as the~\eqref{eq:isobar_decomposition}; for example, in the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$\dots
+
+            In this case, the first step is $\PDplus \to\xi\Ppiplus$, so
+            \begin{equation}
+                \Psi = \psi_L \Delta(s_{\PD})\A_\xi
+                \quad
+                \Delta(s_{\PD}) = \delta(s_{\PD} - m_{\PD}^2)
+            \end{equation}
+            Then\marginpar{\color{red} how much is $\psi_L$? Is $\psi_J$ cumulative of $J$ and $J$?}
+            \begin{equation}
+                \Psi = \psi_J \Delta(s)
+            \end{equation}
+
     \end{itemize}
+    }
 
     \paragraph{Spin-dependent amplitude}\marginpar{\color{red} + Blatt-Weisskopf}
     The spin-dependent amplitude, $\psi_J(\tau)$, describes the angular distribution of the decay and is fully specified by the spin quantum numbers of the initial-state particle, the isobar, and the final-state particles.

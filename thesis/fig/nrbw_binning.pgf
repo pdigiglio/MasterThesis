@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        amplitude_plot,
+        xlabel={$s$ $[\si{\giga\electronvolt^2\per\c^4}]$},
+    ]
+        \pgfmathsetmacro{\m}{.98}
+        \pgfmathsetmacro{\T}{.07}
+        \addplot+ [guess, domain={.279:1.73}, samples=100, smooth] gnuplot {1./sqrt((\m * \m - x * x)**2 + (\m * \T)**2)};
+        \addplot+ [fit, mark=none] table {data/binned_breit-wigner.txt};
+    \end{axis}
+\end{tikzpicture}

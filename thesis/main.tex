@@ -1,13 +1,13 @@
 \documentclass[
     a4paper,
     titlepage,
-    %headinclude,
-    %footinclude,
+    headinclude,
+    footinclude,
     BCOR5mm,
     numbers=noenddot,
     cleardoublepage=empty,
-    tablecaptionabove
-    fontsize=10pt,
+    tablecaptionabove,
+    fontsize=12pt,
     open=right,
     twoside,
     english,
@@ -17,6 +17,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian,main=english]{babel}
+
 
 %\usepackage[eulerchapternumbers,subfig,beramono,eulermath,pdfspacing]{classicthesis}
 %\usepackage[eulerchapternumbers,subfig,eulermath,pdfspacing]{classicthesis}
@@ -169,6 +170,29 @@
 
 
     \input{mainmatter/conclusions.tex}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                    xlabel = {$\Re (\Delta_{\Pfnez}^{\text{BW}}(s))$},
+                    ylabel = {$\Im (\Delta_{\Pfnez}^{\text{BW}}(s))$},
+                ]
+
+                \pgfmathsetmacro{\m}{.98}
+                \pgfmathsetmacro{\T}{.07}
+
+                \addplot+ [black, mark options={mark size = .75, color=black}]
+                  gnuplot [raw gnuplot] {
+                    set parametric;
+                    f(x) = 1. / (\m * \m - x * x - {0., 1.} * \m * \T);
+                    set samples 150;
+                    plot [.279:1.73] real(f(t)), imag(f(t));
+                };
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Argand-Gauss plot of a non-relativistic Breit-Wigner~\eqref{eq:bw}.}
+    \end{figure}
 %----------------------------------------------------------------------------------------
 % BACKMATTER
 %

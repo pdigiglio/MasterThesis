@@ -9,4 +9,7 @@ That's where the LaTeX source code for the thesis will be.
 Makefile
 --------
 `./Makefile` requires `latexmk` to be installed.
-	Run `make help` for more information about the options available.
+Run `make help` for more information about the options available.
+
+I made a UML diagram with the [`tikz-uml`](http://perso.ensta-paristech.fr/~kielbasi/tikzuml/index.php?lang=en) package.
+To compile the document, please download the package and put it in the `../thesis` (i.e. this) directory.

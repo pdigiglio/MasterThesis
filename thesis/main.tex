@@ -2,7 +2,7 @@
     a4paper,
     titlepage,
     headinclude,
-    footinclude,
+    %footinclude,
     BCOR5mm,
     numbers=noenddot,
     cleardoublepage=empty,
@@ -18,14 +18,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian,main=english]{babel}
 
-
 %\usepackage[eulerchapternumbers,subfig,beramono,eulermath,pdfspacing]{classicthesis}
 %\usepackage[eulerchapternumbers,subfig,eulermath,pdfspacing]{classicthesis}
 %\usepackage{arsclassica}
 
+\usepackage{lineno}
 \usepackage{showkeys}
-\usepackage{subfig}
-\usepackage{booktabs}
+
 
 % TODO Setup typography (fonts, mparhack, microtype...)
 %\input{config/typographyConfig}
@@ -35,6 +34,9 @@
 \input{config/colorConfig}
 % Setup plots
 \input{config/pgfConfig}
+\usepackage{subfig}
+\usepackage{rotating}
+\usepackage{booktabs}
 % For the background coffee stain in the acknowledgements page.
 \usepackage{eso-pic}
 
@@ -104,6 +106,7 @@
 \date{}
 
 \begin{document}
+\linenumbers
 
 %----------------------------------------------------------------------------------------
 % FRONTMATTER
@@ -133,12 +136,6 @@
 \phantomsection
 \pdfbookmark[0]{\contentsname}{chap:contents}
 	\tableofcontents
-
-    \cleardoublepage
-\phantomsection
-\pdfbookmark[0]{\listfigurename}{chap:lof}
-	\listoffigures
-
 
 %----------------------------------------------------------------------------------------
 % MAINMATTER
@@ -193,12 +190,19 @@
         \end{tikzpicture}
         \caption{Argand-Gauss plot of a non-relativistic Breit-Wigner~\eqref{eq:bw}.}
     \end{figure}
+
 %----------------------------------------------------------------------------------------
 % BACKMATTER
 %
 \backmatter
 	% Acronyms
 	\printnoidxglossaries
+
+    % List of figures
+    \cleardoublepage
+    \phantomsection
+    \pdfbookmark[0]{\listfigurename}{chap:lof}
+	\listoffigures
 
 	% Index
 	\cleardoublepage

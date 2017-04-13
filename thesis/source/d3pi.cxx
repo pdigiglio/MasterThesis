@@ -2,7 +2,7 @@
 unique_ptr<Model> M(make_unique<ZemachFormalism>());
 
 // Open the PDL table with the particle properties.
-auto F = read_pdl_file("evt.pdl");
+auto F = read_pdl_file("evt.pdl"); £!\label{line:read_pdl_table}!£
 
 // Create the final state particles.
 auto piPlus  = FinalStateParticle::create(F[ 211]);
@@ -12,14 +12,14 @@ auto piMinus = FinalStateParticle::create(F[-211]);
 M->setFinalState(piPlus, piMinus, piPlus);
 
 // Use a common radial size for all the resonance.
-constexpr double radial_size = 3.; // [1/GeV]
+const double radial_size = 3.; // [1/GeV]
 
 // Create the initial state particle.
 auto D = DecayingParticle::create(F["D+"], radial_size);
 
 // -- rho0 ----------------- 
-constexpr double rho_m = 775.49e-3; // mass in GeV/c^2
-constexpr double rho_w = 149.4e-3;  // width in GeV/c^2
+const double rho_m = 775.49e-3; // mass in GeV/c^2
+const double rho_w = 149.4e-3;  // width in GeV/c^2
 auto rho0 = DecayingParticle::create(F[113], radial_size,
     make_shared<RelativisticBreitWigner>(rho_m, rho_w));
 rho0->addStrongDecay(piPlus, piMinus);
@@ -44,9 +44,9 @@ f0_500->addStrongDecay(piPlus, piMinus);
 D->addWeakDecay(f0_500, piPlus);
 
 // Set the decay initial state.
-M->addInitialState(D);
+M->addInitialState(D); £!\label{line:addInitialState}!£
 // Lock the model before setting the free amplitudes.
-M->lock();
+M->lock(); £!\label{line:lock}!£
 
 // Fix the wave free amplitudes.
 *free_amplitude(*M, to(rho0))    = polar(1.,  0.);

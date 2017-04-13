@@ -1,0 +1,24 @@
+\tikzumlset{
+    fill class=blue!00,%
+    font=\ttfamily%
+}
+\begin{tikzpicture}
+    % Classes
+    \umlsimpleclass{MassShape}
+    \umlclass[x=-4, y=-4]{MassShapeWithNominalMass}%
+                         {Mass\_ \ : NonnegativeRealParameter}%
+                         {mass() : NonnegativeRealParameter}
+    \umlsimpleclass[x=+4, y=-4]{PoleMass}
+    \umlsimpleclass[x=-6, y=-8]{BreitWigner}
+    \umlsimpleclass[x=-6, y=-10]{RelativisticBreitWigner}
+    \umlsimpleclass[x=-2, y=-8]{Flatte}
+
+    % Inheritances
+    \umlVHVinherit{MassShapeWithNominalMass}{MassShape}
+    \umlVHVinherit{PoleMass}{MassShape}
+
+    \umlVHVinherit{BreitWigner}{MassShapeWithNominalMass}
+    \umlVHVinherit{Flatte}{MassShapeWithNominalMass}
+
+    \umlVHVinherit{RelativisticBreitWigner}{BreitWigner}
+\end{tikzpicture}

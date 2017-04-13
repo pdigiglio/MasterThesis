@@ -1,0 +1,6 @@
+\begin{tikzpicture}
+    \begin{axis} [dalitz_plot]
+        \addplot3 [dalitz]
+          gnuplot [raw gnuplot] { splot "data/cleo/rho0_f0_f0_1500_f0_500_mcmc.txt" using 1:2:3 };
+    \end{axis}
+\end{tikzpicture}

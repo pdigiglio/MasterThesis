@@ -1,0 +1,25 @@
+\tikzumlset{
+    fill class=blue!00,%
+    font=\ttfamily%
+}
+\begin{tikzpicture}
+    % Classes
+    \umlsimpleclass{DataAccessor}
+    \umlsimpleclass[x=-4.5, y=-4]{RecalculableDataAccessor}
+    \umlsimpleclass[x=-7.5, y=-8]{BlattWeisskopf}
+    \umlsimpleclass[x=-2.1, y=-8]{MassShape}
+
+    \umlsimpleclass[x=4.5, y=-4]{StaticDataAccessor}
+    \umlsimpleclass[x=2.1, y=-8]{HelicitySpinAmplitude}
+    \umlsimpleclass[x=7.5, y=-8]{ZemachSpinAmplitude}
+
+    % Inheritances
+    \umlVHVinherit{RecalculableDataAccessor}{DataAccessor}
+    \umlVHVinherit{StaticDataAccessor}{DataAccessor}
+
+    \umlVHVinherit{BlattWeisskopf}{RecalculableDataAccessor}
+    \umlVHVinherit{MassShape}{RecalculableDataAccessor}
+
+    \umlVHVinherit{HelicitySpinAmplitude}{StaticDataAccessor}
+    \umlVHVinherit{ZemachSpinAmplitude}{StaticDataAccessor}
+\end{tikzpicture}

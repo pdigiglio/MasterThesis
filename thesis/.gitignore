@@ -32,3 +32,8 @@
 *.dat
 *.script
 
+# Ignore the packages that are in this directory
+*.sty
+
+# Ignore vim swap files
+*.swp

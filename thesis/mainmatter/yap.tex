@@ -43,7 +43,7 @@
     I will show a short example on how the caching system works for a user-defined dynamic-shape class in the code~\ref{lst:mass_shape}, page~\pageref{lst:mass_shape}.
 
 
-    Both the input data and the cached amplitude values are stored in instances of the \lstinline!DataPoint!\index{DataPoin@\texttt{DataPoint}} class.
+    Both the input data and the cached amplitude values are stored in instances of the \lstinline!DataPoint!\index{DataPoint@\texttt{DataPoint}} class.
     The data is aggregated into a \lstinline!DataPartition!\index{DataPartition@\texttt{DataPartition}}, a \ac{stl}-like container which can be traversed by means of its own iterator, the \lstinline!DataIterator!\index{DataIterator@\texttt{DataIterator}}.
     The idea behind the partitioning is to define disjoint regions in the input data that allow for thread-safe parallel calculations of the amplitudes without race hazards\index{race hazard}---\ie~when threads try to write to the same piece of memory at the same time; or when one thread reads from a piece of memory that is being updated by another, thus reading an intermediate undefined value.
     So far, \pac{yap} supports \acs{cpu} parallelization via the platform-independent thread-support library introduced in the \cpp[11]{} standard.
@@ -100,7 +100,7 @@
     This diagram shows a further feature of \pac{yap}: the amplitude parts that do not depend on any of the model parameters inherit from \lstinline!StaticDataAccessor!\index{StaticDataAccessor@\texttt{StaticDataAccessor}} and are always evaluated only once on the input data.
 
 
-    Please note that the \lstinline!Model! class also also provides the spin formalism.
+    Please note that the \lstinline!Model! class also provides the spin formalism.
     As of now, the Zemach and the helicity spin formalisms are implemented.
 
 
@@ -187,7 +187,7 @@
 
     \end{itemize}
 
-    To speed up the amplitude calculation, in the future \pac{yap} may make use of \acsp{gpu} as coprocessors by means of the \package{OpenCL} or the Nvidia's \pacs{cuda} frameworks.
+    To speed up the amplitude calculation, in the future \pac{yap} may make use of \acsp{gpu} as co-processors by means of the \package{OpenCL} or the Nvidia's \pacs{cuda} frameworks.
 
 
     Another yet missing feature is a piecewise dynamic shape for model-independent \acp{pwa}.

@@ -109,7 +109,7 @@
         In this section, I will show a couple of code excerpts on how to make a decay model that can be used to generate \ac{mc} data, and how to extend the available dynamic shapes \pac{yap} already provides.
         I chose the following examples both to illustrate the user interface and because they are relevant for the model-independent fit utility I implemented.
 
-        \subsection{Generating a \acs{mc} data set}
+        \subsection{\texorpdfstring{Generating a \acs{mc} data set}{Generating a MC data set}}
         
 
         \begin{table}
@@ -187,7 +187,8 @@
 
     \end{itemize}
 
-    To speed up the amplitude calculation, in the future \pac{yap} may make use of \acsp{gpu} as co-processors by means of the \package{OpenCL} or the Nvidia's \pacs{cuda} frameworks.
+    From the performance point of view, in the future \pac{yap} may exploit the huge parallel capabilities offered by \acsp{gpu}, by means of the \package{OpenCL} or Nvidia's \pacs{cuda} frameworks.
+    A paper by \citeauthor{gpu_pwa_berger} reports that offloading the amplitude calculation to co-processor \acsp{gpu} can speed up the runtime of \ac{pwa} software by more than two orders of magnitude~\cite{gpu_pwa_berger}.
 
 
     Another yet missing feature is a piecewise dynamic shape for model-independent \acp{pwa}.

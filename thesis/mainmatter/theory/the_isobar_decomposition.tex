@@ -1,27 +1,27 @@
-\section{The isobar decomposition}
+\section{Isobar decomposition}
 
-    In quantum mechanics, the quantity that describes the distribution of some observed events is the event intensity\index{intensity}, $\Intensity(\tau)$, being $\tau$ the coordinate of the event in its phase space.
+    In quantum mechanics, the quantity that describes the distribution of the observed events in an experiment is the event intensity\index{intensity}, $\Intensity(\tau)$, being $\tau$ the phase-space coordinate of the event.
     The intensity is defined as the squared magnitude of the event probability amplitude\index{amplitude}:
     \begin{equation}
         \Intensity(\tau) \coloneqq \abs{\A(\tau)}^2.
     \end{equation}
-    In this section I will show how to write down the expression for the probability amplitude of a decay by means of the \ac{pwa} formalism, which---in this context---I will also call \emph{isobar formalism}\index{formalism!isobar}\index{isobar!formalism}.
+    In this section I will show how to write down the expression for the probability amplitude of a decay, $\A$, by means of the \ac{pwa} formalism, which---in this context---I will also call \emph{isobar formalism}\index{formalism!isobar}\index{isobar!formalism}.
 
 
     In the isobar formalism, a resonance\index{resonance} is a bound state of particles with well-defined quantum numbers.\footnote{Please note that a bound state of resonances is a resonance too.}
-    Decaying particles can associate in resonances in more than one way, \ie~the decay can proceed through different topologies\index{decay topology}.
     The quantum numbers that characterize a resonance are its isospin, its spin, $J$, its parity, $P$, and its charge-conjugation parity, $C$.
     The notation usually adopted to indicate the resonance quantum numbers is $J^{PC}$.
+    Decaying particles can associate in resonances in more than one way, \ie~the decay can proceed through different topologies\index{decay topology}.
 
 
     A set of bound states with the same quantum numbers is called \emph{isobar}\index{isobar}.
     Consequently, the decomposition of a decay amplitude in terms of isobars is called \emph{isobar model}\index{isobar!model} or formalism.
-    In this formalism, the decay amplitude of an initial-state particle, $X$, into a set of final state particles---whose coordinate in the phase space is $\tau$---can be written as the following coherent sum of all the contributions from the isobars that are allowed by the conservation laws:
+    In this formalism, the decay amplitude of an initial-state particle, $X$, into a set of final-state particles---whose coordinate in the phase space is $\tau$---can be written as the following coherent sum of all the contributions from the isobars that are allowed by the conservation laws:
     \begin{equation}\label{eq:isobar_decomposition}
         \A_X(m_X,\tau) = \sum_{I\in\set{(J, P, C)}} c_I \Psi_I(m_X, \tau),
     \end{equation}
-    being $c_I$ a complex parameter quantifying the relative weight of the $I$-th isobar amplitude, $\Psi_I$.
-    I'd like to stress that in the equation~\eqref{eq:isobar_decomposition} I omitted the sum over the decay topologies, as I will do in the following discussion.
+    being $c_I$ a complex coefficient quantifying the relative weight of the $I$-th isobar decay amplitude, $\Psi_I$.
+    I would like to stress that in the equation~\eqref{eq:isobar_decomposition} I omitted the sum over the decay topologies, as I will do in the following discussion.
     Please also note that, in the context of the isobar decomposition, the partial waves correspond to the isobars.
 
 
@@ -37,11 +37,13 @@
     \begin{figure}
         \centering
         \input{fig/isobar_decay.pgf}
-        \caption{Decay of a spinless parent particle, $X$, to pseudo-scalar final-state particles, $a$, $b$, and $c$, through a resonance, $\xi$, in the $ab$ channel. Alternative topologies for the decay would have a resonance in the $bc$ channel or $ac$ channel.}
+        \caption[Decay of a spinless parent particle to pseudo-scalar final-state particles through a resonance.]%
+                {Decay of a spinless parent particle, $X$, to pseudo-scalar final-state particles, $a$, $b$, and $c$, through a resonance, $\xi$, in the $ab$ channel.
+        Alternative topologies for the decay would have a resonance in the $bc$ or $ac$ channels.}
         \label{fig:isobar_three_body_decay}
     \end{figure}
     To reduce the complexity of the decay model, I will assume that the initial-state particle decays to the final-state particles via subsequent two-body decays, as schematically depicted in figure~\ref{fig:isobar_three_body_decay}.
-    This assumption has been verified in non-leptonic three-body \PD{} and \PB{} particle decays~\cite[\S~13.2]{Bevan:2014iga}.
+    This assumption has been verified in non-leptonic three-body \PD{} and \PB{} decays~\cite[\S~13.2]{Bevan:2014iga}.
 
 
     Allowing only two-body sub-decays, the $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay will proceed as:
@@ -61,65 +63,43 @@
     \begin{equation}
         \vec{J}_{\PD} = \vec{L} + \vec{J}_{\xi} + \vec{J}_{\Ppi},
     \end{equation}
-    where, as shown in the figure~\ref{fig:isobar_three_body_decay}, $\vec{L}$ is the operator for the orbital angular momentum between the bachelor $\Ppiplus$ and $\xi$, and I have dropped the particle superscripts to make the formula less cumbersome.
+    where, as shown in the figure~\ref{fig:isobar_three_body_decay}, $\vec{L}$ is the angular-momentum operator between the bachelor particle, $\Ppiplus$, and the resonance, $\xi$; and I have dropped the particle superscripts to make the formula less cumbersome.
     As both the \Ppiplus{} and the \PDplus are spinless particles, $\vec{J}_{\PD} = \vec{J}_{\Ppi} = 0$; thus
-    \begin{equation}
+    \begin{equation}\label{eq:angular_momentum_sum}
         \abs{J_{\xi} - L} \le 0 \le J_{\xi} + L.
     \end{equation}
-    In particular, the left-hand inequality implies that---only for the specific decay I am considering---the resonance spin must be equal to the angular momentum quantum number of the system $\xi\Ppiplus$, namely $L$.
+    In particular, the left-hand inequality in the~\eqref{eq:angular_momentum_sum} implies that---for the specific decay under exam---the spin of the resonance, $J_\xi$, must be equal to $L$, the angular-momentum quantum number of the $\xi\Ppiplus$ system.
 
 
     The parity is a multiplicative quantum number, and couples with the angular momentum.
-    So the parity of the $\xi\Ppiplus$ system is\marginpar{\color{red} must this be equal to $P_{\PD}$ in weak decays?}
+    So the parity of the $\xi\Ppiplus$ system is
     \begin{equation}
-        P_{\xi\Ppi} = (-1)^L P_{\xi} P_{\Ppi}.
+        P_{\xi\Ppi} = (-1)^L P_{\xi} P_{\Ppi} = (-1)^{L+1} P_{\xi}.
     \end{equation}
 
 
-    Finally, the charge-conjugation parity is undefined for charged particles, so the $\xi\Ppiplus$ state will have the same value of $C$ as the resonance's. 
+    Finally, the charge-conjugation parity is undefined for charged particles, so the $\xi\Ppiplus$ system will have the same value of $C$ as the resonance's. 
 
-
-%    {\color{red}
-%    All contributions from the possible associations of the final-state particles---\ie~which particles form the resonance and which is the \emph{spectator}, or \emph{bachelor}.
-%    Each isobar amplitude $\Psi_J(\tau)$ can be factorized into a spin-dependent and a dynamic part.
-%    }
 
     Having set the context of the isobar formalism, I will now discuss how to write down the explicit form of the contributions to the decay amplitude~\eqref{eq:isobar_decomposition}.
-    Each isobar amplitude can be be decomposed as follows:\marginpar{\color{red}arguments!}
+    Each isobar amplitude can be decomposed in the following terms:
     \begin{equation}\label{eq:isobar_amplitude}
-        \Psi_I(\tau) = \psi_J(\tau)\,\mathcal{F\!}_{J}(\tau)\,\Delta_I(s)\,\A_{d_1}\!(m_d; \tau)\,\A_{d_2}\!(m_d; \tau).
+        \Psi_I(\tau) = \psi_J(\tau)\,\mathcal{F\!}_{J}(\tau)\,\Delta_I(s)\,\A_{d_1}\!(m_{d_1\!}; \tau)\,\A_{d_2}\!(m_{d_2\!}; \tau).
     \end{equation}
     Here $\psi_J$ is the spin-dependent part of the decay amplitude;
     $\mathcal{F\!}_J$ is the Blatt-Wei\ss{}kopf penetration factor;
     $\Delta_I$ is the dynamic shape of the isobar;
     and $\A_{d_1}$ and $\A_{d_2}$ are the amplitudes of the decays of $d_1$ and $d_2$, the daughter particles (or resonances) of the sub-decay.
-    These amplitudes are to be evaluated recursively as in the equation~\eqref{eq:isobar_decomposition}, which is the constant function $\A_d = 1$ when $d$ is a final-state particle.
+    These amplitudes have to be evaluated recursively by means of the equation~\eqref{eq:isobar_decomposition}.
     Please note again that I am only allowing the decay to proceed via two-body sub-decays.
 
 
-    In what follows, when not explicitly written, I will imply the sum over the Bose-Einstein symmetrizations of the indistinguishable particles, \ie~the \Ppiplus{} in the \PDplus{} decay under consideration.
+    In what follows, when not explicitly written, I will imply the sum over the Bose-Einstein symmetrizations of the indistinguishable particles---\ie~the final-state \Ppiplus{} in the \PDplus{} decay under consideration.
 
-    {\color{red}
-    \begin{itemize}
-        \item Each sub-decay amplitude can be decomposed as the~\eqref{eq:isobar_decomposition}; for example, in the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$\dots
 
-            In this case, the first step is $\PDplus \to\xi\Ppiplus$, so
-            \begin{equation}
-                \Psi = \psi_L \Delta(s_{\PD})\A_\xi
-                \quad
-                \Delta(s_{\PD}) = \delta(s_{\PD} - m_{\PD}^2)
-            \end{equation}
-            Then\marginpar{\color{red} how much is $\psi_L$? Is $\psi_J$ cumulative of $J$ and $J$?}
-            \begin{equation}
-                \Psi = \psi_J \Delta(s)
-            \end{equation}
-
-    \end{itemize}
-    }
-
-    \paragraph{Spin-dependent amplitude}\marginpar{\color{red} + Blatt-Weisskopf}
+    \paragraph{Spin-dependent amplitude}
     The spin-dependent amplitude, $\psi_J(\tau)$, describes the angular distribution of the decay and is fully specified by the spin quantum numbers of the initial-state particle, the isobar, and the final-state particles.
-    There are, however, a number of formalisms to parametrize $\psi_J(\tau)$.
+    There are a number of formalisms to parametrize $\psi_J(\tau)$.
     
 
     In the Zemach formalism\index{formalism!Zemach}\index{Zemach formalism}~\cite[\S~V.1]{PhysRev.140.B97}, the form of the decay angular dependence in terms of the final-state particles three-momenta is
@@ -131,8 +111,8 @@
     and the three-momenta $\vec{p}_a$ and $\vec{p}_c$ are evaluated in the rest frame of the $ab$ system.
     \begin{table}
         \centering
-        \caption{Expressions of the spin-dependent part of the amplitude $\Psi_J$ in the Zemach formalism for the first three integer values of $J$.
-                 The three-momenta $\vec{p}_a$ and $\vec{p}_c$ are to be evaluated in the rest frame of the subsystem $ab$.}
+        \caption{Expressions of the spin-dependent part of the isobar amplitude~\eqref{eq:isobar_amplitude} in the Zemach formalism for the first three integer values of $J$.
+                 The three-momenta $\vec{p}_a$ and $\vec{p}_c$ are to be evaluated in the rest frame of the $ab$ subsystem.}
         \label{tab:zemach_formalism}
         
         \begin{tabular}{lc}
@@ -145,17 +125,51 @@
             \bottomrule
         \end{tabular}
     \end{table}
-    The table~\ref{tab:zemach_formalism} shows the explicit expressions of $\psi_J$ for $J\in\set{0,1,2}$ in the Zemach formalism.
+    The table~\ref{tab:zemach_formalism} shows the explicit expressions of $\psi_J$ in the Zemach formalism for $J\in\set{0,1,2}$.
 
 
     Another possible angular formalism is the helicity formalism\index{helicity formalism}\index{formalism!helicity}~\cite{jacob1959404}, which I will not discuss here.
-    Regardless of the particular formalism one chooses, the physical prediction, $\Intensity(\tau)$, must be the same.
+    It is worth stressing that the physical prediction, $\Intensity(\tau)$, must be independent on the particular angular formalism one chooses to describe the decay.
+
+
+    \paragraph{Blatt-Wei\ss{}kopf factors}
+
+    \begin{table}
+        \centering
+        \caption{Expressions of the Blatt-Wei\ss{}kopf penetration factors for the first three integer values of $J$. To simplify the notation, I define $z\coloneqq R^2 q_{ab}^2$.}
+        \label{table:blatt_weisskopf}
+        \begin{tabular}{lc}
+            \toprule
+            $J$ &$\mathcal{F}_{\!J}$\\
+            \midrule
+            $0$ &$1$ \\
+            $1$ &$\bigg(\displaystyle\frac{2z}{z + 1}\bigg)^{1/2}$ \\
+            $2$ &$\bigg(\displaystyle\frac{13 z^2 }{z^2 + 3z + 9}\bigg)^{1/2}$ \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    The table~\ref{table:blatt_weisskopf} summarizes the explicit expressions of the Blatt-Wei\ss{}kopf\index{Blatt-Weisskopf@Blatt-Wei\ss{}kopf} barrier factors.
+    \begin{figure}
+        \centering
+        \subfloat[][P wave.]{\input{fig/blatt_weisskopf_p.pgf}}
+
+        \subfloat[][D wave.]{\input{fig/blatt_weisskopf_d.pgf}}
+
+        \caption{Blatt-Wei\ss{}kopf factors.}
+        \label{fig:blatt_weisskopf}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \input{fig/breakup_momenta.pgf}
+        \caption{Break-up momenta of the $\Ppi$ and $\PD$ particles.}
+    \end{figure}
+    The figure~\ref{fig:blatt_weisskopf} shows the plot of the break-up momenta and the Blatt-Wei\ss{}kopf factors.
+    The figure~\ref{fig:dalitz_angular_parts} the plots of $\psi_J^{(ab)c}(\tau)\,\mathcal{F}_J(s)$ in the P and D waves on the phase space of the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay.
 
     \paragraph{Dynamic shape}
-    Unlike the spin-dependent part of the isobar amplitude, there is no way to derive the dynamic shape from first principles.
+    Unlike the spin-dependent part of the isobar amplitude and the Blatt-Wei\ss{}kopf factors, there is no way to derive the dynamic shape from first principles.
     In the past, physicists have mostly adopted a heuristic model-dependent description to obtain the form of the dynamic shape.
-    This approach is described in the following section.
-    A model-independent approach is described in section~\ref{sec:model_independent_isobar_decomposition}.
+    This approach is described in the following section; a model-independent approach is described in section~\ref{sec:model_independent_isobar_decomposition}.
 
 
     \input{mainmatter/theory/model_dependent_decomposition.tex}

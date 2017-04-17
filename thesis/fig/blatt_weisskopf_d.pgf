@@ -1,0 +1,43 @@
+\begin{tikzpicture}
+    \begin{axis}[
+            legend style={at={(.89,.85)}, anchor=west},
+            xlabel={$s$ [\si{\giga\electronvolt}]},
+        ]
+        \pgfmathsetmacro{\mPi}{0.13957018}
+        \pgfmathsetmacro{\mD}{1.86962}
+        \pgfmathsetmacro{\r}{3.}
+
+        \addplot [domain={\mPi + \mPi:\mD - \mPi}, smooth]
+                 gnuplot [raw gnuplot] {
+                     set samples 300;
+                     q2_pi(x)   = (.5 * x)^2 - \mPi * \mPi;
+                     zeta_pi(x) = \r * \r * q2_pi(x);
+                     q2_D(x)   = .25 * (\mD * \mD - (x - \mPi) ** 2) * (\mD * \mD - (x + \mPi) ** 2) / (\mD * \mD);
+                     zeta_D(x) = \r * \r * q2_D(x);
+                     BW(x) = sqrt(13 * x * x / (9 + 3 * x + x * x));
+                     plot [(2 * \mPi):(\mD - \mPi)] BW(zeta_pi(x)) * BW(zeta_D(x));
+                 }; \addlegendentry{$\mathcal{F}_2^{\PD{}}\!(s)\,\mathcal{F}_2^{\xi}(s)$}
+
+        \addplot [domain={\mPi + \mPi:\mD - \mPi}, smooth, densely dashed]
+                 gnuplot [raw gnuplot] {
+                     set samples 300;
+                     q2_pi(x)   = (.5 * x)^2 - \mPi * \mPi;
+                     zeta_pi(x) = \r * \r * q2_pi(x);
+                     q2_D(x)   = .25 * (\mD * \mD - (x - \mPi) ** 2) * (\mD * \mD - (x + \mPi) ** 2) / (\mD * \mD);
+                     zeta_D(x) = \r * \r * q2_D(x);
+                     BW(x) = sqrt(13 * x * x / (9 + 3 * x + x * x));
+                     plot [(2 * \mPi):(\mD - \mPi)] BW(zeta_D(x));
+                 }; \addlegendentry{$\mathcal{F}_2^{\PD{}}\!(s)$}
+
+        \addplot [domain={\mPi + \mPi:\mD - \mPi}, smooth, densely dotted]
+                 gnuplot [raw gnuplot] {
+                     set samples 300;
+                     q2_pi(x)   = (.5 * x)^2 - \mPi * \mPi;
+                     zeta_pi(x) = \r * \r * q2_pi(x);
+                     q2_D(x)   = .25 * (\mD * \mD - (x - \mPi) ** 2) * (\mD * \mD - (x + \mPi) ** 2) / (\mD * \mD);
+                     zeta_D(x) = \r * \r * q2_D(x);
+                     BW(x) = sqrt(13 * x * x / (9 + 3 * x + x * x));
+                     plot [(2 * \mPi):(\mD - \mPi)] BW(zeta_pi(x));
+                 }; \addlegendentry{$\mathcal{F}_2^{\xi}(s)$}
+    \end{axis}
+\end{tikzpicture}

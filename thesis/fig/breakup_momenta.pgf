@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+    \begin{axis}[
+            xlabel={$s$ [\si{\giga\electronvolt}]}
+        ]
+        \pgfmathsetmacro{\mPi}{0.13957018}
+        \pgfmathsetmacro{\mD}{1.86962}
+        \pgfmathsetmacro{\r}{3.}
+
+        \addplot [domain={\mPi + \mPi:\mD - \mPi}, samples=150]
+                 gnuplot [raw gnuplot] {
+                     q2_pi(x)   = (.5 * x)^2 - \mPi * \mPi;
+                     zeta_pi(x) = \r * \r * q2_pi(x);
+                     plot [(2 * \mPi):(\mD - \mPi)] zeta_pi(x);
+                 }; \addlegendentry{$z_{\Ppi}$}
+
+        \addplot [domain={\mPi + \mPi:\mD - \mPi}, samples=150, densely dashed]
+                 gnuplot [raw gnuplot] {
+                     q2_D(x)   = .25 * (\mD * \mD - (x - \mPi) ** 2) * (\mD * \mD - (x + \mPi) ** 2) / (\mD * \mD);
+                     zeta_D(x) = \r * \r * q2_D(x);
+                     plot [(2 * \mPi):(\mD - \mPi)] zeta_D(x);
+                 }; \addlegendentry{$z_{\PD}$}
+    \end{axis}
+\end{tikzpicture}

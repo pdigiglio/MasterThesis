@@ -15,12 +15,12 @@
     \pgfmathsetmacro{\uyBound}{(sqrt(\mTwo)  - sqrt(\mTwoA))^2}
 
     \begin{axis}[
-        xlabel={$m_{ab}^2$},
-        ylabel={$m_{bc}^2$},
-        xtick={\lBound,\uBound},
-        xticklabels={$(m_a + m_b)^2$, $(M-m_c)^2$},
-        ytick={\lyBound,\uyBound},
-        yticklabels={$(m_b + m_c)^2$, $(M-m_a)^2$},
+        ylabel={$m_{ab}^2$},
+        xlabel={$m_{bc}^2$},
+        ytick={\lBound,\uBound},
+        yticklabels={$(m_a + m_b)^2$, $(M-m_c)^2$},
+        xtick={\lyBound,\uyBound},
+        xticklabels={$(m_b + m_c)^2$, $(M-m_a)^2$},
         yticklabel style={sloped like y axis},
         grid = major,
         declare function = { E_b(\t) = ((\t -\mTwoB + \mTwoA)/(2*sqrt(\t))); },

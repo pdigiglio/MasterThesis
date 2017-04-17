@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+    \begin{axis} [
+        width = .7\textwidth,
+        view={0}{90},%
+        xlabel={$m_{bc}^2$},
+        ylabel={$m_{ab}^2$},
+        ticks=none,
+        grid=none
+    ]
+        \addplot3 [dalitz]
+          gnuplot [raw gnuplot] { splot "data/resonance_example/p_wave_resonance_mcmc.txt" using 1:2:3 };
+    \end{axis}
+\end{tikzpicture}

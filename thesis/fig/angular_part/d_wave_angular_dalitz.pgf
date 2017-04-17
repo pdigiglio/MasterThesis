@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+    \begin{axis} [dalitz_plot]
+
+        \addplot3 [dalitz]
+          gnuplot [raw gnuplot] { splot "data/angular_part/uniform_d_wave_mcmc.txt" using 1:2:3 };
+    \end{axis}
+\end{tikzpicture}

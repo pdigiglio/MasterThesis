@@ -1,102 +1,85 @@
 \subsection{Model-dependent isobar decomposition}
 
 
-
     In the model-dependent approach to the isobar decomposition, the dynamic shape of the decay amplitude is expanded in terms of the resonances that populate the isobar:
     \begin{equation}\label{eq:isobar_mass_shape_expansion}
         \Delta_I(s) = \sum_{\xi\in I} \alpha_{\xi}\Delta_{\xi}(s),
     \end{equation}
-    being $s$ the squared mass of the resonance, \ie~the squared four-momentum of the resonance daughter-particle system; referring to the figure~\ref{fig:isobar_three_body_decay}, $s\coloneqq p_{ab}^2 = p_{\xi}^2$.
-    Each parameter $\alpha_{\xi}$ is the complex weight of the corresponding resonance $\xi$.
+    being $s$ the squared mass of the resonance, \ie~the squared four-momentum of the resonance daughter-particle system: referring to the figure~\ref{fig:isobar_three_body_decay}, $s\coloneqq p_{ab}^2 = p_{\xi}^2$.
+    Each coefficient $\alpha_{\xi}$ is the complex weight of the corresponding resonance $\xi$.
+    Please note that the dynamic shape does not depend on the full phase-space coordinate but only on the invariant mass of the resonance it refers to.
 
 
-    \begin{table}
-        \centering
-        \caption{Expressions of the Blatt-Wei\ss{}kopf penetration factors for the first three integer values of $J$. To simplify the notation, I define $z\coloneqq R^2 q_{ab}^2$.}
-        \label{table:blatt_weisskopf}
-        \begin{tabular}{lc}
-            \toprule
-            $J$ &$\mathcal{F}_{\!J}$\\
-            \midrule
-            $0$ &$1$ \\
-            $1$ &$\bigg(\displaystyle\frac{2z}{z + 1}\bigg)^{1/2}$ \\
-            $2$ &$\bigg(\displaystyle\frac{13 z^2 }{z^2 + 3z + 9}\bigg)^{1/2}$ \\
-            \bottomrule
-        \end{tabular}
-    \end{table}
-    One of the most common forms for the dynamic shape of a resonance is the relativistic Breit-Wigner function\index{relativistic Breit-Wigner}\index{Breit-Wigner!relativistic}
+    One of the most common parametrizations for the dynamic shape of a resonance is the relativistic Breit-Wigner distribution,\index{relativistic Breit-Wigner}\index{Breit-Wigner!relativistic}
     \begin{equation}\label{eq:rbw}
         \Delta_{\xi}^{\text{RBW}}(s) \coloneqq \frac{1}{m_{\xi}^2 - s - \iu \sqrt{s}\, \Gamma_\xi(s)},
     \end{equation}
-    being $m_{\xi}$ the nominal mass of the resonance.
+    where the $m_{\xi}$ parameter is the nominal mass of the resonance.
     The mass-dependent width reads
     \begin{equation}
         \Gamma_\xi(s) \coloneqq \Gamma_{\xi} \, \mathcal{F}_{\!J_\xi}\!(q_{ab};R)\, \frac{m_{\xi}}{\sqrt{s}} \bigg(\frac{q_{ab}}{q_{\xi}}\bigg)^{2J_{\xi}+1},
     \end{equation}
-    where $\Gamma_{\xi}$ and $J_{\xi}$ are the width and spin of the resonance;
-    $\mathcal{F}$ is the Blatt-Wei\ss{}kopf form factor (see the table~\ref{table:blatt_weisskopf}), which depends on $R$, the \emph{radial size}\index{radial size};
+    where the $\Gamma_{\xi}$ and $J_{\xi}$ parameters are the width and spin of the resonance;
+    $\mathcal{F}$ is the Blatt-Wei\ss{}kopf form factor (see the table~\ref{table:blatt_weisskopf}), which depends on $R$, the resonance \emph{radial size}\index{radial size};
     $q_{ab}$ is the measured break-up momentum;
     and $q_\xi$ is the break-up momentum at the nominal mass of $\xi$.
 
 
-    If the resonance is narrow and all the relevant thresholds are far away, the term $\sqrt{s}\,\Gamma_\xi(s)$ in the denominator of the equation~\eqref{eq:rbw} can be replaced with the constant quantity $m_{\xi}\Gamma_{\xi}$~\cite[\S~47.2.1]{chinese_phisics}.
-    With this substitution, one gets the non-relativistic Breit-Wigner\index{Breit-Wigner}
+    If the resonance is narrow, namely all the relevant thresholds are far away, the term $\sqrt{s}\,\Gamma_\xi(s)$ in the denominator of the equation~\eqref{eq:rbw} can be replaced with the constant quantity $m_{\xi}\Gamma_{\xi}$~\cite[\S~47.2.1]{chinese_phisics}.
+    With this substitution, one gets the non-relativistic Breit-Wigner distribution,\index{Breit-Wigner}
     \begin{equation}\label{eq:bw}
         \Delta_{\xi}^{\text{BW}}(s) \coloneqq \frac{1}{m_{\xi}^2 - s - \iu m_{\xi} \Gamma_{\xi}},
     \end{equation}
     which normalized such that $\Delta_{\xi}^{\text{BW}}(m_{\xi}^2) = \iu / m_\xi\Gamma_\xi$.
 
 
-    Another possible dynamic shape is the pole-mass distribution\marginpar{motivate the different distributions}
+    Another possible dynamic shape is the pole-mass distribution,\marginpar{motivate the different distributions}
     \begin{equation}\label{eq:pole_mass}
-        \Delta_{\xi}^{\text{PM}}(s) \coloneqq \frac{1}{m_{\xi}^2 - s},
+        \Delta_{\xi}^{\text{PM}}(s) \coloneqq \frac{1}{m_{\xi}^2 - s},\quad
+        \text{with }m_\xi = \Re (m_\xi) + \iu\Im(m_\xi),
     \end{equation}
-    in which the nominal mass of the resonance is a complex number $m_\xi = \Re (m_\xi) + \iu\Im(m_\xi)$.
-    \citeauthor{PhysRevD.71.054030}, for example, proposes the pole-mass shape as a parametrization for the \Psigma{} resonance~\cite{PhysRevD.71.054030}.
+    where the resonance-mass parameter, $m_\xi$, is a complex number.
+    The distribution~\eqref{eq:pole_mass} has been proposed by \citeauthor{PhysRevD.71.054030} to parametrize the \Psigma{} resonance~\cite{PhysRevD.71.054030}.
     \begin{figure}
         \centering
         \input{fig/breit_wigner_pole_mass_comparison.pgf}
         \caption{Comparison between the non-relativistic Breit-Wigner and the pole-mass dynamic shapes. The parameters I used are $(\SI{.98}{\giga\electronvolt/\c^2}, \SI{.07}{\giga\electronvolt/\c^2})$, corresponding to $(m_\xi,\Gamma_\xi)$ for the Breit-Wigner shape; and $(\Re(m_\xi),\Im(m_\xi))$ for the pole-mass shape.}
-
         \label{fig:bw_pm_comparison}
     \end{figure}
     The figure~\ref{fig:bw_pm_comparison} shows a comparison between the non-relativistic Breit-Wigner and the pole-mass dynamic shapes.
 
-    {\color{red} Other parametrizations are the Flatté and the pole-mass.\marginpar{should I mention this?}
-
+    
+    The \Pfnez{} resonance lies close to both the \Ppiplus{}\Ppiminus{} and the \PKplus{}\PKminus{} decay channels and is usually parametrized by a Flatté\index{Flatte@Flatté} distribution, which takes into account the opening of the second channel:
     \begin{equation}\label{eq:flatte}
-        \Delta_{\xi}^{\text{F}}(s) \coloneqq \frac{g_1}{m_{\xi}^2 - s - \iu(\rho_1 g_1^2 + \rho_2 g_2^2)}.
+        \Delta_{\xi}^{\text{F}}(s) \coloneqq \frac{1}{m_{\xi}^2 - s - \iu(g_1^2 \rho_{1\!}(s)  + g_2^2 \rho_2(s))},
     \end{equation}
-    Where the mass of the resonance $\xi$ is complex.
-    }
+    being $g_1$ and $g_2$ the coupling constants to the channels;
+    and $\rho_{1\!}(s)$ and $\rho_2(s)$ the (complex) phase-space factors~\cite{FLATTE1976224}.\marginpar{which are the p-s factors?}
 
-    In the model-dependent isobar decomposition, the decay amplitude~\eqref{eq:isobar_decomposition} finally reads\marginpar{more efficient for caching, but wrong with my conventions}
+    In the model-dependent \ac{pwa}, the isobar decay amplitude~\eqref{eq:isobar_decomposition} finally reads
     \begin{equation}\label{eq:redundant_model_dependent_isobar_decomposition}
-        \Psi_I(\tau) =  \sum_{\xi\in I} \gamma_\xi \,\psi_{J_\xi}\!(\tau)\,\Delta_{\xi}(s),\quad
+        \Psi_I(\tau) =  \sum_{\xi\in I} \gamma_\xi \,\psi_{J_\xi\!}(\tau)\,\mathcal{F\!}_{J_\xi\!}(\tau)\,\Delta_{\xi}(s)\,\A_{d_1}\!(m_{d_1\!}; \tau)\,\A_{d_2}\!(m_{d_2\!}; \tau),\quad
         \text{being }
         \gamma_\xi\coloneqq c_I \alpha_{\xi}.
     \end{equation}
-%    \begin{equation}\label{eq:redundant_model_dependent_isobar_decomposition}
-%        \A(\tau) = \sum_{I\in\set{(J, P, C)}} \psi_I(\tau) \sum_{\xi\in I} \gamma_\xi \Delta_{\xi}(s),\quad
-%        \text{being }
-%        \gamma_\xi\coloneqq c_I \alpha_{\xi}.
-%    \end{equation}
-    I have absorbed the coefficients $c_I$ and $\alpha_\xi$ into one coefficient $\gamma_{\xi}$, that I will call \emph{free amplitude}\index{free amplitude}.
-    Please note that the free amplitude $\gamma_\xi$ in the equation~\eqref{eq:redundant_model_dependent_isobar_decomposition} does not need the isobar label: since each resonance is in a well-defined isobar, a double index like $\gamma_{I,\xi}$ would be redundant.
-    For the same reason, the common angular part in the equation~\eqref{eq:redundant_model_dependent_isobar_decomposition} can be factored out of the sum:
+    I have absorbed the coefficients $c_I$ and $\alpha_\xi$ into one coefficient, $\gamma_{\xi}$, that I will call \emph{free amplitude}\index{free amplitude}.
+    Please note that the free amplitudes in the equation~\eqref{eq:redundant_model_dependent_isobar_decomposition} do not need the isobar label: since each resonance is in a well-defined isobar, a double index, $(I,\xi)$, would be redundant.
+    Moreover, for the same reason, the common angular part in the equation~\eqref{eq:redundant_model_dependent_isobar_decomposition} can be collected in front of the sum:
     \begin{equation}\label{eq:non_redundant_model_dependent_isobar_decomposition}
-        \Psi_I(\tau) =  \psi_{J_I}\!(\tau)\sum_{\xi\in I} \gamma_\xi \,\Delta_{\xi}(s).
+        \Psi_I(\tau) =  \psi_{J_I\!}(\tau)\,\mathcal{F\!}_{J_I\!}(\tau)\,\A_{d_1}\!(m_{d_1\!}; \tau)\,\A_{d_2}\!(m_{d_2\!}; \tau)\sum_{\xi\in I} \gamma_\xi \,\Delta_{\xi}(s).
     \end{equation}
-    {\color{red} TODO point out that one is more suited for smart caching.}
-
-
 
 
     At this point, I would like to stress that in the expansion~\eqref{eq:non_redundant_model_dependent_isobar_decomposition} there are several sources of systematic uncertainties.
-    The assumption about the resonance content of each isobar is not known and highly affects the quality of the model description. {\color{red} cite \cite{PhysRevD.76.012001}}\marginpar{some resonances are not yet well-established}
-    The dynamic shape of each resonance---along with its parameters---has to be experimentally determined; so it has to be silently assumed that neither the dynamic shape of the resonance, nor its parameters are affected by the particular interaction in the decay.
+    The resonance content of each isobar is not known and highly affects the quality of the description the model provides.
+    Moreover, some resonances---like the \Pfnez{}, the \Pfotsz, and the pole \Psigma{}---are not well established~\cite[\S~B]{PhysRevD.76.012001}.
 
 
-    The limitations of the model-dependent isobar formalism are becoming critical due to the availability of larger and larger data sets.
+    The dynamic shape of each resonance---along with its parameters---has to be experimentally determined: our knowledge about the dynamic shape comes from previous experiments performed under different conditions.
+    Thus, when modelling a decay, it has to be silently assumed that neither the dynamic shape of the resonance, nor its parameters are affected by the particular interaction in the decay.
+
+
+    Due to the availability of larger and larger experimental data sets, the limitations of the model-dependent isobar formalism are becoming critical.
     In the next section I will present how such limitations can be circumvented by means of the model-independent isobar formalism.
+
 

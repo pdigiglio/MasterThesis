@@ -1,0 +1,47 @@
+\begin{tikzpicture}
+    \begin{axis}[
+            ylabel={Magnitude $[\si{1/(\giga\electronvolt\per\c^2)^2}]$},
+            xlabel={$s$ $[\si{\giga\electronvolt^2\per\c^4}]$},
+        ]
+        \pgfmathsetmacro{\mPi}{.139}
+        \pgfmathsetmacro{\R}{3.}
+        
+        \pgfmathsetmacro{\m}{.98}
+        \pgfmathsetmacro{\T}{.07}
+
+        %\addplot [domain={.279:1.73}, samples=100, smooth]
+        %         gnuplot {1./sqrt((\m * \m - x * x)**2 + (\m * \T)**2)};\addlegendentry{Breit-Wigner}
+
+        \addplot [domain={.279:1.73}, smooth, densely dotted]
+                 gnuplot [raw gnuplot] {
+                     set samples 200;
+                     q2_ab(x) = (.5 * x) ** 2 - \mPi * \mPi;
+                     q2_xi    = q2_ab(\m * \m);
+                     width(x) = \T * \m * sqrt(q2_ab(x)) / (sqrt(q2_xi * x));
+                     BW(x) = 1. / (\m * \m - x * x - {0,1} * x * width(x * x));
+                     plot [.279:1.73] abs(BW(x));
+                 };\addlegendentry{$J=0$}
+
+        \addplot [domain={.279:1.73}, smooth, densely dashed]
+                 gnuplot [raw gnuplot] {
+                     set samples 200;
+                     q2_ab(x) = (.5 * x) ** 2 - \mPi * \mPi;
+                     q2_xi    = q2_ab(\m * \m);
+                     F1(x) = sqrt(2 * x / (1 + x));
+                     width(x) = \T * \m * F1(q2_ab(x) * \R * \R) * (sqrt(q2_ab(x)) ** 3) / (sqrt((q2_xi ** 3) * x));
+                     BW(x) = 1. / (\m * \m - x * x - {0,1} * x * width(x * x));
+                     plot [.279:1.73] abs(BW(x));
+                 };\addlegendentry{$J=1$}
+
+        \addplot [domain={.279:1.73}, smooth, dash dot]
+                 gnuplot [raw gnuplot] {
+                     set samples 200;
+                     q2_ab(x) = (.5 * x) ** 2 - \mPi * \mPi;
+                     q2_xi    = q2_ab(\m * \m);
+                     F2(x)    = sqrt(13 * x * x / (x * x + 3 * x + 9));
+                     width(x) = \T * \m * F2(q2_ab(x) * \R * \R) * (sqrt(q2_ab(x)) ** 5) / (sqrt((q2_xi ** 5) * x));
+                     BW(x) = 1. / (\m * \m - x * x - {0,1} * x * width(x * x));
+                     plot [.279:1.73] abs(BW(x));
+                 };\addlegendentry{$J=2$}
+    \end{axis}
+\end{tikzpicture}

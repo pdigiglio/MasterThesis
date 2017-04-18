@@ -32,7 +32,7 @@
     The performance of the amplitude calculator is critical because the \ac{pwa} requires expensive calculations especially for the following reasons.
 
 
-    The large experimental data sets, as already mentioned, require the decay models to increase in complexity in order to provide a satisfactory description of the process under exam.
+    The large experimental data sets, as already mentioned, require the decay models to increase in complexity in order to provide a satisfactory description of the process under examination.
     Moreover, the large number of free parameters during the fit increases the chances for local maxima of the likelihood function.
     These issues affect both the memory footprint and the \acs{cpu} usage of the amplitude calculator.
 
@@ -40,7 +40,7 @@
     To reduce the number of expensive amplitude calculations, \pac{yap} features a smart caching system.
     The wave amplitudes are evaluated once on all the input data and their values are cached.
     Thanks to the \lstinline!Parameter! class, the amplitudes are evaluated again only if their parameters have changed during the run time.
-    I will show a short example on how the caching system works for a user-defined dynamic-shape class in the code~\ref{lst:mass_shape}, page~\pageref{lst:mass_shape}.
+    I will show a short example on how the caching system works for a user-defined dynamic-shape class in code~\ref{lst:mass_shape}, on page~\pageref{lst:mass_shape}.
 
 
     Both the input data and the cached amplitude values are stored in instances of the \lstinline!DataPoint!\index{DataPoint@\texttt{DataPoint}} class.
@@ -55,9 +55,9 @@
 
 
     To further reduce the memory footprint, another optimization \pac{yap} features is to share among the waves all the elements they have in common.
-    As an example, let's refer to the equation~\eqref{eq:non_redundant_model_dependent_isobar_decomposition}, which gives the decay amplitude of an isobar.
+    As an example, let's refer to equation~\eqref{eq:non_redundant_model_dependent_isobar_decomposition}, which gives the decay amplitude of an isobar.
     The cached values of the angular part and the Blatt-Wei\ss{}kopf factor are shared among all the resonances in the isobar---and, possibly, among all the isobars---with the same value of $J$.
-    Moreover, for $J = 1$, the angular part is just a constant and it is not cached, as its value can be absorbed in the free-amplitude coefficient.
+    Moreover, for $J = 0$, the angular part is just a constant and it is not cached, as its value can be absorbed in the free-amplitude coefficient.
 
 
     \section{Structure and user interface}
@@ -96,7 +96,7 @@
         \caption{A simplified \ac{uml} diagram that shows some of the daughter classes of \lstinline!DataAccessor!.}
         \label{fig:data_accessor_hierarchy}
     \end{sidewaysfigure}
-    The figure~\ref{fig:data_accessor_hierarchy} shows a partial \ac{uml} diagram of the \lstinline!DataAccessor! class.
+    Figure~\ref{fig:data_accessor_hierarchy} shows a partial \ac{uml} diagram of the \lstinline!DataAccessor! class.
     This diagram shows a further feature of \pac{yap}: the amplitude parts that do not depend on any of the model parameters inherit from \lstinline!StaticDataAccessor!\index{StaticDataAccessor@\texttt{StaticDataAccessor}} and are always evaluated only once on the input data.
 
 
@@ -114,7 +114,7 @@
 
         \begin{table}
             \centering
-            \caption{Resonance content of the Dalitz plot in the figure~\ref{fig:partial_cleo_decay}. The properties of the resonances are taken from the analysis of the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay by the \cleo{} collaboration~\cite{PhysRevD.76.012001}.}
+            \caption{Resonance content of the Dalitz plot in figure~\ref{fig:partial_cleo_decay}. The properties of the resonances are taken from the analysis of the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay by the \cleo{} collaboration~\cite{PhysRevD.76.012001}.}
             \label{tab:cleo_model}
             \begin{tabular}{llcc}
                 \toprule
@@ -128,16 +128,16 @@
                 \bottomrule
             \end{tabular}
         \end{table}
-        In the following code snippet, I will illustrate an usage example of the \ac{api} to create a decay model with the resonant content listed in the table~\ref{tab:cleo_model}.
+        In the following code snippet, I will illustrate an usage example of the \ac{api} to create a decay model with the resonant content listed in table~\ref{tab:cleo_model}.
         This model may be used to perform a fit to experimental data or to generate \ac{mc} data.
 
         % -- Model-creation example ---------------------
-        \lstinputlisting[caption={Usage example of the \ac{api} of \pac{yap}. The following code implements a decay model with the resonant content reported in the table~\ref{tab:cleo_model}.\label{lst:partial_cleo_decay}}]{source/d3pi.cxx}
+        \lstinputlisting[caption={Usage example of the \ac{api} of \pac{yap}. The following code implements a decay model with the resonant content reported in table~\ref{tab:cleo_model}.\label{lst:partial_cleo_decay}}]{source/d3pi.cxx}
         % -----------------------------------------------
         \begin{figure}
             \centering
             \input{fig/cleo_dalitz_plot.pgf}
-            \caption{\ac{mc}-generated Dalitz plot of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay with the resonance content summarized in the table~\ref{tab:cleo_model}.}
+            \caption{\ac{mc}-generated Dalitz plot of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay with the resonance content summarized in table~\ref{tab:cleo_model}.}
             \label{fig:partial_cleo_decay}
         \end{figure}
         The initial-state particle must be set after the whole decay structure has been defined with the \lstinline!addInitialState! member function (line~\ref{line:addInitialState}).
@@ -146,7 +146,7 @@
 
 
         The \pac{yap} repository contains examples on how to couple it with a sampler like \pac{bat}~\cite{Caldwell20092197}.
-        The Dalitz plot in the figure~\ref{fig:partial_cleo_decay} shows the \ac{mc} data generated with the model in the listing~\ref{lst:partial_cleo_decay}.
+        The Dalitz plot in figure~\ref{fig:partial_cleo_decay} shows the \ac{mc} data generated with the model in listing~\ref{lst:partial_cleo_decay}.
 
 
         \subsection{Adding a new dynamic shape}
@@ -161,11 +161,11 @@
         \caption{\Ac{uml} diagram for the \lstinline!MassShape! class hierarchy. I give more details for the \lstinline!MassShapeWithNominalMass! class as I would like to point out its dependence on the smart \lstinline!Parameter! class.}
         \label{fig:mass_shape_hierarchy}
     \end{figure}
-    As an example, I will show an excerpt of the declaration and definition of the \lstinline!MassBin! dynamic shape I implemented to be used in the model independent fit utility described in the chapter~\ref{chap:model_independent_pwa}.
-    Given the \ac{uml} diagram shown in the figure~\ref{fig:mass_shape_hierarchy}, the most meaningful design choice is to inherit the \lstinline!MassBin! class directly from \lstinline!MassShape!.
+    As an example, I will show an excerpt of the declaration and definition of the \lstinline!MassBin! dynamic shape I implemented to be used in the model independent fit utility described in chapter~\ref{chap:model_independent_pwa}.
+    Given the \ac{uml} diagram shown in figure~\ref{fig:mass_shape_hierarchy}, the most meaningful design choice is to inherit the \lstinline!MassBin! class directly from \lstinline!MassShape!.
     
     \lstinputlisting[caption={Excerpt of the definition and the declaration of the \lstinline!MassBin! class.}\label{lst:mass_shape}]{source/mass_shape.h}
-    In the code~\ref{lst:mass_shape}, it is important to note that the class parameters need to be added to the \lstinline!Model! via the inherited \lstinline!addParameter! member function (line~\ref{line:addParameter}), otherwise the model intensity will be undefined.
+    In code~\ref{lst:mass_shape}, it is important to note that the class parameters need to be added to the \lstinline!Model! via the inherited \lstinline!addParameter! member function (line~\ref{line:addParameter}), otherwise the model intensity will be undefined.
     As I stated before, the \lstinline!calculate! member function will only be triggered if (at least) one of the dynamic-shape parameters has changed.
 
 
@@ -175,13 +175,13 @@
     Some of the future milestones of the project are:
     \begin{itemize}
         \item
-            Extend the number of dynamic-shape classes, introducing distributions like the Bowler, the Gounora-Sakurai, and so on;
+            Extend the number of dynamic-shape classes, introducing distributions like those of Bowler, of Gounora and Sakurai, and so on;
 
         \item
             Add an user interface to coherently or incoherently sum an arbitrary function of the phase space to the decay amplitude: this would allow the user to introduce a parametrization for the non-resonant and background components;
 
         \item
-            Add an user interface to multiply an arbitrary function of the phase space to the decay amplitude: this would allow the user to introduce its detector acceptance parametrization;
+            Add an user interface to multiply an arbitrary function of the phase space to the decay amplitude: this would allow the user to introduce a detector acceptance parametrization;
 
         \item
             Implement the $K$-matrix formalism.

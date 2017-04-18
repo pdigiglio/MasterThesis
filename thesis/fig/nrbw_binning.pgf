@@ -1,6 +1,7 @@
 \begin{tikzpicture}
     \begin{axis}[
         amplitude_plot,
+        width = .8\textwidth,
         xlabel={$s$ $[\si{\giga\electronvolt^2\per\c^4}]$},
     ]
         \pgfmathsetmacro{\m}{.98}

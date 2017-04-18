@@ -1,16 +1,16 @@
 \chapter{\texorpdfstring{\Acl{pwa}}{Partial-wave analysis}}
 \label{chap:theory}
 
-    \Ac{pwa}\index{partial-wave analysis} is a standard technique in scattering theory.
+    The partial-wave decomposition is a standard technique in scattering theory.
     It allows to write down the scattering probability amplitude in terms of Legendre polynomials, the eigenvectors of the angular momentum operator, each representing a partial\index{partial wave} wave~\cite[\S~11.2]{griffiths_intro_qm}.
 
 
-    In this chapter, I will show how to apply the \ac{pwa} to heavy-meson decays to disentangle the various contributions to the decay amplitude.
+    In this chapter, I will show how to perform a \ac{pwa}\index{partial-wave analysis} to heavy-meson decays to disentangle the various contributions to the decay amplitude.
     I will focus on the isobar decomposition of a spinless parent particle to three pseudo-scalar spinless daughter particles in the final state.
     This is the case of the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay, to which I will refer throughout the whole thesis.
 
 
-    In the last part of the chapter, I will briefly introduce the reader to the Dalitz plot, a particularly useful visualization tool in the \ac{pwa} of three-body particle decays.
+    In the last part of the chapter, I will briefly introduce the reader to the Dalitz plot, a particularly useful visualization tool in \acp{pwa} of three-body decays.
 
     \input{mainmatter/theory/the_isobar_decomposition.tex}
     \input{mainmatter/theory/dalitz-plot_analysis.tex}
@@ -31,9 +31,9 @@
     In what follows, I will ignore the non-resonant contribution to the decay amplitude and the detector effects as I will only work on \ac{mc}-generated data.
 
 
-    The decay amplitude that I will use in the rest of the thesis is the~\eqref{eq:isobar_decomposition}, which has the following expansion:
+    The decay amplitude that I will use in the rest of the thesis is equation~\eqref{eq:isobar_decomposition}, which has the following expansion:
     \begin{equation}
-        \A(m_{\pi\pi}^2, m_{\pi\pi}^2) = \sum_{I} c_I \,\psi_{J_I}^{(\xi)\pi}\!(m_{\pi\pi}^2, m_{\pi\pi}^2)\, \mathcal{F}_{\!J_I}^{\PD}(m_{\pi\pi}^2) \, \mathcal{F}_{\!J_I}^{\xi}(m_{\pi\pi}^2)\,\Delta_I(m_{\pi\pi}^2).
+        \A(m_{\pi\pi}^2, m_{\pi\pi}^2) = \sum_{I} c_I \,\psi_{J_I}^{(\xi)\pi}\!(m_{\pi\pi}^2, m_{\pi\pi}^2)\, \mathcal{F}_{\!J_I}^{\PD}(q_{\xi\pi}^2(m_{\pi\pi}^2);R) \, \mathcal{F}_{\!J_I}^{\xi}(q_{\pi\pi}^2(m_{\pi\pi}^2);R)\,\Delta_I(m_{\pi\pi}^2).
     \end{equation}
     Please note that there is only one spin-dependent function for two sub-decays---namely, $\PDplus\to\xi\Ppiplus$ and $\xi\to\Ppiplus\Ppiminus$---because the functions~\eqref{eq:zemach_formalism} apply to three-body decays.
     Moreover, since the pions are spinless particles, their Blatt-Wei\ss{}kop factors are constant; and, since they are final-state particles, their dynamic shape is $\delta(s_{\pi}-m_{\pi}^2)$.

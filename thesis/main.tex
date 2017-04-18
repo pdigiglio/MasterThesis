@@ -11,8 +11,8 @@
     open=right,
     twoside,
     english,
-    draft
-	final
+    %draft
+	%final
 ]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -23,8 +23,12 @@
 %\usepackage{arsclassica}
 
 
+% -- For drafting ------------
 %\usepackage{lineno}
+%\usepackage{setspace}
+%\renewcommand{\baselinestretch}{2.0}
 \usepackage{showkeys}
+% ----------------------------
 
 
 % TODO Setup typography (fonts, mparhack, microtype...)
@@ -171,28 +175,6 @@
 
     \input{mainmatter/conclusions.tex}
 
-    \begin{figure}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                    xlabel = {$\Re (\Delta_{\Pfnez}^{\text{BW}}(s))$},
-                    ylabel = {$\Im (\Delta_{\Pfnez}^{\text{BW}}(s))$},
-                ]
-
-                \pgfmathsetmacro{\m}{.98}
-                \pgfmathsetmacro{\T}{.07}
-
-                \addplot+ [black, mark options={mark size = .75, color=black}]
-                  gnuplot [raw gnuplot] {
-                    set parametric;
-                    f(x) = 1. / (\m * \m - x * x - {0., 1.} * \m * \T);
-                    set samples 150;
-                    plot [.279:1.73] real(f(t)), imag(f(t));
-                };
-            \end{axis}
-        \end{tikzpicture}
-        \caption{Argand-Gauss plot of a non-relativistic Breit-Wigner~\eqref{eq:bw}.}
-    \end{figure}
 
 %----------------------------------------------------------------------------------------
 % BACKMATTER

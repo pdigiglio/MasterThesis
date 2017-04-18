@@ -1,6 +1,7 @@
 \begin{tikzpicture}
     \begin{axis}[
-            xlabel={$s$ [\si{\giga\electronvolt}]}
+            xlabel={$s_{\pi\pi}$ [\si{\giga\electronvolt}]},
+            legend style={at={(.66,.85)}, anchor=west},
         ]
         \pgfmathsetmacro{\mPi}{0.13957018}
         \pgfmathsetmacro{\mD}{1.86962}
@@ -11,13 +12,13 @@
                      q2_pi(x)   = (.5 * x)^2 - \mPi * \mPi;
                      zeta_pi(x) = \r * \r * q2_pi(x);
                      plot [(2 * \mPi):(\mD - \mPi)] zeta_pi(x);
-                 }; \addlegendentry{$z_{\Ppi}$}
+                 }; \addlegendentry{$R^2q_{\pi\pi}^2$}
 
         \addplot [domain={\mPi + \mPi:\mD - \mPi}, samples=150, densely dashed]
                  gnuplot [raw gnuplot] {
                      q2_D(x)   = .25 * (\mD * \mD - (x - \mPi) ** 2) * (\mD * \mD - (x + \mPi) ** 2) / (\mD * \mD);
                      zeta_D(x) = \r * \r * q2_D(x);
                      plot [(2 * \mPi):(\mD - \mPi)] zeta_D(x);
-                 }; \addlegendentry{$z_{\PD}$}
+                 }; \addlegendentry{$R^2q_{\xi\pi}^2$}
     \end{axis}
 \end{tikzpicture}

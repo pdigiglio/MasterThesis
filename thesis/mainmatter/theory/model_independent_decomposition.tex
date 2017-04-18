@@ -1,13 +1,13 @@
 \subsection{Model-independent isobar decomposition}
 \label{sec:model_independent_isobar_decomposition}
 
-    The model-independent approach to the isobar decomposition aims to reduce the analysis dependence on possibly incomplete or incorrect fit models, as no assumption on the resonant content of the isobars is needed.
+    The model-independent approach to the isobar decomposition aims to reduce the analysis' dependence on possibly incomplete or incorrect fit models, as no assumption on the resonant content of the isobars is needed.
     In this approach, the dynamic shapes of the isobars are directly extracted from the available experimental events, provided the data set is large enough.
     
 
     A characteristic function\index{characteristic function} on a real interval, $M \coloneqq [m_{\text{low}}, m_{\text{up}})$, is defined as
     \begin{equation}
-        \Characteristic_A(m) \coloneqq 
+        \Characteristic_M(m) \coloneqq 
         \begin{cases}
             1 &\text{if }m \in M, \\
             0 &\text{otherwise}.
@@ -21,34 +21,34 @@
         {Partition of the invariant-mass range, $M \coloneqq [m_a+m_b,m_X - m_c)$, into $N_\text{bins}$ right-open bins, $B_i = [m_{i-1}, m_i)$.}
         \label{fig:invariant-mass-partition}
     \end{figure}
-    The figure~\ref{fig:invariant-mass-partition} shows the partitioning of the interval $[m_a+m_b,m_X-m_c)$, the allowed invariant-mass range for the final-state $ab$ system.\footnote{The allowed mass range of the $ab$ system also includes the value $m_X - m_c$; I will anyway ignore this value as it is a null-measure interval, so leaving it out will not affect the results of the analysis.}
+    Figure~\ref{fig:invariant-mass-partition} shows the partitioning of the interval $[m_a+m_b,m_X-m_c)$, the allowed invariant-mass range for the final-state $ab$ system.\footnote{The allowed mass range of the $ab$ system also includes the value $m_X - m_c$; I will anyway ignore this value as it is a null-measure interval, so leaving it out will not affect the results of the analysis.}
     The partition $\mathcal{P}(M)$ defines $N_\text{bins}$ bins on $M$, $\set{B_i}$, where $B_i$ is the right-open interval $[m_{i-1},m_i)$ for $i\in\set{1,\dots, N_\text{bins}}$.
     A step function\index{step function} on the interval $M$, given the partition $\mathcal{P}(M)$ is a finite linear combination of characteristic functions on the bins:
     \begin{equation}\label{eq:step_dynamic_shape}
         \Delta_{\mathcal{P}(M)}^{\text{SF}}(m) \coloneqq \sum_{i = 1}^{N_\text{bins}} \alpha_i\, \Characteristic_{B_i}\!(m),
     \end{equation}
-    being $\alpha_i$ a complex coefficient.
+    $\alpha_i$ being a complex coefficient.
 
 
-    In the model-independent isobar decomposition, the equation~\eqref{eq:step_dynamic_shape} is the approximate dynamic shape of the isobar, and its coefficients are determined from the analysis of the observed events.
+    In the model-independent isobar decomposition, equation~\eqref{eq:step_dynamic_shape} is the approximate dynamic shape of the isobar, and its coefficients are determined from the analysis of the observed events.
     \begin{figure}
         \centering
         \input{fig/nrbw_binning.pgf}
-        \caption{Step-function approximation of the magnitude of the non-relativistic Breit-Wigner dynamic shape~\eqref{eq:bw}.}
+        \caption{Step-function approximation of the magnitude of the non-relativistic Breit-Wigner dynamic shape, equation~\eqref{eq:bw}.}
         \label{fig:step_function_approximation}
     \end{figure}
-    The figure~\ref{fig:step_function_approximation} shows the basic idea behind the model-independent isobar decomposition: the piecewise function~\eqref{eq:step_dynamic_shape} will approximate the isobar mass shape.
+    Figure~\ref{fig:step_function_approximation} shows the basic idea behind the model-independent isobar decomposition: the piecewise function in equation~\eqref{eq:step_dynamic_shape} will approximate the isobar mass shape.
 
 
     With the piecewise dynamic shape, the isobar amplitude reads
     \begin{equation}\label{eq:freed_wave_amplitude}
         \Psi_I(\tau) = \psi_{J_I\!}(\tau)\,\mathcal{F\!}_{J_I\!}(\tau)\,\A_{d_1}\!(m_{d_1\!}; \tau)\,\A_{d_2}\!(m_{d_2\!}; \tau) \sum_{i=1}^{N_\text{bins}} \gamma_{(I,i)}\, \Characteristic_{B_i}\!(s),
         \quad
-        \text{being }
+        \text{with }
         \gamma_{(I,i)} \coloneqq c_I \alpha_i. 
     \end{equation}
     The free amplitudes, $\gamma_{(I,i)}$, now need to have an isobar label too.
-    I will call a wave whose decay amplitude is written in the form of the equation~\eqref{eq:freed_wave_amplitude} \emph{freed wave}\index{freed wave}.
+    I will call a wave whose decay amplitude is written in the form of equation~\eqref{eq:freed_wave_amplitude} \emph{freed wave}\index{freed wave}.
 
 
     At this point it is worth noting that, when fitting the decay model to the data, the piecewise description of the dynamic shape introduces $N_\text{bins}$ complex \acp{dof}---for a total of $2N_{\text{bins}}$ real \acp{dof}.
@@ -59,9 +59,9 @@
     The \focus{} collaboration performed a \ac{pwa} of the $\PDplus \to \PKminus\Ppiplus\Ppiplus$ decay employing a fixed description of the P- and D-wave components of the $\PKminus\Ppiplus$ decay amplitude (described as a sum of Breit-Wigner distributions), and a model-independent description of the S-wave component~\cite{Link200914}.
 
 
-    In the chapter~\ref{chap:model_independent_pwa}, I exploit the information about the resonant content of the \ac{mc} data to make the bins finer in the surroundings of the resonance picks.
+    In chapter~\ref{chap:model_independent_pwa}, I exploit the information about the resonant content of the \ac{mc} data to make the bins finer in the surroundings of the resonance peaks.
     A non-uniform optimized partitioning of the mass range speeds up the fit convergence.
-    Unfortunately, the information about the wave resonant content is not always available.
+    Unfortunately, the information about a wave's resonant content is not always available.
 
 
         \subsubsection{Zero modes}

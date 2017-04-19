@@ -59,12 +59,17 @@
     Figure~\ref{fig:bw_pm_comparison} shows a comparison between the non-relativistic Breit-Wigner and the pole-mass dynamic shapes.
 
     
-    The \Pfnez{} resonance lies close to both the \Ppiplus{}\Ppiminus{} and the \PKplus{}\PKminus{} decay channels and is usually parametrized by a Flatté\index{Flatte@Flatté} distribution, which takes into account the opening of the second channel:
+    The \Pfnez{} resonance lies close to both the \Ppiplus{}\Ppiminus{} and the \PKplus{}\PKminus{} decay channels and is usually parametrized by a \citeauthor{FLATTE1976224}\index{Flatte@\citeauthor{FLATTE1976224}} distribution~\cite{FLATTE1976224}, which takes into account the opening of the second channel:
     \begin{equation}\label{eq:flatte}
         \Delta_{\xi}^{\text{F}}(s) \coloneqq \frac{1}{m_{\xi}^2 - s - \iu(g_1^2 \rho_{1\!}(s)  + g_2^2 \rho_2(s))},
     \end{equation}
     $g_1$ and $g_2$ being the coupling constants to the channels;
-    and $\rho_{1\!}(s)$ and $\rho_2(s)$ the (complex) phase-space factors~\cite{FLATTE1976224}.\marginpar{which are the p-s factors?}
+    and $\rho_{1\!}(s)$ and $\rho_2(s)$ the (complex) phase-space factors,
+    \begin{equation}\label{eq:flatte_phase_space}
+        \rho_i(s) = 2\frac{q_i(s)}{\sqrt{s}},
+    \end{equation}
+    with $q_i(s)$ the break-up momentum of the daughter particles of the $i$-th decay channel.
+    Please note that the phase-space parametrization \citeauthor{FLATTE1976224} introduced in~\cite{FLATTE1976224} is not the one reported in equation~\eqref{eq:flatte_phase_space}.
 
     In the model-dependent \ac{pwa}, the isobar decay amplitude~\eqref{eq:isobar_decomposition} finally reads
     \begin{equation}\label{eq:redundant_model_dependent_isobar_decomposition}

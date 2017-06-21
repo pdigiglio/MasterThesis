@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+    \begin{axis} [dalitz_plot]
+
+        \addplot3 [dalitz]
+          gnuplot [raw gnuplot]
+                  { splot "data/f0_f0_1500_sigma_rho0/f0_f0_1500_sigma_rho0_mcmc.txt" using 1:2:3 };
+    \end{axis}
+\end{tikzpicture}

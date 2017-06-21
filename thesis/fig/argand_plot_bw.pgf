@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \begin{axis}[
+            xlabel = {$\Re (\Delta_{\Pfnez}^{\text{BW}}(s))$ [\si{1/(\giga\electronvolt/\c^2)^2}]},
+            ylabel = {$\Im (\Delta_{\Pfnez}^{\text{BW}}(s))$ [\si{1/(\giga\electronvolt/\c^2)^2}]},
+        ]
+
+        \pgfmathsetmacro{\m}{.98}
+        \pgfmathsetmacro{\T}{.07}
+
+        \addplot+ [black, mark options={mark size = .75, color=black}]
+          gnuplot [raw gnuplot] {
+            set parametric;
+            f(x) = 1. / (\m * \m - x * x - {0., 1.} * \m * \T);
+            set samples 150;
+            plot [.279:1.73] real(f(t)), imag(f(t));
+        };
+    \end{axis}
+\end{tikzpicture}

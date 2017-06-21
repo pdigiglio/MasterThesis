@@ -12,7 +12,7 @@
     twoside,
     english,
     %draft
-	%final
+    %final
 ]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -27,7 +27,7 @@
 %\usepackage{lineno}
 %\usepackage{setspace}
 %\renewcommand{\baselinestretch}{2.0}
-\usepackage{showkeys}
+%\usepackage{showkeys}
 % ----------------------------
 
 
@@ -121,28 +121,28 @@
 \frontmatter
 \phantomsection
 \pdfbookmark[0]{Title}{chap:title}
-	\maketitle
-	\thispagestyle{empty}
+    \maketitle
+    \thispagestyle{empty}
 
-	\cleardoublepage
+    \cleardoublepage
 \phantomsection
 \pdfbookmark[0]{Dedication}{chap:dedication}
-	\input{frontmatter/dedication}
+    \input{frontmatter/dedication}
 
-	\cleardoublepage
+    \cleardoublepage
 \phantomsection
 \pdfbookmark[0]{\abstractname}{chap:abstract}
-	\input{frontmatter/abstract}
+    \input{frontmatter/abstract}
 
-	\cleardoublepage
+    \cleardoublepage
 \phantomsection
 \pdfbookmark[0]{Acknowledgements}{chap:acknowledgements}
-	\input{frontmatter/acknowledgements}
+    \input{frontmatter/acknowledgements}
 
-	\cleardoublepage
+    \cleardoublepage
 \phantomsection
 \pdfbookmark[0]{\contentsname}{chap:contents}
-	\tableofcontents
+    \tableofcontents
 
 %----------------------------------------------------------------------------------------
 % MAINMATTER
@@ -180,26 +180,26 @@
 % BACKMATTER
 %
 \backmatter
-	% Acronyms
-	\printnoidxglossaries
+    % Acronyms
+    \printnoidxglossaries
 
     % List of figures
     \cleardoublepage
     \phantomsection
     \pdfbookmark[0]{\listfigurename}{chap:lof}
-	\listoffigures
+    \listoffigures
 
-	% Index
-	\cleardoublepage
-	\phantomsection
-	\addcontentsline{toc}{chapter}{\indexname}
-	\printindex
+    % Index
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\indexname}
+    \printindex
 
-	% Bibliography
-	\cleardoublepage
-	\phantomsection
-	\addcontentsline{toc}{chapter}{\bibname}
-	\nocite{*}
-	\printbibliography
+    % Bibliography
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\bibname}
+    \nocite{*}
+    \printbibliography
 
 \end{document}

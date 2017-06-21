@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+    \begin{axis} [dalitz_plot]
+
+        \addplot3 [dalitz]
+          gnuplot [raw gnuplot] { splot "data/dalitz_displaced/f0_displaced_mcmc.txt" using 1:2:3 };
+    \end{axis}
+\end{tikzpicture}

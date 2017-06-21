@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+    \begin{axis}[phase_plot]
+
+    \addplot+ [guess] table [x index={0}, y index={5}]
+              {data/f0_f0_1500_sigma_rho0_f2/d_par_guess.txt};
+    \addplot+ [fit] table [x index={0}, y index={5}, y error index={6}]
+              {data/f0_f0_1500_sigma_rho0_f2/d_par_fit.txt};
+    \end{axis}
+\end{tikzpicture}

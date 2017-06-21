@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        amplitude_plot,
+        width = .7\textwidth,
+        xlabel={$m_{\pi^+\pi^-}$ [\si{\giga\electronvolt^2\per\c^4}]},
+    ]
+        \pgfmathsetmacro{\m}{.98}
+        \pgfmathsetmacro{\T}{.07}
+        \addplot+ [guess, domain={.279:1.73}, samples=100, smooth] gnuplot {1./sqrt((\m * \m - x * x)**2 + (\m * \T)**2)};
+        
+        \addplot+ [fit, mark=none] table {data/dalitz_displaced/binned_breit-wigner_displaced.txt};
+    \end{axis}
+\end{tikzpicture}

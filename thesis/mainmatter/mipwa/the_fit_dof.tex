@@ -1,0 +1,90 @@
+\subsection{The fit \acp{dof}}
+
+    To perform the fit, I have developed a back-end to \lstinline!BCModel!, the \pac{bat} class that sets the fit parameters up and reports the logarithm of the likelihood.
+
+
+    As \pac{bat} can only handle real fit \acp{dof}, I introduce an invertible map between the complex free amplitudes---the $\gamma_{(I,i)}$ coefficients of the decay model in equation~\eqref{eq:freed_wave_amplitude}---and the fit parameters, $\Phi\colon \C\to\R\x\R$.
+
+
+    The quantity that describes the input data to fit the model to is the decay intensity,
+    \begin{equation}\label{eq:intensity_phase_ambiguity}
+        \Intensity(\tau) = \abs{\A(\tau)}^2 = \abs{\eu^{\iu\phi}\A(\tau)}^2,
+        \quad
+        \text{with }
+        \phi\in\R.
+    \end{equation}
+    Because of the continuous ambiguity in the right-hand equality of equation~\eqref{eq:intensity_phase_ambiguity}, the representation of a complex number by its magnitude and phase,
+    \begin{equation}
+        \Phi(\gamma) \coloneqq (\abs{\gamma}, \arg\gamma),
+    \end{equation}
+    is not suited for the fit parameters.
+    In fact, if the vector $(\tilde \gamma_0, \dots, \tilde \gamma_{N_\text{bins}-1})$ of free amplitudes maximises the model likelihood, any rotation of its elements in the complex plane, $(\exp(\iu\phi)\,\tilde \gamma_0, \dots, \exp(\iu\phi)\,\tilde \gamma_{N_\text{bins}-1})$, does.
+    Moreover, \pac{bat} cannot properly sample the phase space of a periodic variable.\marginpar{\color{red} why?}
+    The ambiguity in equation~\eqref{eq:intensity_phase_ambiguity} can be avoided by fixing one of the bin phases to a fixed value, \eg~$\arg \gamma_0 \equiv 0$.
+
+
+    Another ambiguity is
+    \begin{equation}\label{eq:intensity_conjugate_ambiguity}
+        \abs{\A(\tau)}^2 = \abs{\A^*(\tau)}^2.
+    \end{equation}
+    As all the terms in the decay amplitude in equation~\eqref{eq:freed_wave_amplitude} are real, to the vector $(\tilde \gamma_0, \dots, \tilde \gamma_{N_\text{bins}-1})$ corresponds $(\tilde \gamma_0^*, \dots, \tilde \gamma_{N_\text{bins}-1}^*)$
+    \begin{equation}
+        \Phi(\gamma) = (\Re(\gamma), \Im(\gamma))
+    \end{equation}
+
+    When choosing the representation of the complex fit parameters
+
+
+    To choose the fit-parameter representation, I note that both the decay amplitude in equation~\eqref{eq:isobar_decomposition} and its complex conjugate squared give the same event intensity:
+    \begin{equation}
+        \abs{\A(\tau)}^2 = \abs{\A^*(\tau)}^2.
+    \end{equation}
+
+    The representation of a complex number in terms of its real and imaginary parts, $\Phi(\gamma) = (\Re(\gamma), \Im(\gamma))$, is not suited.
+    In the particular case of the decay amplitude in the \ac{mipwa} formalism, all the functions in the amplitude are real, so there is an ambiguity.
+
+
+
+
+
+    The first test fit I performed is to the data of the $\PDplus\to(\Pfnez\to\Ppiplus\Ppiminus)\Ppiplus$ decay, shown in Dalitz plot~\ref{fig:dalitz_f0_980_only_source}.
+    \begin{figure}
+        \centering
+        \input{fig/argand_plot_bw.pgf}
+        \caption{Argand-Gau\ss{} plot of a non-relativistic Breit-Wigner~\eqref{eq:bw}.}
+        \label{fig:bw_argand_gauss}
+    \end{figure}
+    The decay proceeds through the \Pfnez{} resonance only with non-relativistic Breit-Wigner dynamic shape, whose plot in the Argand-Gau\ss{} plane is shown in figure~\ref{fig:bw_argand_gauss}.
+    \begin{equation}
+        \Phi(\gamma) = (\abs{\gamma}, \arg\gamma)
+    \end{equation}
+    I can exploit the fact that the fit parameters have a fixed position in the vector:
+    \begin{equation}
+        \Phi(\gamma_0) = (\abs{\gamma_0}, 0)
+    \end{equation}
+    \begin{equation}
+        \Phi(\gamma_0,\dots,\gamma_j) = (\abs{\gamma_j}, \arg(\gamma_j) - \arg(\gamma_{j-1})), \text{ so that }\phi_j = \sum_{i=0}^j \uD \phi_i
+    \end{equation}
+
+
+
+    I am fitting the amplitude~\eqref{eq:freed_wave_amplitude} to the data.
+
+
+    In the $\Phi(\gamma) = (\abs{\gamma}, \arg\gamma)$ representation, there is the phase ambiguity and the conjugate ambiguity.
+
+
+    The first fit I performed is the decay of the $\Pfnez$.
+    The real-imaginary representation of the free amplitudes proved inconvenient as the data is ambiguous.
+
+    In the first fit attempt, I represented the free amplitudes by their real and imaginary parts.
+    With this choice, the pre-run did not converge as there is an ambiguity in the sign of the imaginary part of the parameters.
+    In fatc, for each set of parameters $\Set{(\Re,\Im)_i}$ that maximizes the likelihood, also $\Set{(\Re,-\Im)_i}$ does.
+
+
+    As the plot~\ref{fig:bw_argand_gauss} shows, the angle is increasing.
+
+
+
+
+

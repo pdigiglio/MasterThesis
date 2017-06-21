@@ -41,7 +41,8 @@ OPTIONS=-$(format) -shell-escape
 rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
 
 # Track data file in data/ folder
-dataFolder   = $(wildcard data/*.tab)
+dataFolder   = $(shell find data/ -type f -name '*.tab')
+dataFolder  += $(shell find data/ -type f -name '*.txt')
 # Track data file in backmatter/ folder
 backFolder   = $(wildcard backmatter/*.tex)
 backFolder  += $(wildcard backmatter/*.bib)
@@ -54,9 +55,9 @@ mainFolder   = $(shell find mainmatter/ -type f -name '*.tex')
 configFolder = $(wildcard config/*.tex)
 configFolder+= $(wildcard config/*.sty)
 # Track data file in fig/ folder
-figFolder    = $(wildcard fig/*.tex)
-figFolder    = $(wildcard fig/*.png)
-figFolder    = $(wildcard fig/*.pgf)
+figFolder    = $(shell find fig/ -type f -name '*.tex')
+figFolder   += $(shell find fig/ -type f -name '*.png')
+figFolder   += $(shell find fig/ -type f -name '*.pgf')
 # Track data file in slides/ folder
 slidesFolder    = $(wildcard slides/*.tex)
 

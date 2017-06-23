@@ -1,7 +1,7 @@
 \chapter{\texorpdfstring{\acs{yap} --- \acl{yap}}{YAP - Yet Another PWA Toolkit}}
 \label{chap:yap}
 
-    \pac{yap} is a free (licensed under the \acs{gpl3}) and open-source \cpp[11] software for calculating partial-wave amplitudes for $n$-body particle decays.
+    \pac{yap} is a free (licensed under the \acs{gpl3}) and open-source \cpp[11] software for calculating partial-wave amplitudes of $n$-body particle decays.
     It is currently maintained by Dr.~Daniel Greenwald and Johannes Rauch at the \textsl{Techniche Universit\"at M\"unchen}.
     The project is hosted on \textsf{GitHub} at \url{https://github.com/yap/YAP}.\marginpar{\centering\qrcode[height=2cm]{https://github.com/yap/YAP}\captionof*{figure}{\pac{yap}'s \textsc{url}.}}
 
@@ -13,12 +13,12 @@
     One of the main goals of \pac{yap} is modularity.
     In fact, it is distributed in the form of a shared library to be linked against the user's application.
     Moreover, \pac{yap} does not depend on any library beyond the \cpp{} \ac{stl}, which makes it easily compilable on most operating systems and portable on many architectures.
-    It is worth stressing that \pac{yap} is an amplitude calculator only and it does not come with any \ac{mc} sampler or \ac{gui}.
+    It is worth stressing that \pac{yap} is an amplitude calculator only and it does not come with any build-in \ac{mc} sampler nor \ac{gui}.
     Thus it has to be coupled with third-party software that provides such functionalities---if needed.
 
 
     A similar project to \pac{yap}, which also implements the \ac{pwa} formalism, is {\footnotesize{\package{ROOTPWA}}}.
-    It is based on \ROOT{}, on \package{boost} and requires other external libraries for the user to get started.
+    It is based on \ROOT{}, and on \package{boost}; and requires several other external libraries for the user to get started.
     {\footnotesize{\package{ROOTPWA}}} is also developed at the \textsl{Techniche Universit\"at M\"unchen} and is hosted at \url{https://github.com/ROOTPWA-Maintainers/ROOTPWA}.
 
 
@@ -27,7 +27,7 @@
 
     \section{Computational challenges}
 
-    The motivation for developing \pac{yap} comes from challenges that need to be addressed on both the user interface and the computational level.
+    The motivation for developing \pac{yap} comes from challenges that \ac{pwa} toolkits need to address on both the user interface and the computational level.
     I will show examples of the user interface later on; here I will present some of the optimizations \pac{yap} features.
     The performance of the amplitude calculator is critical because the \ac{pwa} requires expensive calculations especially for the following reasons.
 
@@ -152,13 +152,15 @@
         \subsection{Adding a new dynamic shape}
 
         As of writing, \pac{yap} implements the relativistic Breit-Wigner~\eqref{eq:rbw}, the non-relativistic Breit-Wigner~\eqref{eq:bw}, the pole-mass~\eqref{eq:pole_mass}, and the Flatté~\eqref{eq:flatte} dynamic shapes.
-        The user may need to define a new dynamic shape a new dynamic shape beyond the most common ones already provided to perform an analysis.
+        To perform and analysis, the user may need to define a new dynamic shape beyond the most common ones already provided.
 
 
     \begin{figure}
         \centering
         \input{fig/mass_shape_hierarchy.pgf}
-        \caption{\Ac{uml} diagram for the \lstinline!MassShape! class hierarchy. I give more details for the \lstinline!MassShapeWithNominalMass! class as I would like to point out its dependence on the smart \lstinline!Parameter! class.}
+        \caption{\Ac{uml} diagram of the \lstinline!MassShape! class hierarchy.
+                 Please note the dependence of the \lstinline!MassShapeWithNominalMass! class on the smart \lstinline!Parameter! class.}
+                 %I give more details for the \lstinline!MassShapeWithNominalMass! class as I would like to point out its dependence on the smart \lstinline!Parameter! class.}
         \label{fig:mass_shape_hierarchy}
     \end{figure}
     As an example, I will show an excerpt of the declaration and definition of the \lstinline!MassBin! dynamic shape I implemented to be used in the model independent fit utility described in chapter~\ref{chap:model_independent_pwa}.
@@ -171,8 +173,8 @@
 
     \section{Future enhancements}
 
-    At the current state, \pac{yap} is already usable but is not yet complete.
-    Some of the future milestones of the project are:
+    At the current state, \pac{yap} is already usable although not yet complete.
+    Some of the planned future milestones of the project are:
     \begin{itemize}
         \item
             Extend the number of dynamic-shape classes, introducing distributions like those of Bowler, of Gounora and Sakurai, and so on;

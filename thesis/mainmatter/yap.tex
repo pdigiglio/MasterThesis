@@ -56,7 +56,7 @@
 
     To further reduce the memory footprint, another optimization \pac{yap} features is to share among the waves all the elements they have in common.
     As an example, let's refer to equation~\eqref{eq:non_redundant_model_dependent_isobar_decomposition}, which gives the decay amplitude of an isobar.
-    The cached values of the angular part and the Blatt-Wei\ss{}kopf factor are shared among all the resonances in the isobar---and, possibly, among all the isobars---with the same value of $J$.
+    The cached values of the angular part and the Blatt-Weisskopf factor are shared among all the resonances in the isobar---and, possibly, among all the isobars---with the same value of $J$.
     Moreover, for $J = 0$, the angular part is just a constant and it is not cached, as its value can be absorbed in the free-amplitude coefficient.
 
 
@@ -73,7 +73,7 @@
 
 
     As stated earlier, \pac{yap}'s code mimics the mathematical description of particle decays.
-    As an example, each term of the isobar amplitude~\eqref{eq:isobar_amplitude}---spin amplitude, Blatt-Wei\ss{}kopf factor, dynamic amplitude---is modeled in the code by a corresponding class which reflects its properties, in observance of the \emph{single-responsibility principle}.
+    As an example, each term of the isobar amplitude~\eqref{eq:isobar_amplitude}---spin amplitude, Blatt-Weisskopf factor, dynamic amplitude---is modeled in the code by a corresponding class which reflects its properties, in observance of the \emph{single-responsibility principle}.
     The total decay amplitude is then obtained by multiplying these terms; the free amplitudes; and, recursively, the amplitudes of all the sub-decays.
     The symmetrization of indistinguishable particles is managed by the \lstinline!ParticleCombination!\index{ParticleCombination@\texttt{ParticleCombination}} class.
 

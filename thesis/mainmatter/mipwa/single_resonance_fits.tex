@@ -1,26 +1,37 @@
 \subsection{Single-resonance Dalitz plots}
 
-    In this section, I present the test fits I performed on data sets where the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay proceeds through one intermediate state only. 
-
+    % -- f0(980) ----------------------------------------------------------
     \begin{figure}
         \centering
         \subfloat[][\label{fig:f0_only_phase_fit}]{\input{fig/f0/phase.pgf}}
 
-        \subfloat[][]{\input{fig/f0/decay_amplitude.pgf}}
-        \caption{Freed-wave fit of the S wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfnez{} resonance.} 
+        \subfloat[][\label{fig:f0_only_magnitude}]{\input{fig/f0/decay_amplitude.pgf}}
+        \caption{Freed-wave fit of the S wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfnez{} resonance.~\Square} 
         \label{fig:f0_only}
     \end{figure}
-    Figure~\ref{fig:f0_only} shows the fit performed on the decay proceeding through the $\Pfnez$ resonance in the S wave.
-    Here, as in the following plots, the error bars on the bins are on the left side of the bin they refer to.
     \begin{figure}
         \centering
         \subfloat[][Source data: decay in the S wave through the \Pfnez{} resonance.\label{fig:dalitz_f0_980_only_source}]{\input{fig/f0/dalitz.pgf}}
 
-        \subfloat[][Result of the model-independent fit to the plot shown above.]{\input{fig/f0/dalitz_fit.pgf}}
-        \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.}
+        \subfloat[][Result of the model-independent fit to the plot shown above.\label{fig:dalitz_f0_980_only_result}]{\input{fig/f0/dalitz_fit.pgf}}
+        \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.~\Square}
         \label{fig:f0_only_dalitz}
     \end{figure}
-    Figure~\ref{fig:f0_only_dalitz} shows a comparison between the source data file and the one generated with the fit parameters.
+    % ---------------------------------------------------------------------
+    In this section, I present the test fits I performed on data sets where the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay proceeds through one intermediate state only. 
+    In this case, the dynamic-shape phase is an increasing function of the resonance mass and ranges from $0$ to $\pi$, so I restricted the phase-motion parameter to the asymmetric range $[0,\pi]$.
+
+
+    First, I show the fits of phase motion (\eg~figure~\ref{fig:f0_only_phase_fit}) and dynamic-shape magnitude (\eg~figure~\ref{fig:f0_only_magnitude});
+    then, a comparison between the source \ac{mc} data (\eg~figure~\ref{fig:dalitz_f0_980_only_source}) and a set of \ac{mc} data generated according to the model-independent decay amplitude whose parameters are fixed to the ones extracted from the fit (\eg~figure~\ref{fig:dalitz_f0_980_only_result}).
+    Please note that in figure~\ref{fig:f0_only}, as in all the following fit plots, the bin error bars are on the left edge of the bin they refer to.
+
+
+    Figure~\ref{fig:f0_only} shows the fit performed on the decay proceeding through the $\Pfnez{}$ resonance in the S wave.
+    I optimized the mass binning in the neighborhood of the resonance peak.
+    This is the easiest possible fit as in the S wave both the spin-dependent part of the decay amplitude and the Blatt-Weisskopf factor are constant over the phase space.
+    Figure~\ref{fig:f0_only_dalitz} shows the comparison between the Dalitz plots of the source data and the data generated with the fitted parameters.
+
 
     \begin{figure}
         \centering
@@ -29,35 +40,41 @@
 
         \subfloat[][]{\input{fig/rho0/decay_amplitude.pgf}}
 
-
-        \caption{Freed-wave fit of the P wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Prhozero{} resonance.}
+        \caption{Freed-wave fit of the P wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Prhozero{} resonance.~\Star}
+        \label{fig:rho0_only}
     \end{figure}
-
     \begin{figure}
         \centering
         \subfloat[\acs{mc}-generated Dalitz plot of a P-wave decay through the \Prhozero{} resonance.]%
-                 [Source data: P-wave decay through the \Prhozero{} resonance.]%
+                 [Source data: P-wave decay through the \Prhozero{} resonance.\label{fig:rho0_only_dalitz_source}]%
                  {\input{fig/rho0/dalitz.pgf}}
 
         \subfloat[\acs{mc}-generated Dalitz plot of a P-wave decay through the \Prhozero{} resonance.]%
-                 [Result of the model-independent fit to the plot shown above.]%
+                 [Result of the model-independent fit to the plot shown above.\label{fig:rho0_only_dalitz_fitted}]%
                  {\input{fig/rho0/dalitz_fit.pgf}}
 
-        \caption{\ac{mc}-generated Dalitz plots of a P-wave $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Prhozero{} resonance.}
+        \caption{\ac{mc}-generated Dalitz plots of a P-wave $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Prhozero{} resonance.~\Star}
+        \label{fig:rho0_only_dalitz}
 
     \end{figure}
+    Figure~\ref{fig:rho0_only} shows the fit performed on the decay proceeding through the $\Prhozero{}$ resonance in the P wave.
+    In this case, neither the spin-dependent part of the amplitude nor the Blatt-Weisskopf factor is constant: they suppress the probability of the events close to the phase-space edges.
+    The scarcity of events leads to the ambiguities observed close to the upper boundaries of the mass range in fit~\ref{fig:rho0_only}.
+    Please note that, even though it is not so evident as in figure~\ref{fig:rho0_only}, also fit~\ref{fig:f0_only} shows this ambiguity.
+    Figure~\ref{fig:rho0_only_dalitz} shows the comparison between the Dalitz plots of the source data and the data generated with the fitted parameters.
+    Regardless of the fit ambiguity, Dalitz plot~\ref{fig:rho0_only_dalitz_fitted} correctly reproduces the right edge of Dalitz plot~\ref{fig:rho0_only_dalitz_source}.
+
 
     \begin{figure}
         \centering
 
-        \subfloat[][]{\input{fig/f2/phase.pgf}}
+        \subfloat[][\label{fig:f2_only_phase_fit}]{\input{fig/f2/phase.pgf}}
 
-        \subfloat[][\label{fig:f2_amplitude}]{\input{fig/f2/decay_amplitude.pgf}}
+        \subfloat[][\label{fig:f2_only_amplitude}]{\input{fig/f2/decay_amplitude.pgf}}
 
-
-        \caption{Freed-wave fit of the D wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfii{} resonance.}
+        \caption{Freed-wave fit of the D wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfii{} resonance.~\Square}
+        \label{fig:f2_only}
     \end{figure}
-
     \begin{figure}
         \centering
         \subfloat[]%
@@ -68,6 +85,25 @@
                  [Result of the model-independent fit to the plot shown above.]%
                  {\input{fig/f2/dalitz_fit.pgf}}
 
-        \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.}
+        \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.~\Square}
+        \label{fig:f2_only_dalitz}
 
     \end{figure}
+    Figure~\ref{fig:f2_only} shows the fit performed on the decay proceeding through the $\Pfii{}$ resonance in the D wave.
+    Also in this case, the spin-dependent part of the amplitude and the Blatt-Weisskopf factor lead to the ambiguities observed at both edges of the phase space.
+    \begin{figure}
+        \centering
+        \input{fig/f2/phase_diff.pgf}
+        \caption{Fitted phase motion of the \Pfii{} with $\uD\phi_0 \equiv 0$.~\Square}
+        \label{fig:fit_f2_phase_motion}
+    \end{figure}
+    The systematic phase displacement in fit~\ref{fig:f2_only_phase_fit} is due to the second bin's phase motion in figure~\ref{fig:fit_f2_phase_motion}, which shows the fitted phase motion of the \Pfii{}---the actual fit parameter.
+    The first bin contains few events and is ambiguous, so setting $\uD \phi_0 \equiv 0$ does not fix the overall phase.
+    \begin{figure}
+        \centering
+        \input{fig/f2/decay_amplitude_zoom.pgf}
+        \caption{Detail of fit~\ref{fig:f2_only_amplitude}: I hide the last bin to highlight the fit close to the resonance peak.~\Square}
+        \label{fig:f2_only_amplitude_zoom}
+    \end{figure}
+    Figure~\ref{fig:f2_only_amplitude_zoom} shows a detail of fit~\ref{fig:f2_only_amplitude} close to the resonance peak.
+    Figure~\ref{fig:f2_only_dalitz} shows the comparison between the Dalitz plots of the source data and the data generated with the fitted parameters, which again correctly reproduce the source data.

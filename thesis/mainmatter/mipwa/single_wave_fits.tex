@@ -3,20 +3,28 @@
     \begin{figure}
         \centering
 
-        \subfloat[][Unlike the phase fit~\ref{fig:f0_phase_fit}, to perform this fit, I had to allow the negative values for the phase motion.]{\input{fig/f0_f0-1500/phase.pgf}}
+        \subfloat[][]{\input{fig/f0_f0-1500/phase.pgf}}
 
-        \subfloat[][Sum of two Breit-Wigner mass shapes with zero relative phase.]{\input{fig/f0_f0-1500/decay_amplitude.pgf}}
+        \subfloat[][]{\input{fig/f0_f0-1500/decay_amplitude.pgf}}
 
-        \caption{Freed-wave fit of the S wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfnez{} and \Pfofzz{} resonances.}
+        \caption{Freed-wave fit of the S wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfnez{} and \Pfofzz{} resonances.~\Star}
+        \label{fig:f0_f2_fit}
     \end{figure}
-
     \begin{figure}
         \centering
-        \subfloat[][Source data: S-wave decay through the \Pfnez{} and \Pfofzz{} resonances.]{\input{fig/f0_f0-1500/dalitz.pgf}}
+        \subfloat[][Source data: S-wave decay through the \Pfnez{} and \Pfofzz{} resonances.\label{fig:f0_f0_1500_dalitz_data}]{\input{fig/f0_f0-1500/dalitz.pgf}}
 
-        \subfloat[][Result of the model-independent fit to the plot shown above.\label{fig:f0_f0_1500_dalitz_data}]{\input{fig/f0_f0-1500/dalitz_fit.pgf}}
+        \subfloat[][Result of the model-independent fit to the plot shown above.\label{fig:f0_f0_1500_dalitz_fit}]{\input{fig/f0_f0-1500/dalitz_fit.pgf}}
 
-        \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.}
+        \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.~\Star}
+        \label{fig:f0_f2_dalitz}
     \end{figure}
+    Figure~\ref{fig:f0_f2_fit} shows the fit performed on the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay proceeding through the $\Pfnez{}$ and $\Pfofzz{}$ resonances in the S wave.
+    Both resonances are modeled as non-relativistic Breit-Wigner with zero relative phase.
 
-    Figure~\ref{fig:f0_f0_1500_dalitz_data} shoes the Dalitz plot of the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ through the \Pfnez{} and \Pfofzz{} resonances in the S wave.
+
+    When there is more than one resonance in the same wave, the dynamic-shape phase is no longer guaranteed to be monotonically increasing.
+    To perform the fit, I set the phase-motion range to $[-\pi/2, \pi/2]$.
+    The fit well reproduces the data resonance content.
+    Figure~\ref{fig:f0_f2_dalitz} shows the comparison between the Dalitz plots of the source data and the data generated with the fitted parameters.
+

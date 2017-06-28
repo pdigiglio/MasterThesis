@@ -1,11 +1,29 @@
 \chapter{Conclusions \& outlook}
 
-    \ac{pwa} is a key tool for heavy-meson spectroscopy.
-    \ac{pwa} is computationally expensive, thus the need for a fast amplitude calculator is critical.
+    \ac{pwa} is a key tool in the studies of hadronic light- and heavy-meson decays.
+    This motivates the development of \pac{yap}, a novel \ac{pwa} toolkit written in \cpp[14]{} with no dependencies besides the \ac{stl}.
+    \pac{yap} aims to be physically correct, being extensively tested via a test suite that covers about \SI{90}{\percent} of the code;
+    user friendly, with a structure that closely mimics the \ac{pwa} formalism and highlights the physics of the decays;
+    computationally efficient, through its smart-caching feature and built-in parallelization support;
+    and modular, to be easily coupled to other utilities such as samplers or user interfaces.
 
 
-    In the fits, I have parametrized the parameters with the amplitude and phase motion.
-    The fits work.
+    So far, many \acp{pwa} exploited the isobar model, which assumes that the decay proceeds through intermediate two-body decays involving well-defined resonances.
+    Therefore, the quality of the decay model depends on the assumption about the resonant content of each partial wave, and on our knowledge of the properties of the resonances themselves (\eg~mass, width, dynamic shape), which comes from past experiments.
+    Due to the availability of larger and larger experimental data sets, the systematic effects introduced by these limitations cannot be neglected anymore and an extension of the isobar model is required to improve the \acp{pwa}.
+    One possible extension of the isobar model is the model-independent \ac{pwa}, in which the properties of the isobars are directly extracted from the data.
+
+    
+    Here, I presented the \pac{yap}-based model-independent fit utility I implemented.
+    It allows to perform fits using the amplitude and phase motion as fit parameters; and to simultaneously free multiple waves.
 
 
-    I can free multiple waves and the fit still works.
+    I tested the utility by fitting several \ac{mc} data sets of $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decays with increasingly richer resonant content.
+    Because of the complete freedom of the dynamic shape in the model-independent formalism, some ambiguities arise which do not always allow to properly reconstruct the wave content when more than one wave is freed.
+    In this case, the knowledge of the zero modes and a two-step fit are needed to extract the wave content from the data.
+    With one freed wave and with multiple freed waves without zero modes, the fit utility can already precisely extract the wave content from the data.
+    The data generated with the model-independent formalism whose free amplitudes are fixed to the fitted ones always reproduce the source data of the fit.
+
+
+    The tests show that \pac{yap} is suited to perform model-independent \acp{pwa}.
+    A generalization of this fit utility, which also handles mixed-formalism \ac{pwa} and zero modes will be included in \pac{yap}.

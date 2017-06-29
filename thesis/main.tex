@@ -26,7 +26,7 @@
 % -- For drafting ------------
 %\usepackage{lineno}
 %\usepackage{setspace}
-%\renewcommand{\baselinestretch}{2.0}
+%\renewcommand{\baselinestretch}{3.0}
 %\usepackage{showkeys}
 % ----------------------------
 
@@ -158,26 +158,6 @@
     \input{mainmatter/theory.tex}
     \input{mainmatter/yap.tex}
     \input{mainmatter/mipwa.tex}
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=.9\textwidth]{fig/f2_real_time_fit.png}
-
-        \caption{Screenshot of the real-time plot of the decay-amplitude magnitude while fitting a \Pfii{} resonance.
-                 In blue, with black points, the initial guess for the fit parameters; in red, the fit parameters.
-                 In this case, the initial guess for the fit parameters is the value of the \Pfii{} dynamic shape on the low edges of the bins that partition the mass range.}
-        \label{fig:rt_par_fit}
-    \end{figure}
-
-
-    Due to the long fit times, I decided to implement a real-time visualization tool for the fit.
-    For each \lstinline!FreedWave!, the \lstinline!RTPlotMIFitModel! class will create a pair of plots for the decay-amplitude magnitude and phase.
-    Each plot contains two \ROOT{} graphs: the initial guess for the fit parameters, and the values of the fit parameters updated in real time in every fit iteration.
-    The figure~\ref{fig:rt_par_fit} shows a screenshot of the magnitude of the \Pfii{} decaying amplitude.
-    By means of these plots, the user does not have to wait until the end of the fit just to find out there was some mistake in the model.
-    Moreover, I have experienced that this is also a great debugging utility, \eg{}~for spotting mistakes in the utility routines that convert fit parameters into \pac{yap} free amplitudes. 
-
-
     \input{mainmatter/conclusions.tex}
 
 

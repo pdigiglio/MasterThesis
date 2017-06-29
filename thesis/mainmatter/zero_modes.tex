@@ -1,11 +1,16 @@
-Introduction of the isobar-freed fit leads to linear dependencies among the waves in the fit model.
-This can be seen by means of the integral matrix (now $w$ and $v$ are wave indices)
-\begin{equation}
-    I_{wv} \coloneqq \int_\Omega \psi_w^*(\tau)\,\psi_v(\tau)\ud\tau
+In the model-independent \ac{pwa}, the waves are no longer linearly independent.
+In fact, it may exist a set of non-vanishing functions, $\set{f_I}$, such that:
+\begin{equation}\label{eq:zero_mode}
+    z(m_X,\tau) = \sum_{\sigma} \sum_{I} \Psi_I(m_X,\tau)\,f_I(m_\sigma) = 0,
 \end{equation}
-which represents the integrated overlap of the waves $w$ and $v$ over the phase space.
-Since $I$ is hermitian, its eigenvalues are real.
-So
+$\sigma$ being the symmetrization index of the particles forming the isobar, and $I$ being the isobar index~\cite{green_krinn_paul}.
+The set $\set{f_I}$ is called \emph{zero mode}\index{zero mode}.
+
+
+In particular, equation~\eqref{eq:zero_mode} implies that
 \begin{equation}
-    I^{\text{Tot}} \coloneqq \int_\Omega \abs{\A(\tau)}^2\!\ud \tau = \sum_{v,w \in \Set{\text{waves}}} T_w^* I_{wv} T_v.
+    \abs{\A(m_x,\tau)}^2 = \abs{\A(m_X, \tau) + z(m_X,\tau)}^2,
 \end{equation}
+namely, there may be a continuous ambiguity in the wave content when more than one wave is freed in the fit.
+In my model-independent fits of $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ data sets, I observed that there is no zero mode when the S and D wave are simultaneously freed (see plots in figures~\ref{fig:f0_f2:f0_fit}, \ref{fig:f0_f2:f2_fit}, and~\ref{fig:f0_f2_dalitz}); 
+whereas a zero mode appears when the S and P waves are freed (see plots in figures~\ref{fig:f0_f0_1500_sigma_rho0:s_wave}, \ref{fig:f0_f0_1500_sigma_rho0:p_wave}, and~\ref{fig:f0_f0_1500_sigma_rho0_dalitz}).

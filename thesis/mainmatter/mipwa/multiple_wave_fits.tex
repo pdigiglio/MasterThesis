@@ -14,9 +14,9 @@
     \begin{figure}
         \centering
 
-        \subfloat[][Here the effect of the non-negative phase motion is visible. Due to a misidentification of the second phase value, the phases up to \SI{1}{\giga\electronvolt} are systematically shifted up.]{\input{fig/f0_f2/d_phase.pgf}}
+        \subfloat[][]{\input{fig/f0_f2/d_phase.pgf}}
 
-        \subfloat[][In the end of the phase space, the angular dependency becomes small. This introduces an ambiguity in the phase also.]{\input{fig/f0_f2/d_decay_amplitude.pgf}}
+        \subfloat[][\label{fig:f0_f2:f2_amplitude}]{\input{fig/f0_f2/d_decay_amplitude.pgf}}
 
         \caption{Freed-wave fit of the D wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfii{} resonance.~\Square}
         \label{fig:f0_f2:f2_fit}
@@ -29,10 +29,18 @@
         \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.~\Square}
         \label{fig:f0_f2_dalitz}
     \end{figure}
-    Figure~\ref{fig:f0_f2_dalitz} shows the source and the fit Dalitz plots for the \Pfnez{} and \Pfii{} resonances in the S and D waves.
-    Figures~\ref{fig:f0_f2:f0_fit} and~\ref{fig:f0_f2:f2_fit} show the fit of the single waves.
-    The binning is thinner where I expected the resonance peak.
-    Please note that the fit utility allows to use different binnings for different waves.
+    Figures~\ref{fig:f0_f2:f0_fit} and~\ref{fig:f0_f2:f2_fit} show the fit performed on the $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decay proceeding through the $\Pfnez{}$ resonance in the S wave, and the $\Pfii{}$ resonance in the D wave, respectively.
+    In the fit, I freed both the S and D waves, each with a different binning, which is optimized on the expected wave's content.\footnote{Please note that, as of now, the fit utility does not yet allow for mixed-formalism fits.}
+    The agreement between the waves' content and the fitted step dynamic shapes is good.
+    At the edges of the mass range, the D-wave fit presents same the ambiguities discussed in section~\ref{subsec:single_resonance_dalitz_plots}.
+    \begin{figure}
+        \centering
+        \input{fig/f0_f2/d_decay_amplitude_zoom.pgf}
+        \caption{Detail of fit~\ref{fig:f0_f2:f2_amplitude}: I hide the last bin to highlight the fit close to the resonance peak.~\Square}
+        \label{fig:f0_f2:f2_amplitude_zoom}
+    \end{figure}
+    Figure~\ref{fig:f0_f2:f2_amplitude_zoom} shows a detail of the D wave close to the $\Pfii{}$ peak.
+    Figure~\ref{fig:f0_f2_dalitz} shows the comparison between the Dalitz plots of the source data and the data generated with the fitted parameters.
     % --------------------------------------------------------------
 
 
@@ -43,25 +51,29 @@
 
         \subfloat[][]{\input{fig/f0_f0_1500_sigma_rho0/s_decay_amplitude.pgf}}
 
-        \caption{Freed-wave fit of the S wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfii{} resonance.~\Star}
+        \caption{Freed-wave fit of the S wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfnez{}, \Pfofzz{}, and \Psigma{} resonances.~\Star}
+        \label{fig:f0_f0_1500_sigma_rho0:s_wave}
     \end{figure}
-
     \begin{figure}
         \centering
         \subfloat[][]{\input{fig/f0_f0_1500_sigma_rho0/d_phase.pgf}}
 
         \subfloat[][]{\input{fig/f0_f0_1500_sigma_rho0/d_decay_amplitude.pgf}}
 
-        \caption{Freed-wave fit of the P wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfii{} resonance.~\Star}
+        \caption{Freed-wave fit of the P wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Prhozero{} resonance.~\Star}
+        \label{fig:f0_f0_1500_sigma_rho0:p_wave}
     \end{figure}
-
     \begin{figure}
         \centering
-        \subfloat[][]{\input{fig/f0_f0_1500_sigma_rho0/dalitz.pgf}}
+        \subfloat[][Source data: decay in the S and P waves through the \Pfnez{}, \Pfofzz{}, \Psigma{} and \Prhozero{} resonances.]{\input{fig/f0_f0_1500_sigma_rho0/dalitz.pgf}}
 
-        \subfloat[][]{\input{fig/f0_f0_1500_sigma_rho0/dalitz_fit.pgf}}
-        \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.~\Star [5 day runtime]}
+        \subfloat[][Result of the model-independent fit to the plot shown above.]{\input{fig/f0_f0_1500_sigma_rho0/dalitz_fit.pgf}}
+        \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.~\Star}
+        \label{fig:f0_f0_1500_sigma_rho0_dalitz}
     \end{figure}
+    Figures~\ref{fig:f0_f0_1500_sigma_rho0:s_wave} and~\ref{fig:f0_f0_1500_sigma_rho0:p_wave} show the fit performed on the decay proceeding through the $\Pfnez{}$, $\Pfofzz{}$, and $\Psigma{}$ resonances in the S wave; and the $\Prhozero{}$ resonance in the P wave.
+    Here, the effect of the ambiguity the zero modes introduce is evident, especially in the P-wave fit result.
+    Figure~\ref{fig:f0_f0_1500_sigma_rho0_dalitz} shows the comparison between the Dalitz plots of the source data and the data generated with the fitted parameters, which correctly reproduce the source data.
     % --------------------------------------------------------------
 
     % -- rho0, f2 --------------------------------------------------
@@ -72,6 +84,7 @@
         \subfloat[][]{\input{fig/rho0_f2/p_decay_amplitude.pgf}}
 
         \caption{Freed-wave fit of the P wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Prhozero{} resonance.~\Square}
+        \label{fig:rho0_f2:p_wave}
     \end{figure}
     \begin{figure}
         \centering
@@ -80,6 +93,7 @@
         \subfloat[][]{\input{fig/rho0_f2/d_decay_amplitude.pgf}}
 
         \caption{Freed-wave fit of the D wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfii{} resonance.~\Square}
+        \label{fig:rho0_f2:d_wave}
     \end{figure}
     \begin{figure}
         \centering
@@ -87,7 +101,9 @@
 
         \subfloat[][Result of the model-independent fit to the plot shown above.]{\input{fig/rho0_f2/dalitz_fit.pgf}}
         \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.~\Square}
+        \label{fig:rho0_f2_dalitz}
     \end{figure}
+    Figures~\ref{fig:rho0_f2:p_wave} and~\ref{fig:rho0_f2:d_wave} show the fit performed on the decay proceeding through the $\Prhozero{}$ resonance in the P wave, and the $\Pfii{}$ resonance in the D wave.
     % --------------------------------------------------------------
 
     % -- f0(980), f0(1500), sigma, rho0, f2 ------------------------
@@ -98,6 +114,7 @@
         \subfloat[][]{\input{fig/f0_f0_1500_sigma_rho0_f2/s_decay_amplitude.pgf}}
 
         \caption{Freed-wave fit of the S wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfnez{}, \Pfofzz, and \Psigma{} resonances.~\Star}
+        \label{fig:f0_f0_1500_sigma_rho0_f2:s_wave}
     \end{figure}
     \begin{figure}
         \centering
@@ -106,6 +123,7 @@
         \subfloat[][]{\input{fig/f0_f0_1500_sigma_rho0_f2/p_decay_amplitude.pgf}}
 
         \caption{Freed-wave fit of the P wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Prhozero{} resonance.~\Star}
+        \label{fig:f0_f0_1500_sigma_rho0_f2:p_wave}
     \end{figure}
     \begin{figure}
         \centering
@@ -114,6 +132,7 @@
         \subfloat[][]{\input{fig/f0_f0_1500_sigma_rho0_f2/d_decay_amplitude.pgf}}
 
         \caption{Freed-wave fit of the D wave of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay through the \Pfii{} resonance.~\Star}
+        \label{fig:f0_f0_1500_sigma_rho0_f2:d_wave}
     \end{figure}
     \begin{figure}
         \centering
@@ -121,5 +140,9 @@
 
         \subfloat[][Result of the model-independent fit to the plot shown above.]{\input{fig/f0_f0_1500_sigma_rho0_f2/dalitz_fit.pgf}}
         \caption{\ac{mc}-generated Dalitz plots of a $\PDplus \to \Ppiplus\Ppiminus\Ppiplus$ decay.~\Star}
+        \label{fig:f0_f0_1500_sigma_rho0_f2_dalitz}
     \end{figure}
+    Figures~\ref{fig:f0_f0_1500_sigma_rho0_f2:s_wave}, \ref{fig:f0_f0_1500_sigma_rho0_f2:p_wave}, and~\ref{fig:f0_f0_1500_sigma_rho0_f2:d_wave} show the fit performed on the decay proceeding through the $\Pfnez{}$, $\Pfofzz{}$, and $\Psigma{}$ resonances in the S wave; the $\Prhozero{}$ resonance in the P wave; and the $\Pfii{}$ resonance in the D wave.
     % --------------------------------------------------------------
+
+    Both the Dalitz-plot comparisons in figures~\ref{fig:rho0_f2_dalitz} and~\ref{fig:f0_f0_1500_sigma_rho0_f2_dalitz} show a good agreement between the fitted and the source data.

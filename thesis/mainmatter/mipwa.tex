@@ -7,10 +7,10 @@ By means of a \acf{mipwa} one can study decays whose wave resonance content is n
 \citeauthor{Link200914}, in the \focus{} collaboration, conducted a similar study on the same hadronic decay~\cite{Link200914}.
 
 
-In this chapter, I will describe a utility I coded, which implements the \ac{mipwa} formalism.
+In this chapter, I will describe a utility I coded, which implements the \ac{mipwa} formalism.\marginpar{\centering\qrcode[height=2cm]{https://github.com/pdigiglio/ModelIndependentFit}\captionof*{figure}{Fit utility's \textsc{url}.}}
 The utility is based on \pac{yap}---for the calculation of the decay amplitudes---and \pac{bat}---for the sampling of the phase space.
 I will also show the result of the fits I performed on \ac{mc} data of $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$ decays to test the utility.
-The project is hosted on \textsf{GitHub} at \url{https://github.com/pdigiglio/ModelIndependentFit}.\marginpar{\centering\qrcode[height=2cm]{https://github.com/pdigiglio/ModelIndependentFit}\captionof*{figure}{Fit utility's \textsc{url}.}}
+The project is hosted on \textsf{GitHub} at \url{https://github.com/pdigiglio/ModelIndependentFit}.
 
 
     \section{The fit utility}
@@ -25,7 +25,26 @@ The project is hosted on \textsf{GitHub} at \url{https://github.com/pdigiglio/Mo
 
     \input{mainmatter/mipwa/the_decay_model.tex}
     \input{mainmatter/mipwa/the_fit_dof.tex}
-    \include{mainmatter/mipwa/fit_likelihood}
+    \input{mainmatter/mipwa/fit_likelihood}
+
+    \subsection{The user interface}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.9\textwidth]{fig/f2_real_time_fit.png}
+
+        \caption[Screenshot of the real-time plot of a decay-amplitude magnitude.]{Screenshot of the real-time plot of the decay-amplitude magnitude while fitting a \Pfii{} resonance.
+                 In blue, with black points, the initial guess for the fit parameters; in red, the current values of the fit parameters.}
+                 %In this case, the initial guess for the fit parameters is the value of the \Pfii{} dynamic shape on the low edges of the bins that partition the mass range.}
+        \label{fig:rt_par_fit}
+    \end{figure}
+
+
+    Due to the long fit runtimes, I implemented a real-time visualization tool with \ROOT{}.
+    For each freed wave, the fit utility will create two canvases: one plots the dynamic-shape magnitude, the other the dynamc-shape phase.
+    Each canvas contains two \ROOT{} graphs: the initial guess for the fit parameters, and the values of the fit parameters.
+    The latter graph gets updated in real time at every fit iteration.
+    Figure~\ref{fig:rt_par_fit} shows a screenshot of the dynamic-shape magnitude of a D wave (containing, in this case, a \Pfii{} resonance only).
+    Looking at these canvas, the user can realize if there is some mistake in the fit without having to wait until it ends.
 
     \section{Fits}
 
@@ -34,43 +53,28 @@ The project is hosted on \textsf{GitHub} at \url{https://github.com/pdigiglio/Mo
     Listing~\ref{lst:partial_cleo_decay} shows how to set up a \lstinline!Model! instance whose decay intensity can be used as the \ac{mc} sampling distribution to generate the data.
 
 
-    During the fit I have noticed that the convergence takes longer for the phase-difference parameters than for the magnitude parameters to be reached.
-
-    {\color{red}
-    Moreover, \pac{bat} cannot properly handle the phase periodicity so the phase-space sampling becomes inefficient.
-    To get rid of the sign ambiguity in the phase, I have chosen the fit parameters to be the magnitude of the bin free amplitudes and the phase difference between each bin's free amplidude and the previous bin's one.
-    Namely the fit parameters are $P_i = (\rho_i, \uD\phi_i)$, where $\rho_i$ is the free-amplitude magnitude of the $i$-th bin, $\abs{A_i}$, and $\uD\phi_i = \phi_i - \phi_{i-1}$ is the difference between two adjacent bin's free-amplitude phases. 
-    The phase ambiguity is removed by enforcing each fit parameter $\uD\phi_i$ to be non-negative.
-    Note that by convention the first phase difference is set to zero:
-    \begin{equation}\label{eq:delta_phi_zero_cond}
-        \uD\phi_0 \coloneqq 0.
-    \end{equation}
-    }
+    In the following plots, first, I show the fits of phase motion (\eg~figure~\ref{fig:f0_only_phase_fit}) and dynamic-shape magnitude (\eg~figure~\ref{fig:f0_only_magnitude});
+    then, a comparison between the source \ac{mc} data (\eg~figure~\ref{fig:dalitz_f0_980_only_source}) and a set of \ac{mc} data generated according to the model-independent decay amplitude whose parameters are fixed to the ones extracted from the fit (\eg~figure~\ref{fig:dalitz_f0_980_only_result}).
+    Please note that in figure~\ref{fig:f0_only}, as in all the following fit plots, the bin error bars are on the left edge of the bin they refer to.
 
 
     \input{mainmatter/mipwa/single_resonance_fits.tex}
     \input{mainmatter/mipwa/single_wave_fits.tex}
     \input{mainmatter/mipwa/multiple_wave_fits.tex}
 
-
-    The determination of the phase motion is much easier for the S wave than it is for other waves, due to their non-trivial angular dependency.
-
-
-    The same holds for the P-wave \Prhozero{} fit.
-
-
     \section{Future enhancements}
-    
+
+    Besides implementing a second-stage fit routine which corrects the wave content extracted from the Dalitz plots for the zero modes, the fit utility may benefit from the following enhancements:
 
     \begin{itemize}
-        \item 
-            Bins with small number of events are ambiguous. 
-            An improvement to my fit utility is to implement an adaptive-binning algorithm, which automatically selects the bin extremes to have all the bins contain the same number of elements.
-            This has been done manually in the fits above.
+        \item
+            All the above fits show that bins with small number of events are ambiguous.
+            An improvement to the fit utility I presented in this chapter may to implement an adaptive-binning algorithm, which automatically selects the bin boundaries such that all of them contain the same number of elements;
 
-        \item Mixed model-independent and model-dependent \ac{pwa} formalisms;
 
-        \item Derivative of the log-likelihood for fast fit convergence.
+        \item
+            As the user might not always want to free all the waves, the architecture of the fit utility should allow for mixed \ac{pwa} formalism. This would also allow to take advantage of well-established resonances to reduce the number of fit parameters;
+
+        \item
+            Exploit the knowledge about the derivative of the log-likelihood for fast fit convergence.
     \end{itemize}
-
-

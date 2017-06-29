@@ -8,25 +8,16 @@
         \xi_i\to\Ppiminus\Ppiplus,\quad
         \text{with } i \in \set{1,\dots, N_{\text{bins}}}.
     \end{equation}
-    In the \pac{yap} model, each wave contains as many artificial resonances as the bins of the mass range.
+    Therefore, in the model to fit to the data, each wave contains as many artificial resonances as the bins of the mass range.
+    The dynamic shape of each resonance is the \lstinline!MassBin! class presented in listing~\ref{lst:mass_shape}, page~\pageref{lst:mass_shape}.
+    This means that every bin in figure~\ref{fig:step_function_approximation}, where I show a binning example of a Breit-Wigner distribution, corresponds to a different decay mode of the parent particle.
     After the model is locked, each resonance will be assigned a non-fixed free amplitude to be handed over to \pac{bat} for the fit stage.
 
 
-    I also some convenience functions to partition the mass range and create the partitioning.
-
-
-    Thus, I implemented the \lstinline!MassBin! dynamic shape presented in listing~\ref{lst:mass_shape}, page~\pageref{lst:mass_shape}.
-    Then I create a \lstinline!Model! for a decay of a $\PDplus$ to $\xi_i\Ppiminus$, with the $\xi_i$ decaying itself to $\Ppiplus\Ppiminus$ and having a \lstinline!MassBin! dynamic shape: $\Characteristic_{B_i}$.
-    I make sure that $\set{B_i}$ is a partition of the allowed mass range of the $\Ppiplus\Ppiminus$, namely that
-    \begin{equation}
-        \bigcup_{i=0}^{N_\text{bins}-1} B_i = [2m_{\pi},m_{\PD}-m_{\pi})
-    \end{equation}
-    Locking the model will associate a free amplitude to each dynamic shape.
-
-    
-    It is very important for the fit to work correctly that the free amplitudes do not get internally displaced and can always be associated to the correct mass bin.
-    While the mass bins can be sorted by checking at their boundaries, there is no natural way to sort the free amplitudes.
-    So I placed them in a \lstinline!std::vector! and sorted them by their index in the vector.
+    Please note that the \lstinline!free_amplitudes! function in \pac{yap} returns an unsorted \lstinline!std::set! of pointers to the free amplitudes of the decay model.\footnote{The \lstinline!std::set! is a sorted container but---in this case---its elements are sorted by their memory address.}
+    Thus, the fit utility makes sure that they do not get internally displaced at runtime and can always be associated to the correct bin.
+    While the mass bins can be sorted by checking their boundaries, there is no natural way to sort the free amplitudes.
+    So I stored them in a \lstinline!std::vector! and sorted them by their index in the vector.
     \begin{figure}
         \centering
         \subfloat[][]{\input{fig/nrbw_binning_displaced.pgf}}
@@ -37,13 +28,30 @@
         \label{fig:bw_binning_displaced}
     \end{figure}
     Figure~\ref{fig:bw_binning_displaced} shows the effect of the displacement of two free amplitudes.
-    This can happen because the \lstinline!free_amplitudes! function in \pac{yap} returns an unsorted \lstinline!std::set! of pointers to the free amplitudes of the decay model.\footnote{The \lstinline!std::set! is a sorted container but---in this case---its elements are sorted by their memory address.}
+
+
+    %Then I create a \lstinline!Model! for a decay of a $\PDplus$ to $\xi_i\Ppiminus$, with the $\xi_i$ decaying itself to $\Ppiplus\Ppiminus$ and having a \lstinline!MassBin! dynamic shape: $\Characteristic_{B_i}$.
+    %I make sure that $\set{B_i}$ is a partition of the allowed mass range of the $\Ppiplus\Ppiminus$, namely that
+    %\begin{equation}
+    %    \bigcup_{i=0}^{N_\text{bins}-1} B_i = [2m_{\pi},m_{\PD}-m_{\pi})
+    %\end{equation}
+    %Locking the model will associate a free amplitude to each dynamic shape.
 
     
+    %It is very important for the fit to work correctly that the free amplitudes do not get internally displaced and can always be associated to the correct mass bin.
+    %While the mass bins can be sorted by checking at their boundaries, there is no natural way to sort the free amplitudes.
+    %So I placed them in a \lstinline!std::vector! and sorted them by their index in the vector.
+    %\begin{figure}
+    %    \centering
+    %    \subfloat[][]{\input{fig/nrbw_binning_displaced.pgf}}
+
+    %    \subfloat[][]{\input{fig/nrbw_binning_displaced_dalitz.pgf}}
+
+    %    \caption{Effect of the displacement of the fourth and the fourteenth free amplitudes.}
+    %    \label{fig:bw_binning_displaced}
+    %\end{figure}
+    %Figure~\ref{fig:bw_binning_displaced} shows the effect of the displacement of two free amplitudes.
+    %This can happen because the \lstinline!free_amplitudes! function in \pac{yap} returns an unsorted \lstinline!std::set! of pointers to the free amplitudes of the decay model.\footnote{The \lstinline!std::set! is a sorted container but---in this case---its elements are sorted by their memory address.}
 
 
-
-    This means that every bin in figure~\ref{fig:step_function_approximation}, where I show a binning example of a Breit-Wigner distribution, corresponds to a different decay mode of the parent particle.
-
-
-    For this reason, I implemented the \lstinline!MassBin! dynamic shape shown in listing~\ref{lst:mass_shape}.
+    %For this reason, I implemented the \lstinline!MassBin! dynamic shape shown in listing~\ref{lst:mass_shape}.

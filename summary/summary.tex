@@ -1,0 +1,37 @@
+\documentclass[
+    a4paper,
+    notitlepage,
+    headinclude,
+    numbers=noenddot,
+    tablecaptionabove,
+    fontsize=11pt,
+    oneside,
+    english,
+    final
+]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\input{config/acronymConfig}
+
+\newcommand{\package}[1]{\textsf{#1}}
+% Wrappers for the acronyms
+% No plurals should be needed for packages
+\newcommand{\pac}[1]{\package{\ac{#1}}}
+\newcommand{\pacl}[1]{\package{\acl{#1}}}
+\newcommand{\pacs}[1]{\package{\acs{#1}}}
+
+\usepackage{hepnames}
+\renewcommand{\sfdefault}{iwona}
+
+\title{Development of software for model-independent analysis of multi-body hadronic decays}
+\author{Di Giglio, Paolo (tel.~380\,1427150)\\Mat.~736932\\Corso di laurea magistrale in Fisica\\Rel.~prof.~T.~Tabarelli de Fatis --- Corr.~prof.~A.~Ghezzi}
+\date{Sessione del: 18 luglio 2017}
+
+\begin{document}
+
+    \maketitle
+    \input{frontmatter/summary}
+
+\end{document}

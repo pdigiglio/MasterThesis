@@ -1,0 +1,39 @@
+\begin{abstract}
+    \Acf{pwa} is currently the standard analysis technique in the study of hadronic heavy-meson decays into multi-body final states.
+    Such decays lead to the discovery of new mesons, and are a great source of information for precise measurements of charge-conjugation and parity violation in experiments like Belle and \acs{lhcb}.
+
+
+    To find an explicit form of the decay amplitude, most analyses exploit the isobar model, which assumes that the decay of the parent particle proceeds through subsequent two-body decays involving well-defined intermediate states.
+    Isobars can contain one or several intermediate states.
+    The success of the isobar model in providing a good description of the decay depends on the assumptions about the intermediate states.
+
+
+    Because of the availability of increasingly large experimental data sets, the systematic uncertainty introduced by partial or incorrect knowledge of the intermediate states dominate the statistical uncertainty.
+    This motivates extensions of the analysis techniques beyond the isobar model.
+    One of such possible extensions is the model-independent approach to \acs{pwa}:
+    It exploits the increase of the experimental data samples to get rid of the unjustified assumptions of the isobar model.
+    In this approach, the properties of an isobar are obtained by replacing the only part of its decay amplitude that cannot be derived from first principles, the dynamic shape, by a step-like function whose properties have to be extracted by a fit to the data themselves.
+    We call such an isobar, for which we drop the assumptions about the intermediate states, ``freed isobar''.
+
+
+
+    \Acsp{pwa} require expensive calculations, due to the large experimental data sets and the large number of parameters involved in the fits.
+    This motivates the development of \pacl{yap}~(\pacs{yap}), a novel toolkit for \acs{pwa}.
+    With respect to similar toolkits, \pacs{yap} aims at being computationally efficient, through its smart-caching feature and built-in parallelization support;
+    physically correct, being extensively tested;
+    physicist friendly, with an interface that currently handles three- and four-particle final states, and various \acs{pwa} formalisms;
+    and human readable, with a structure that highlights the physics of the decays.
+    So far, \pacs{yap} does not handle the model-independent \acs{pwa} formalism.
+
+
+    Here, after introducing the \acs{pwa} formalism, I describe the main features of \pacs{yap} and present my \pacs{yap}-based implementation of a model-independent \acs{pwa} fit utility.
+    I show the test fits I performed on several \acs{mc} data sets of a show-case decay channel, $\PDplus\to\Ppiplus\Ppiminus\Ppiplus$, with increasing number of intermediate states and waves.
+    Some ambiguities, the zero modes, may arise in the model-independent fits, which do not allow the reconstruction of the wave content, when more than one isobar is freed.
+    In this case, the knowledge of the zero modes and a two-step fit are needed to extract the wave content from the data.
+    The fit utility can already precisely extract the wave content from the data, when one isobar only is freed or when there is no zero mode among the freed isobars.
+    The \acs{mc} data generated according to the fitted parameters always correctly reproduce the fit source data.
+
+
+    This study shows that \pacs{yap} is suited for model-independent \acsp{pwa}.
+    A generalization of the fit utility developed in this thesis, which also handles zero-mode ambiguities, will be included in \pacs{yap}.
+\end{abstract}

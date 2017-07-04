@@ -35,6 +35,13 @@
 %\input{config/typographyConfig}
 \renewcommand{\sfdefault}{iwona}
 
+% For frontispiece
+\usepackage[
+    write,%
+    standard,%
+    sans%
+]{frontespizio}
+
 % Define some useful colors
 \input{config/colorConfig}
 % Setup plots
@@ -119,6 +126,9 @@
 \begin{document}
 %\linenumbers
 
+\pdfbookmark[0]{Frontispiece}{chap:frontispiece}
+	\input{./frontispiece/frontispiece}
+\cleardoublepage
 
 %----------------------------------------------------------------------------------------
 % FRONTMATTER
